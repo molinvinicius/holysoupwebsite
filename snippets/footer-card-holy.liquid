@@ -1,0 +1,17 @@
+<div class="footer-card {% unless product.available %}unavailable-product{% endunless %}">
+  <div class="quantity-container">
+    <div class="quantity">
+      <quickshop-update-quantity class="previewCartItem-qty quickshop-quantity">
+        <button type="button" name="minus" class="minus btn-quantity"></button>
+        <input class="qtd-input" name="quantity" value="{% if product.selected_or_first_available_variant.available %}1{% else %}0{% endif %}" type="number" data-variantId="{{ product.selected_or_first_available_variant.id }}" {% if product.selected_or_first_available_variant.available and product.selected_or_first_available_variant.inventory_quantity < 1 %}data-inventory="9999"{% else %}data-inventory="{{ product.selected_or_first_available_variant.inventory_quantity }}"{% endif %}>
+        <button type="button" name="plus" class="plus btn-quantity"></button>
+      </quickshop-update-quantity>
+    </div>
+    <div class="price-item">
+      <span class="price-item price-item--regular">{{ product.price | money }}</span>
+    </div>
+  </div>
+  <div class="add-to-cart-container">
+    <button class="btn btn-with-icon btn-primary" add-to-cart-card>{% unless product.available %}Esgotado{% else %}Adicionar {% render 'icon-adicionar' %}{% endunless %}</button>
+  </div>
+</div>

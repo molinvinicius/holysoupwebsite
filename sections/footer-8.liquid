@@ -1,0 +1,828 @@
+{% if section.settings.borda-superior %}
+  {% render 'borda-superior', cor: section.settings.color-borda-superior %}
+{% endif %}
+
+<style>
+  footer::after {
+    background-image: url(https://cdn.shopify.com/s/files/1/0619/0206/1748/files/patter_background.png?v=1692130859);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+  }
+  
+  footer {
+    position: relative;
+    background-color: #00b45a;
+    padding: 80px 20px 110px 20px;
+  }
+
+  @media (min-width: 1200px) {
+    .footer {
+      padding: 80px 120px 60px 120px;
+    }
+  }
+
+  .content-footer-hs {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .row-footer{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  a.btn.btn-footer {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 23px;
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 355px;
+    margin: 0 auto;
+    display: block;
+    max-width: 300px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 400;
+  }
+
+  a.btn.btn-footer.btn-loja-fisica {
+    background-color: #00814E;
+    color: #fff;
+    border-color: #00814E;
+  }
+
+  a.btn.btn-footer.btn-whatsapp {
+    background-color: #FFD88A;
+    border-color: #FFD88A;
+    color: #00814E;
+  }
+
+  a.btn.btn-footer svg {
+    width: 25px;
+    height: auto;
+    stroke: none;
+  }
+
+  .row-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 0;
+  }
+
+  .menu-principal-footer ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .menu-principal-footer ul li a {
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .menu-footer ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .menu-footer ul li a {
+    font-weight: 400;
+    color: #fff;
+    font-size: 13px;
+  }
+  
+  .menu-footer li {
+    padding: 3px 0;
+  }
+  
+  .logo-footer {
+    width: 33.33%;
+  }
+  
+  .logo-footer img {
+    width: 160px;
+    height: auto;
+  }
+  
+  .menu-principal-footer {width: 33.33%;}
+  
+  .comprar-loja-fisica {
+    width: 33.33%;
+  }
+
+  .menu-footer {
+    width: 33.33%;
+  }
+
+  .buttons-footer {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .row-copyright ul.list.list-payment {
+    list-style: none;
+    display: flex;
+    gap: 3px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .row-footer.row-copyright {
+    text-align: center;
+    color: #fff;
+  }
+
+  .row-footer.row-copyright .cnpj {
+    margin-bottom: 0;
+  }
+
+  .row-footer.row-copyright p:last-child {
+    font-size: 7px;
+    line-height: 1.5;
+    margin-top: 15px;
+    font-weight: 100 !important;
+  }
+
+  .row-footer.row-copyright {
+    flex-direction: column;
+  }
+  
+
+  @media (min-width: 1024px){
+    .row-footer.row-selos img {
+      height: 45px;
+      width: auto;
+    }
+
+    .row-footer.row-selos {
+      gap: 10px;
+      margin: 25px auto;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .whatsapp-mobile{
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 1024px){
+    .whatsapp-desktop{
+      display: none !important;
+    }
+    .whatsapp-mobile {
+      margin: 15px 0 35px;
+    }
+    .row-footer.row-selos img+img {
+      width: 63px;
+      height: 63px;
+    }
+    
+    .row-footer.row-selos img:first-child {
+      width: 70px;
+      max-height: 70px;
+      object-fit: contain;
+    }
+    
+    .row-footer.row-selos {
+      gap: 10px;
+      margin: 25px 0;
+    }
+    
+    .row-footer {
+      flex-wrap: wrap;
+    }
+
+    .logo-footer img {
+      margin: 0 auto;
+    }
+
+    .menu-principal-footer ul {
+      justify-content: center;
+    }
+    
+    .logo-footer {
+      width: 100%;
+    }
+    
+    .menu-principal-footer {
+      width: 100%;
+    }
+    
+    .comprar-loja-fisica {
+      width: 100%;
+      margin-top: 25px;
+    }
+    
+    .menu-footer {
+      width: 50%;
+    }
+    
+    .buttons-footer {
+      width: 100%;
+    }
+
+    .buttons-footer {
+      order: -2;
+      margin-bottom: 25px;
+    }
+  }
+</style>
+
+<footer>
+  <div class="content-footer-hs">
+    <div class="row-footer">
+      <div class="logo-footer">
+        <img srcset="//holysoup.com.br/cdn/shop/files/complete-logo-holysoup_140x.svg?v=1692033678, //holysoup.com.br/cdn/shop/files/complete-logo-holysoup_280x.svg?v=1692033678 2x" src="//holysoup.com.br/cdn/shop/files/complete-logo-holysoup_140x.svg?v=1692033678" loading="lazy" class="header__heading-logo logo--transparent d-inline-block" alt="HolySoup" width="140" height="41">
+      </div>
+      <div class="menu-principal-footer">
+        <ul>
+          <li><a href="/collections/sopas-e-canjas">Sopas</a></li>
+          <li><a href="/collections/temperos">Temperos</a></li>
+          
+        </ul>
+      </div>
+      <div class="comprar-loja-fisica">
+        <a class="btn btn-footer btn-loja-fisica" href="/pages/compre-em-lojas-fisicas">{% render 'icon-loja-fisica' %} Comprar em Lojas Físicas</a>
+      </div>
+    </div>
+    <div class="row-footer row-buttons">
+      <div class="menu-footer">
+        <ul>
+          <li><a href="/pages/quem-somos">Quem somos</a></li>
+          <li><a href="/blogs/novidades">Blog</a></li>
+          <li><a href="/pages/rastreie-seu-pedido">Rastrear pedido</a></li>
+          <li><a href="https://wa.me/551140037265">Fale conosco</a></li>
+        </ul>
+      </div>
+      <div class="menu-footer">
+        <ul>
+          <li><a href="/pages/duvidas-frequentes">Perguntas frequentes</a></li>
+          <li><a href="/pages/termos-de-servico">Termos de uso e serviço</a></li>
+          <li><a href="/pages/politica-de-privacidade">Política de privacidade</a></li>
+          <li><a href="/pages/trocas-e-devolucoes">Trocas e devoluções</a></li>
+        </ul>
+      </div>
+      <div class="buttons-footer">
+        <a class="btn btn-footer btn-revendedor" target="_blank" href="https://api.whatsapp.com/send/?phone=5511993787026&text&type=phone_number&app_absent=0">{% render 'icon-revendedor' %} Quero Revender</a>
+        
+        <a class="btn btn-footer btn-whatsapp whatsapp-desktop" target="_blank" href="https://wa.me/551140037265">{% render 'icon-whatsapp-footer' %} Chame no WhastApp</a>
+      </div>
+    </div>
+    
+    <div class="row-footer row-selos">
+      <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/Uniao_7.png?v=1692143295"/>
+      <img src="https://cdn.shopify.com/s/files/1/0846/3741/7789/files/esgprobrasil_selo_pro_1.webp?v=17060400546"/>
+<div id="reputation-ra"><script type="text/javascript" id="ra-embed-reputation" src="https://s3.amazonaws.com/raichu-beta/selos/bundle.js" data-id="Z3V2OHhHMjZ0bUNwVWZYXzpob2x5c291cA==" data-target="reputation-ra" data-model="2"></script></div>
+    </div>
+
+    <div class="row-footer row-copyright">
+      <p class="cnpj">©2024 HOLY GROUP  LTDA - CNPJ 50.874.415/0001-62</p>
+      <p>Rua Gumercindo Luiz Pinto Monteiro, 35 - Extrema/MG CEP 37.640-000</p>
+      <ul class="list list-payment clearfix" role="list">
+        <li class="list-payment__item visa">
+          <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/visa.svg?v=1705588630">
+        </li>
+        <li class="list-payment__item master">
+          <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/master.svg?v=1705588630">
+        </li>
+        <li class="list-payment__item amex">
+          <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/amex.svg?v=1705588630">
+        </li>
+        <li class="list-payment__item diners">
+          <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/diners.svg?v=1705588630">
+        </li>
+        <li class="list-payment__item hiper">
+           <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/hiper.svg?v=1705588630">
+         </li>
+         <li class="list-payment__item hipercard">
+           <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/hipercard.svg?v=1705588630">
+         </li>
+         <li class="list-payment__item discover">
+           <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/discover.svg?v=1705588630">
+         </li>
+         <li class="list-payment__item aura">
+           <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/aura.svg?v=1705588630">
+         </li>
+         <li class="list-payment__item pix">
+           <img src="https://cdn.shopify.com/s/files/1/0619/0206/1748/files/pix.svg?v=1705588630">
+         </li>
+      </ul>
+     
+      <p>Todo o conteúdo do site, todas as imagens, vídeos, logotipos, marcas, layout veiculados são de propriedade exclusiva. É vedada qualquer reprodução, total ou parcial, de qualquer elemento de identidade, sem expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e criminal nos termos da Lei. Os preços dos produtos estão sujeitos a alteração sem aviso prévio.</p>
+       
+    </div>
+  </div>
+  <a style="width: 65px !important; position: relative !important; z-index: 1; pointer-events: auto !important; cursor: pointer !important; transform: translate(0, 0) !important; height: auto !important; display: block !important; margin: 0 auto !important; text-align: center !important; opacity: 1 !important; visibility: visible !important;" href="https://alfinet.com.br/?utm_source=referencias&amp;amp;utm_medium=link&amp;amp;utm_campaign=cliente_referencia&amp;amp;utm_content=holysoup" target="_blank" class="a1flnifd"><img style="width: 65px !important; position: relative !important; z-index: 1; pointer-events: auto !important; cursor: pointer !important; transform: translate(0, 0) !important; height: auto !important; margin: 15px auto 10px auto !important; display: block; margin: 0 auto !important; text-align: center !important; opacity: 1 !important; visibility: visible !important;" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='71.626' height='19.774' viewBox='0 0 71.626 19.774'%3E%3Cg id='logo-alfinet' transform='translate(0 0.004)'%3E%3Cpath id='Caminho_7' data-name='Caminho 7' d='M7.907,18.238a4.883,4.883,0,0,1-.418.417,5.021,5.021,0,0,1-.832.593A3.7,3.7,0,0,1,5.6,19.64a6.228,6.228,0,0,1-1.32.129,6.292,6.292,0,0,1-.865-.058,5.338,5.338,0,0,1-.8-.174,3.883,3.883,0,0,1-.729-.3,3.48,3.48,0,0,1-.628-.432,3.346,3.346,0,0,1-.517-.563,3.813,3.813,0,0,1-.4-.69,3.7,3.7,0,0,1-.255-.821A5.02,5.02,0,0,1,0,15.789v-.125A4.257,4.257,0,0,1,.124,14.61,3.137,3.137,0,0,1,.5,13.72,3.612,3.612,0,0,1,1.089,13a4.006,4.006,0,0,1,.777-.569A5.731,5.731,0,0,1,2.8,12.01a7.407,7.407,0,0,1,1.076-.284q.573-.108,1.178-.162t1.252-.054H7.882v-.8a4.53,4.53,0,0,0-.12-1.11,1.954,1.954,0,0,0-.347-.744,1.352,1.352,0,0,0-.638-.42,3.34,3.34,0,0,0-1.071-.148,2.9,2.9,0,0,0-.961.148,2.009,2.009,0,0,0-.725.437A2.958,2.958,0,0,0,3.5,9.5a2.354,2.354,0,0,0-.279.694l-.032.141L.376,9.818.4,9.67a4.2,4.2,0,0,1,.233-.816,4.053,4.053,0,0,1,.39-.739h0a4.425,4.425,0,0,1,.533-.649,4.747,4.747,0,0,1,.657-.551,5.212,5.212,0,0,1,.77-.442,6.114,6.114,0,0,1,.863-.325,6.368,6.368,0,0,1,.951-.2,7.673,7.673,0,0,1,1.03-.067,8.515,8.515,0,0,1,1.031.061,7.13,7.13,0,0,1,.959.182,4.37,4.37,0,0,1,.868.327,3.828,3.828,0,0,1,.743.492,3.518,3.518,0,0,1,.6.663,4.2,4.2,0,0,1,.451.834,4.773,4.773,0,0,1,.281,1.017,7.294,7.294,0,0,1,.093,1.2v8.858H7.907v-1.28Zm-3-.774A4.2,4.2,0,0,0,6.1,17.3a3.012,3.012,0,0,0,.956-.474,1.948,1.948,0,0,0,.62-.758,2.525,2.525,0,0,0,.208-1.06v-1.45H6.406a8.231,8.231,0,0,0-1.456.116,4.246,4.246,0,0,0-1.105.344,1.587,1.587,0,0,0-.891,1.566v.1a2.382,2.382,0,0,0,.114.771,1.447,1.447,0,0,0,.331.55,1.359,1.359,0,0,0,.584.336,3.14,3.14,0,0,0,.922.118ZM14.338.1h2.853V19.518h-3V.1ZM31,4.23a1.87,1.87,0,0,1-.7-.127,1.747,1.747,0,0,1-.954-.946,1.787,1.787,0,0,1-.127-.679,1.749,1.749,0,0,1,.131-.68,1.7,1.7,0,0,1,.391-.566,1.763,1.763,0,0,1,.579-.38A1.811,1.811,0,0,1,31,.726a1.892,1.892,0,0,1,.7.126,1.746,1.746,0,0,1,.582.38,1.7,1.7,0,0,1,.391.566,1.749,1.749,0,0,1,.131.68,1.749,1.749,0,0,1-.131.68,1.7,1.7,0,0,1-.391.566,1.744,1.744,0,0,1-.582.38,1.892,1.892,0,0,1-.7.126Zm-1.326,1.9H32.5V19.518H29.525V6.13ZM21.353,8.559h-1.7V6.13h1.7V4.3a4.328,4.328,0,0,1,1.108-3.2A3.528,3.528,0,0,1,23.8.275,5.334,5.334,0,0,1,25.582,0a4.088,4.088,0,0,1,1.51.213l.093.039V2.66l-.212-.094a1.851,1.851,0,0,0-.22-.081,2.275,2.275,0,0,0-.246-.059,2.837,2.837,0,0,0-.285-.035q-.155-.012-.339-.012a1.794,1.794,0,0,0-.7.122,1.08,1.08,0,0,0-.457.354,1.748,1.748,0,0,0-.276.573,2.757,2.757,0,0,0-.094.751V6.13H27.21V8.559H24.357V19.518h-3V8.559ZM36.26,6.13h2.8v1.6a3.873,3.873,0,0,1,.329-.409,4.758,4.758,0,0,1,.9-.753,3.99,3.99,0,0,1,1.186-.517,5.68,5.68,0,0,1,1.436-.171,5.764,5.764,0,0,1,.915.071,4.951,4.951,0,0,1,.849.213,3.485,3.485,0,0,1,.762.373,3.358,3.358,0,0,1,.638.544,3.842,3.842,0,0,1,.511.709,5.048,5.048,0,0,1,.384.871,5.786,5.786,0,0,1,.241,1.047,8.849,8.849,0,0,1,.08,1.228v8.583h-3V11.085a4.424,4.424,0,0,0-.147-1.216,2.012,2.012,0,0,0-.427-.809,1.736,1.736,0,0,0-.724-.466,3.251,3.251,0,0,0-1.079-.16,3.394,3.394,0,0,0-1.1.179,2.547,2.547,0,0,0-.487.224,2.438,2.438,0,0,0-.421.318,2.465,2.465,0,0,0-.348.407,2.8,2.8,0,0,0-.267.493,2.728,2.728,0,0,0-.169.578,3.807,3.807,0,0,0-.057.677v8.208H36.108V6.13h.151Zm25.588,9.834a4.345,4.345,0,0,1-.247.7,4.985,4.985,0,0,1-.373.677,4.643,4.643,0,0,1-.51.645,5.286,5.286,0,0,1-.638.572,5.483,5.483,0,0,1-.777.494,6.46,6.46,0,0,1-.892.384,5.788,5.788,0,0,1-1.037.251,7.91,7.91,0,0,1-1.176.083,7.736,7.736,0,0,1-1.317-.109,6.414,6.414,0,0,1-1.2-.327,5.777,5.777,0,0,1-1.066-.536,5.477,5.477,0,0,1-.914-.736,5.537,5.537,0,0,1-.743-.923,6.173,6.173,0,0,1-.555-1.093,6.442,6.442,0,0,1-.346-1.262,8.4,8.4,0,0,1-.115-1.42V12.336a8.081,8.081,0,0,1,.115-1.386,6.63,6.63,0,0,1,.893-2.362,5.74,5.74,0,0,1,.723-.934,5.432,5.432,0,0,1,.891-.753,5.781,5.781,0,0,1,1.05-.558A6.052,6.052,0,0,1,54.793,6a6.925,6.925,0,0,1,1.279-.116,7.246,7.246,0,0,1,1.146.09,6.734,6.734,0,0,1,1.091.269,5.1,5.1,0,0,1,1.006.464,5.036,5.036,0,0,1,.877.671,4.946,4.946,0,0,1,.729.88,6.106,6.106,0,0,1,.558,1.087,6.338,6.338,0,0,1,.356,1.317,9.59,9.59,0,0,1,.118,1.554v1.327h-9a6.517,6.517,0,0,0,.235,1.655,3.182,3.182,0,0,0,.65,1.234,2.687,2.687,0,0,0,1.031.72,3.8,3.8,0,0,0,1.408.242,3.993,3.993,0,0,0,.636-.048,2.9,2.9,0,0,0,.55-.142,3.383,3.383,0,0,0,.476-.219,2.6,2.6,0,0,0,.393-.269,3.03,3.03,0,0,0,.324-.313,2.6,2.6,0,0,0,.257-.34A2.863,2.863,0,0,0,59.1,15.7a2.3,2.3,0,0,0,.126-.352l.038-.141,2.62.606-.039.15Zm-5.776-7.78a2.951,2.951,0,0,0-2.039.778,2.785,2.785,0,0,0-.7,1.027,5.474,5.474,0,0,0-.348,1.4H59a4.533,4.533,0,0,0-.217-1.4,2.643,2.643,0,0,0-.626-1.044,2.467,2.467,0,0,0-.9-.569,3.417,3.417,0,0,0-1.185-.192ZM68.2,2.7V6.13h3.278V8.559H68.2v7.1a2.267,2.267,0,0,0,.1.724,1.031,1.031,0,0,0,.285.452,1.706,1.706,0,0,0,1.164.349q.246,0,.473-.018t.44-.055a3.774,3.774,0,0,0,.4-.09,2.983,2.983,0,0,0,.354-.125l.21-.09v2.451l-.087.041a3.242,3.242,0,0,1-.437.165,4.866,4.866,0,0,1-.513.122,5.8,5.8,0,0,1-.6.077q-.323.025-.69.026a5.946,5.946,0,0,1-1.8-.245,3.116,3.116,0,0,1-1.281-.75,3.763,3.763,0,0,1-1-2.784V8.559H63.5V6.13h1.726V2.552H68.2Z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E%0A"></a>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer HS",
+  "limit": 1,
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_width",
+          "label": "t:sections.footer.settings.custom_width.label",
+          "info": "t:sections.footer.settings.custom_width.info",
+          "default": "20"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "t:sections.image-banner.blocks.image.settings.content.label__19",
+          "info": "t:sections.footer.blocks.link_list.settings.heading.info",
+          "default": "Quick links"
+        },
+        {
+          "id": "menu",
+          "type": "link_list",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info",
+          "default": "footer"
+        },
+        {
+          "type": "range",
+          "id": "mg_bottom",
+          "label": "t:sections.footer.blocks.newsletter.settings.newsletter_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "t:sections.layout.fontsize.fontsize_title.unit",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-banner.blocks.image.settings.content.label__16",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_width",
+          "label": "t:sections.footer.settings.custom_width.label",
+          "info": "t:sections.footer.settings.custom_width.info",
+          "default": "30"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "default": "Heading",
+          "label": "t:sections.image-banner.blocks.image.settings.content.label__19"
+        },
+        {
+          "id": "logo",
+          "type": "image_picker",
+          "label": "t:sections.footer.settings.custom_width.image"
+        },
+        {
+          "type": "range",
+          "id": "logo_margin_bottom",
+          "label": "t:sections.footer.blocks.text.settings.logo_margin_bottom",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "t:sections.footer.settings.footer_bottom.pdtop_footer_bottom.unit",
+          "default": 28
+        },
+        {
+          "type": "range",
+          "id": "logo_margin_top",
+          "label": "t:sections.footer.blocks.text.settings.logo_margin_top",
+          "min": -100,
+          "max": 100,
+          "step": 2,
+          "unit": "t:sections.footer.settings.footer_bottom.pdtop_footer_bottom.unit",
+          "default": 0
+        },
+        {
+          "id": "subtext",
+          "type": "richtext",
+          "default": "<p>Share store details, promotions, or brand content with your customers.</p>",
+          "label": "t:sections.image-banner.blocks.image.settings.content.label__2"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main_contact.settings.contact_info.label__4"
+        },
+        {
+          "type": "select",
+          "id": "address_icon",
+          "label": "Address Icon",
+          "default": "point_icon",
+          "options": [
+            {
+              "value": "point_icon",
+              "label": "t:icons.address"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_address_icon",
+          "label": "t:icons.show_icon"
+        },
+        {
+          "id": "address_text",
+          "type": "richtext",
+          "label": "t:sections.main_contact.settings.contact_info.label__4"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.store_locator.block.settings.f_phone"
+        },
+        {
+          "type": "select",
+          "id": "phone_icon",
+          "label": "t:settings_schema.typography.settings.typography.icon",
+          "default": "message_icon",
+          "options": [
+            {
+              "value": "message_icon",
+              "label": "t:icons.message"
+            },
+            {
+              "value": "phone_icon",
+              "label": "t:icons.phone"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_phone_icon",
+          "label": "t:icons.show_icon"
+        },
+        {
+          "id": "phone_text",
+          "type": "richtext",
+          "label": "t:sections.store_locator.block.settings.f_phone"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:settings_schema.notify_me.settings.general.label__2"
+        },
+        {
+          "type": "select",
+          "id": "email_icon",
+          "label": "t:settings_schema.typography.settings.typography.icon",
+          "default": "envelope_icon",
+          "options": [
+            {
+              "value": "envelope_icon",
+              "label": "t:icons.envelope"
+            },
+            {
+              "value": "envelope_outline_icon",
+              "label": "t:icons.envelope_outline"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_email_icon",
+          "label": "t:icons.show_icon"
+        },
+        {
+          "id": "email_text",
+          "type": "richtext",
+          "label": "t:settings_schema.notify_me.settings.general.label__2"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:settings_schema.general.name"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "t:settings_schema.typography.settings.typography.icon_size",
+          "min": 12,
+          "max": 50,
+          "step": 1,
+          "default": 16,
+          "unit": "px"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "t:settings_schema.typography.settings.typography.icon_color"
+        },
+        {
+          "type": "range",
+          "id": "content_spacing",
+          "label": "t:sections.spotlight_block.settings.content_spacing",
+          "min": 0,
+          "max": 30,
+          "default": 1,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "mg_bottom",
+          "label": "t:sections.footer.blocks.newsletter.settings.newsletter_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "t:sections.layout.fontsize.fontsize_title.unit",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "footer_bottom",
+      "name": "t:sections.footer.settings.footer_bottom.content",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.footer.settings.footer_bottom.content"
+        },
+        {
+          "type": "range",
+          "id": "pdtop_footer_bottom",
+          "label": "t:sections.footer.settings.footer_bottom.pdtop_footer_bottom.label",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "t:sections.footer.settings.footer_bottom.pdtop_footer_bottom.unit",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pdbottom_footer_bottom",
+          "label": "t:sections.footer.settings.footer_bottom.pdbottom_footer_bottom.label",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "t:sections.footer.settings.footer_bottom.pdbottom_footer_bottom.unit",
+          "default": 50
+        },
+        {
+          "id": "border_top",
+          "type": "checkbox",
+          "label": "t:settings_schema.typography.settings.typography.border_enable_top",
+          "default": true
+        },
+        {
+          "id": "footer_bottom_color",
+          "type": "color",
+          "label": "t:settings_schema.typography.settings.typography.text_color",
+          "default": "#808080"
+        },
+        {
+          "id": "border_top_color",
+          "type": "color",
+          "label": "t:settings_schema.typography.settings.typography.border_top_color",
+          "default": "#282828"
+        },
+        {
+          "id": "footer_bottom_bg",
+          "type": "color",
+          "label": "t:settings_schema.colors.settings.colors_name.background_color",
+          "default": "#141414"
+        },
+        {
+          "id": "footer_bottom_bg_gradient",
+          "type": "color_background",
+          "label": "t:settings_schema.colors.settings.colors_name.background_color_gradient"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.footer.settings.copy_right.content"
+        },
+        {
+          "id": "show_copyright",
+          "type": "checkbox",
+          "label": "t:sections.footer.settings.copy_right.show_copyright",
+          "default": true
+        },
+        {
+          "id": "enable_layout_grid",
+          "type": "checkbox",
+          "label": "t:sections.footer.settings.copy_right.enable_layout_grid",
+          "default": true
+        },
+        {
+          "id": "copyright_content",
+          "type": "richtext",
+          "label": "t:sections.footer.settings.copy_right.copyright_content"
+        },
+        {
+          "id": "copyright_content_color",
+          "type": "color",
+          "label": "t:settings_schema.colors.settings.colors_name.color"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.footer.settings.payment.content"
+        },
+        {
+          "id": "show_payment",
+          "type": "checkbox",
+          "default": true,
+          "label": "t:sections.footer.settings.payment.show_payment"
+        },
+        {
+          "type": "range",
+          "id": "payment_margin_top",
+          "label": "t:sections.footer.settings.social_media_link.social_margin_top",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "t:sections.footer.settings.footer_bottom.pdtop_footer_bottom.unit",
+          "default": 0
+        },
+        {
+          "id": "heading_payment",
+          "type": "text",
+          "label": "t:sections.image-banner.blocks.image.settings.content.label__19"
+        },
+        {
+          "type": "select",
+          "id": "payment_type",
+          "label": "t:sections.footer.settings.payment.payment_type.option",
+          "default": "custom",
+          "options": [
+            {
+              "value": "default",
+              "label": "t:sections.footer.settings.payment.payment_type.option1"
+            },
+            {
+              "value": "custom",
+              "label": "t:sections.footer.settings.payment.payment_type.option2"
+            }
+          ],
+          "info": "t:sections.footer.settings.payment.payment_type.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_visa",
+          "label": "Visa"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_master",
+          "label": "Master"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_maestro",
+          "label": "Maestro"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_american_express",
+          "label": "American Express"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_apple_pay",
+          "label": "Apple Pay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_bitcoin",
+          "label": "Bitcoin"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_dankort",
+          "label": "Dankort"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_diners_club",
+          "label": "Diners Club"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_discover",
+          "label": "Discover"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_paypal",
+          "label": "Paypal"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_dogecoin",
+          "label": "Dogecoin"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_dwolla",
+          "label": "Dwolla"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_forbrugsforeningen",
+          "label": "Forbrugsforeningen"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_jcb",
+          "label": "JCB"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_litecoin",
+          "label": "Litecoin"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_afterpay",
+          "label": "Afterpay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_google_pay",
+          "label": "Googlepay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_ideal",
+          "label": "Ideal"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_klarna",
+          "label": "Klarna"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_klarna-pay-later",
+          "label": "Klarnapay Later"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_shopify_pay",
+          "label": "Shopifypay"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_sofort",
+          "label": "Sofort"
+        }
+      ]
+    }
+  ],
+  "settings": [{
+      "type": "checkbox",
+      "id": "borda-superior",
+      "default": true,
+      "label": "Ativar divisória superior"
+    },
+    {
+      "type": "color",
+      "id": "color-borda-superior",
+      "default": "#fff",
+      "label": "Cor da divisória superior"
+    },
+    {
+      "type": "checkbox",
+      "id": "borda-inferior",
+      "default": false,
+      "label": "Ativar divisória inferior"
+    },
+    {
+      "type": "color",
+      "id": "color-borda-inferior",
+      "default": "#fff",
+      "label": "Cor da divisória inferior"
+    }],
+  "presets": [
+    {
+      "name": "Footer HS"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["footer"]
+  }
+}
+{% endschema %}
