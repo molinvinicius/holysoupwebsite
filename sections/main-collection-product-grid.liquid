@@ -4,16 +4,22 @@
 {%- assign collection_layout = settings.collection_layout -%}
 
 {% if collection_layout == "default" %}
+    <h1>1</h1>
     {% render 'collection-product-grid' %}
 {% elsif collection_layout == "express_order" %}
+    <h1>2</h1>
     {% render 'collection-express-order' %}
 {% elsif collection_layout == "full_width" %}
+    <h1>3</h1>
     {% render 'collection-full-width' %}
 {% elsif collection_layout == "masonry" %}
+    <h1>4</h1>
     {% render 'collection-masonry' %} 
 {% elsif collection_layout == "right_sidebar" %}
+    <h1>5</h1>
     {% render 'collection-right-sidebar' %} 
 {% elsif collection_layout == "banner_adv" %}
+    <h1>6</h1>
     {% render 'collection-banner-adv' %} 
 {% endif %}
 
