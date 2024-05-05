@@ -946,8 +946,18 @@
 {% endschema %}
 
 <style type="text/css" media="screen">
-.product{
+{% comment %} .product{
     background-color:red;
 
+} {% endcomment %}
+
+@media(max-width: 1000px){
+    .price-sale{
+        display:flex;
+        flex-direction:column;
+    }
+
 }
+
+
 </style>
