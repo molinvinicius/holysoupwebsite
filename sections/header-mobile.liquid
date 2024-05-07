@@ -243,7 +243,7 @@
                     span.style.backgroundColor = "red";
 
                     const afterSpan = window.getComputedStyle(span, ":before")
-                    afterSpan.style.backgroundColor: "blue";
+                    afterSpan.style.backgroundColor = "blue";
                 }
                 if (!this.preventReveal) {
                     requestAnimationFrame(this.reveal.bind(this));
