@@ -236,9 +236,14 @@
                 this.header.classList.add('scrolled-past-header');
                 const span = document.querySelector(".mobileMenu-toggle .mobileMenu-toggle__Icon");
                 console.log(span)
+                
+                
                 if(span){
                     span.style.color = "red";
                     span.style.backgroundColor = "red";
+
+                    const afterSpan = window.getComputedStyle(span, ":before")
+                    afterSpan.style.backgroundColor: "blue";
                 }
                 if (!this.preventReveal) {
                     requestAnimationFrame(this.reveal.bind(this));
