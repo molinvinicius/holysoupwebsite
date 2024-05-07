@@ -11,7 +11,7 @@
                 >
                     {%- case block.type -%}
                         {%-  when 'menu' -%}
-                            <div class="header-mobile--icon item__mobile--hamburger" style="--i-color: {{ block.settings.color }}">
+                            <div class="header-mobile--icon item__mobile--hamburger">
                                 <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><span class="mobileMenu-toggle__Icon"></span></button>
                             </div>
                         {%-  when 'search' -%}
@@ -227,11 +227,11 @@
             if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
     
             if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
-                this.header.classList.add('scrolled-past-header');
+                this.header.classList.add('scrolled-past-header scrolled-white');
                 if (this.preventHide) return;
                 requestAnimationFrame(this.hide.bind(this));
             } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
-                this.header.classList.add('scrolled-past-header');
+                this.header.classList.add('scrolled-past-header scrolled-black');
                 if (!this.preventReveal) {
                     requestAnimationFrame(this.reveal.bind(this));
                 } else {
