@@ -94,7 +94,7 @@ div#epb_container {
   }
   span.mobileMenu-toggle__Icon {
     height: 0px;
-    background: transparent;
+    background: red;
   }
 
   .menu_open span.mobileMenu-toggle__Icon:before {
