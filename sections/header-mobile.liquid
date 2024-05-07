@@ -12,7 +12,7 @@
                     {%- case block.type -%}
                         {%-  when 'menu' -%}
                             <div class="header-mobile--icon item__mobile--hamburger">
-                                <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><span class="mobileMenu-toggle__Icon"></span></button>
+                                <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><p class="mobileMenu-toggle__Icon"></p></button>
                             </div>
                         {%-  when 'search' -%}
                             <details-modal {% if request.page_type == 'product' %}style="display:none"{% endif %} class="header__iconItem header__search" style="--i-color: {{ block.settings.color }}">
