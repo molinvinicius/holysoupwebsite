@@ -12,6 +12,21 @@
 -%}
 <html class="no-js" lang="{{ request.locale.iso_code }}"{% if settings.enable_layout_rtl and enable_iso_rtl %} dir="rtl"{% endif %}>
     <head>
+      <style>
+        @media only screen and (max-width: 989px) {
+          body .section-header.menu-open div#menu-drawer {
+            position: fixed !important;
+            top: 64px !important;
+          }
+    
+          body .section-header.menu-open header.header.header--top-center.header--mobile-center.page-width.header--has-menu.header--has-social.header--has-localizations {
+            position: fixed !important;
+            top: 0 !important;
+            background-color: rgb(var(--color-background)) !important;
+            width: 100% !important;
+          }    
+        }
+</style>
               
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
