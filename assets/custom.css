@@ -1976,7 +1976,7 @@ body:not(.template-index) .main-menu .menu-lv-1__action:hover {
   body.template-index .shopify-section-group-header-group:not(.scrolled-past-header) .mobileMenu-toggle__Icon, 
   body.template-index .shopify-section-group-header-group:not(.scrolled-past-header) .mobileMenu-toggle__Icon:before, 
   body.template-index .shopify-section-group-header-group:not(.scrolled-past-header) .mobileMenu-toggle__Icon:after{
-    background-color: black;
+    background-color: #fff;
   }
 
   body.template-index .shopify-section-group-header-group:not(.scrolled-past-header) .header-mobile--wrapper svg, 
