@@ -11,8 +11,8 @@
                 >
                     {%- case block.type -%}
                         {%-  when 'menu' -%}
-                            <div class="header-mobile--icon item__mobile--hamburger">
-                                <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><p class="mobileMenu-toggle__Icon"></p></button>
+                            <div class="header-mobile--icon item__mobile--hamburger" style="--i-color: {{ block.settings.color }}">
+                                <button type="button" class="mobileMenu-toggle" data-mobile-menu aria-label="menu"><span class="mobileMenu-toggle__Icon"></span></button>
                             </div>
                         {%-  when 'search' -%}
                             <details-modal {% if request.page_type == 'product' %}style="display:none"{% endif %} class="header__iconItem header__search" style="--i-color: {{ block.settings.color }}">
@@ -228,23 +228,10 @@
     
             if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
                 this.header.classList.add('scrolled-past-header');
-                this.header.classList.add('srolled-past-header-white');
-                this.header.classList.remove('srolled-past-header-black');
                 if (this.preventHide) return;
                 requestAnimationFrame(this.hide.bind(this));
             } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
                 this.header.classList.add('scrolled-past-header');
-                const span = document.querySelector(".mobileMenu-toggle .mobileMenu-toggle__Icon");
-                console.log(span)
-                
-                
-                if(span){
-                    span.style.color = "red";
-                    span.style.backgroundColor = "red";
-
-                    // const afterSpan = window.getComputedStyle(span, ":before")
-                    // afterSpan.style.backgroundColor = "blue";
-                }
                 if (!this.preventReveal) {
                     requestAnimationFrame(this.reveal.bind(this));
                 } else {
