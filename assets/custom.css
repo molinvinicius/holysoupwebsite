@@ -2007,10 +2007,10 @@ body:not(.template-index):not(.template-collection):not(.template-product) .head
   fill: #000 !important
 }
 
-body:not(.template-index):not(.template-collection):not(.template-product) .mobileMenu-toggle__Icon:before,
+/* body:not(.template-index):not(.template-collection):not(.template-product) .mobileMenu-toggle__Icon:before,
 body:not(.template-index):not(.template-collection):not(.template-product) .mobileMenu-toggle__Icon:after{
   background-color: black;
-}
+} */
 
 li.list-payment__item img {
     width: 50px;
