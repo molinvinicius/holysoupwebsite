@@ -228,10 +228,14 @@
     
             if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
                 this.header.classList.add('scrolled-past-header');
+                this.header.classList.add('srolled-past-header-white');
+                this.header.classList.remove('srolled-past-header-black');
                 if (this.preventHide) return;
                 requestAnimationFrame(this.hide.bind(this));
             } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
                 this.header.classList.add('scrolled-past-header');
+                this.header.classList.add('srolled-past-header-black');
+                this.header.classList.remove('srolled-past-header-white');
                 if (!this.preventReveal) {
                     requestAnimationFrame(this.reveal.bind(this));
                 } else {
