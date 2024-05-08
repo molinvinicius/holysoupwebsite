@@ -176,30 +176,33 @@
         font-size: {{ fontsize_des | append: 'px' }};
     }
 
+		@media (min-width: 1024px){
+			.center-video{
+				width:100%; 
+				display:flex; 
+				justify-content:center;
+			}
+
+			.center-video iframe {
+				width:calc(100vw - 240px);
+				height:100%;
+				{% comment %} border: 10px #3d3939 solid; {% endcomment %}
+				border-radius:25px;
+			}
+
+			.video-section__media{
+				height:600px;
+				padding:0;
+				margin-bottom:5vh;
+			}
+		}
+
     @media (min-width: 1200px) {
         .section-block-{{section.id}} {
             padding-top: {{ mg_top_desktop | append: 'px' }};
             padding-bottom: {{ mg_bottom_desktop | append: 'px' }};
         }
 
-        .center-video{
-          width:100%; 
-          display:flex; 
-          justify-content:center;
-        }
-
-				.center-video iframe {
-					width:calc(100vw - 240px);
-					height:100%;
-					{% comment %} border: 10px #3d3939 solid; {% endcomment %}
-					border-radius:25px;
-				}
-
-				.video-section__media{
-					height:600px;
-					padding:0;
-					margin-bottom:5vh;
-				}
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
