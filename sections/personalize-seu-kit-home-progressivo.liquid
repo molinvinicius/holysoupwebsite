@@ -551,7 +551,7 @@
       </div>
       <div class="footer-ajax-select">
         <div class="preco-kit"></div>
-        <button add-kit-sopa disabled>COMPRAR KIT <span class="count-total-kit">{% render 'icon-cart-06' %}<span class="count-bubble">0</span></span></button>
+        <button id="adicionar-button" add-kit-sopa disabled>ADICIONAR AO CARRINHO <span class="count-total-kit">{% render 'icon-cart-06' %}<span class="count-bubble">0</span></span></button>
         {%- comment -%}<a href="javascript:void(0)">Conhecer todos</a>{%- endcomment -%}
       </div>
     </div>
@@ -656,6 +656,11 @@
           let descontoSelected = obterDesconto(qtdSelect);
           let totalWithDiscount = Math.abs((parseInt(descontoSelected.desconto) / 100.00 * total - total));
           let progressiveDiscount = {{desconto_progressivo}};
+
+          const botaoAdicionar = document.querySelector("#adicionar-button");
+          botaoAdicionar.style.background_color = "##FF7A50";
+
+
         
           //$('.preco-kit').html('<p><b>' +parcelas+'x ' + formattedTotal + '</b> ou ' + totalText + '</p>');
           if (progressiveDiscount && descontoSelected.desconto > 0){
@@ -667,6 +672,8 @@
         } else {
           $('.preco-kit').html('');
           $('[add-kit-sopa]').attr('disabled', true);
+          const botaoAdicionar = document.querySelector("#adicionar-button");
+          botaoAdicionar.style.background_color = "rgb(0, 129, 78);";
         }
     });
     
