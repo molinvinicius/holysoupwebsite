@@ -651,12 +651,14 @@
 
         $('.count-total-kit .count-bubble').html(qtdSelect);
         if (total !== 0) {
+          console.log("aaaaaaaa")
           var formattedTotal = Shopify.formatMoney(total / parcelas, window.money_format);
           var totalText = Shopify.formatMoney(total, window.money_format);
           let descontoSelected = obterDesconto(qtdSelect);
           let totalWithDiscount = Math.abs((parseInt(descontoSelected.desconto) / 100.00 * total - total));
           let progressiveDiscount = {{desconto_progressivo}};
-
+        
+          console.log("bbbb")
           const botaoAdicionar = document.querySelector("#adicionar-button");
           console.log(botaoAdicionar)
           botaoAdicionar.style.background_color = "##FF7A50";
