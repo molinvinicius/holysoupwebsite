@@ -51,12 +51,19 @@
         },
         "countdown_YP84PX": {
           "type": "countdown",
+          "disabled": true,
           "settings": {
             "top_message_text": "teste",
             "annou_countdown": "May 06, 2024 19:00:00",
             "color_countdown_text": "#06142e",
             "border_color_countdown": "#f7f8fa",
             "bg_color_countdown": "#f7f8fa"
+          }
+        },
+        "custom_countdown_FqBLUD": {
+          "type": "custom-countdown",
+          "settings": {
+            "time_target": "12\/12\/24 18:00:00"
           }
         }
       },
@@ -65,7 +72,8 @@
         "0309aa59-659f-463c-9394-7217d05f0c67",
         "1db619ff-36fc-419b-b99a-93fcf836f454",
         "9376150e-98c1-482f-8966-2d3cc2de13b1",
-        "countdown_YP84PX"
+        "countdown_YP84PX",
+        "custom_countdown_FqBLUD"
       ],
       "settings": {
         "enable_announcement": true,
