@@ -1,9 +1,3 @@
-{% if !!section.settings.enable_custom_countdown
-    {% render "custom-countdown" %} 
-%}
-    
-
-
 {%- if section.settings.enable_announcement and section.blocks.size > 0 -%}
     {%-liquid
         assign arrow =  section.settings.arrow_active
@@ -99,8 +93,6 @@
                                                 <div class="announcement-countdown countdown-block" data-countdown-announcement data-countdown-value="{{ block.settings.annou_countdown }}"></div>
                                             {%- endif -%}
                                         </div>
-                                        
-                                            
                                 {%- endcase -%}
                             {%- endfor -%}
                         </div>
@@ -121,6 +113,11 @@
                                         <div class="announcement-countdown countdown-block" data-countdown-announcement data-countdown-value="{{ block.settings.annou_countdown }}"></div>
                                     {% endif %}
                                 </div>
+                            {% when "customCountdown" %}
+                                <div>
+                                    {% render 'custom-countdown' %}
+                                </div>
+                                
                         {%- endcase -%}
                     {%- endfor -%}
                 {%- endif -%}
@@ -222,12 +219,6 @@
             "id": "enable_announcement",
             "label": "t:sections.header.settings.header_layout.enable_announcement",
             "default": true
-        },
-        {
-            "type": "checkbox",
-            "id": "enable_custom_countdown",
-            "label": "Habilitar-contador-customizado",
-            "default": false
         },
         {
             "type": "select",
@@ -421,18 +412,6 @@
             ]
         },
         {
-            "type": "custom-countdown",
-            "name": "Contador Customizado",
-            "settings": [
-                {
-                    "type":"text",
-                    "id": "time_target",
-                    "default": "12/12/24 18:00:00",
-                    "label": "Selecione a data limite"
-                }
-            ]
-        },
-        {
             "type": "countdown",
             "name": "t:sections.announcement-bar.blocks.announcement.settings.countdown.title",
             "limit": 1,
@@ -442,6 +421,44 @@
                     "id": "top_message_text",
                     "label": "t:sections.announcement-bar.blocks.announcement.settings.countdown.label",
                     "default": "Limited-time Offer!"
+                },
+                {
+                    "type" : "textarea",
+                    "id" : "annou_countdown",
+                    "label" : "t:sections.announcement-bar.blocks.announcement.settings.countdown.title",
+                    "default" : "Dec 31, 2022 18:00:00",
+                    "info": "t:settings_schema.countdown.settings.general.info"
+                },
+                {
+                    "type": "color",
+                    "id": "color_countdown_text",
+                    "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.color_text",
+                    "default": "#06142e"
+                },
+                {
+                    "type": "color",
+                    "id": "border_color_countdown",
+                    "label": "t:settings_schema.colors.settings.colors_name.border_color",
+                    "default": "#f7f8fa"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color_countdown",
+                    "label": "t:settings_schema.colors.settings.colors_name.background_color",
+                    "default": "#f7f8fa"
+                }
+            ]
+        },
+        {
+            "type": "customCountdown",
+            "name": "ContadorCustomizado",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "targetDate",
+                    "label": "Data alvo",
+                    "default": "07/07/2024 17:00:00"
                 },
                 {
                     "type" : "textarea",
