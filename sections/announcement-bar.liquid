@@ -1,3 +1,9 @@
+{% if !!section.settings.enable_custom_countdown
+    {% render "custom-countdown" %} 
+%}
+    
+
+
 {%- if section.settings.enable_announcement and section.blocks.size > 0 -%}
     {%-liquid
         assign arrow =  section.settings.arrow_active
@@ -92,11 +98,6 @@
                                             {%- if block.settings.annou_countdown != blank -%}
                                                 <div class="announcement-countdown countdown-block" data-countdown-announcement data-countdown-value="{{ block.settings.annou_countdown }}"></div>
                                             {%- endif -%}
-                                        </div>
-
-                                    {% when 'custom-countdown' %}
-                                        <div style="width:100%; height: 10vh; background-color:red;" id="{{ block.id }}" class="shopify-section announcement-bar__message">
-                                            {% comment %} {% render "custom-countdown" %} {% endcomment %}
                                         </div>
                                         
                                             
@@ -221,6 +222,12 @@
             "id": "enable_announcement",
             "label": "t:sections.header.settings.header_layout.enable_announcement",
             "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_custom_countdown",
+            "label": "Habilitar contador customizado?",
+            "default": false
         },
         {
             "type": "select",
