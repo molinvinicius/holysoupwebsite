@@ -1,81 +1,117 @@
 {% comment %} {{ {% assign targetTime = dataContagem %} }} {% endcomment %}
 
+<div class="custom-countdown-container">
+    <h2 class="countdown-timer-heading">{{ customMessage }}</h2>
+    
+    <div class="countdown-timer-container">
+        <div class="countdown-timer-values" id="days"><p style="color:#ffe96d;">00</p></div>
+        <div class="countdown-timer-values" id="hours"><p style="color:#ffe96d;">00</p></div>
+        <div class="countdown-timer-values" id="minutes"><p style="color:#ffe96d;">00</p></div>
+        <div class="countdown-timer-values" id="seconds"><p style="color:#ffe96d;">00</p></div>
 
-<h2 class="countdown-timer-heading">Aproveite </h2>
+    </div>
 
-<div class="countdown-timer-container">
-    <div class="countdown-timer-values" id="days">00</div>
-    <div class="countdown-timer-values" id="hours">00</div>
-    <div class="countdown-timer-values" id="minutes">00</div>
-    <div class="countdown-timer-values" id="seconds">00</div>
-    <div>Dias</div>
-    <div>Horas</div>
-    <div>Minutos</div>
-    <div>Segundos</div>
 
 </div>
 
+    <script type="text/javascript">
+        {% assign date = targetDate %}
+        {% assign message = customMessage %}
 
+        const getData = {{ date | json }}
+        const getMessage = {{ message | json }}
+
+        const countDownDateTime = new Date(getData);
+
+        const daysValue = document.querySelector("#days p");
+        const hoursValue = document.querySelector("#hours p");
+        const minutesValue = document.querySelector("#minutes p");
+        const secondsValue = document.querySelector("#seconds p");
+
+        let x = setInterval(function () {
+            const dateTimeNow = new Date().getTime();
+            let difference = countDownDateTime - dateTimeNow;
+            daysValue.innerHTML = `${Math.floor(difference / (1000 * 60 * 60 * 24))}d`;
+            hoursValue.innerHTML = `${Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}h`;
+            minutesValue.innerHTML = `${Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))}m`;
+            secondsValue.innerHTML = `${Math.floor((difference % (1000 * 60)) / 1000)}s`;
+    
+            if (difference < 0) {
+                clearInterval(x);
+            }
+    
+        }, 1000);
+    
+    </script>
 
 <style>
+
     .countdown-timer-heading {
-        font-size: 45px;
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
         margin-bottom: 0;
         text-align: center;
-
+        margin-right:2vw;
     }
 
     .countdown-timer-container {
-        width: 90%;
-        max-width: 600px;
-        margin: 0 auto;
+        {% comment %} margin: 0 auto; {% endcomment %}
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-bottom: 48px;
     }
 
     .countdown-timer-container div {
-        width: 25%;
         text-align: center;
-        font-size: 30px;
+        font-size: 12px;
 
     }
 
     .countdown-timer-values {
+        font-size: 12px !important;
+        display:flex;
+        width 3vw;
+        margin: 0 0.5vw;
+        background-color:#3C3C3C;
+        border-radius: 2px;
+        {% comment %} height:2vh; {% endcomment %}
 
-        font-size: 60px !important;
 
     }
+
+    .countdown-timer-values p {
+        {% comment %} padding: 1px; {% endcomment %}
+        width: 3vw;
+        height: 90%;
+        padding: 0;
+        color:#ffe96d;
+        font-size: 12px;
+        margin:0;
+    }
+
+    .custom-countdown-container{
+        width:100%;
+        height: 3vh;
+        display: flex;
+        {% comment %} justify-content: space-around; {% endcomment %}
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media(max-width:1024px){
+        .countdown-timer-values p {
+            width: 7vw;
+            height: 90%;
+            padding: 0;
+            color:#ffe96d;
+        }
+
+        .countdown-timer-heading {
+            font-size: 10px;
+        }
+    }
+
+
 </style>
 
 
 
-<script type="text/javascript">
-    {% assign data = targetDate %}
-    console.log("Target date:", {{ data | json }});
-
-    // Counting 2 days from now
-    const countDownDateTime = new Date().getTime() + 2 * 86400000;
-    const daysValue = document.querySelector("#days");
-    const hoursValue = document.querySelector("#hours");
-    const minutesValue = document.querySelector("#minutes");
-    const secondsValue = document.querySelector("#seconds");
-
-    // Run this function every 1000 ms or 1 second
-    let x = setInterval(function () {
-        const dateTimeNow = new Date().getTime();
-        let difference = countDownDateTime - dateTimeNow;
-        // Calculating time and assigning values
-        daysValue.innerHTML = Math.floor(difference / (1000 * 60 * 60 * 24));
-        hoursValue.innerHTML = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        minutesValue.innerHTML = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        secondsValue.innerHTML = Math.floor((difference % (1000 * 60)) / 1000);
-
-        if (difference < 0) {
-            clearInterval(x);
-        }
-
-    }, 1000);
-
-</script>

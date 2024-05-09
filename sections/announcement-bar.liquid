@@ -115,7 +115,7 @@
                                 </div>
                             {% when "customCountdown" %}
                                 <div>
-                                    {% render 'custom-countdown' with targetDate: block.settings.targetDate %}
+                                    {% render 'custom-countdown' with targetDate: block.settings.targetDate and customMessage: block.settings.customMessage %}
                                 </div>
                                 
                         {%- endcase -%}
@@ -459,6 +459,12 @@
                     "id": "targetDate",
                     "label": "Data alvo",
                     "default": "07/07/2024 17:00:00"
+                },
+                {
+                    "type": "textarea",
+                    "id": "customMessage",
+                    "label": "Mensagem",
+                    "default": "exemplo de mensagem"
                 }
         
             ]
