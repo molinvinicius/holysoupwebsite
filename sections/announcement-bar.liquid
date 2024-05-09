@@ -95,7 +95,10 @@
                                         </div>
 
                                     {%- when 'custom-countdown' -%}
-                                        {% render "custom-countdown" %}
+                                        <div style="width:100%; height: 10vh; background-color:red;">
+                                            {% render "custom-countdown" %}
+                                        </div>
+                                        
                                             
                                 {%- endcase -%}
                             {%- endfor -%}
