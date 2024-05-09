@@ -63,11 +63,8 @@
         "custom_countdown_QpwCqb": {
           "type": "customCountdown",
           "settings": {
-            "targetDate": "07\/07\/2024 17:00:00",
-            "annou_countdown": "Dec 31, 2022 18:00:00",
-            "color_countdown_text": "#06142e",
-            "border_color_countdown": "#f7f8fa",
-            "bg_color_countdown": "#f7f8fa"
+            "targetDate": "05\/30\/2024 17:00:00",
+            "customMessage": "Aproveite:"
           }
         }
       },
