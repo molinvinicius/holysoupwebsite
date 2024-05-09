@@ -93,6 +93,10 @@
                                                 <div class="announcement-countdown countdown-block" data-countdown-announcement data-countdown-value="{{ block.settings.annou_countdown }}"></div>
                                             {%- endif -%}
                                         </div>
+
+                                    {%- when 'custom-countdown' -%}
+                                        {%- render "custom-countdown" %}
+                                            
                                 {%- endcase -%}
                             {%- endfor -%}
                         </div>
