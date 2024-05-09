@@ -115,7 +115,7 @@
                                 </div>
                             {% when "customCountdown" %}
                                 <div>
-                                    {% render 'custom-countdown' with targetDate as {{ block.settings.targetDate }} %}
+                                    {% render 'custom-countdown' with targetDate: block.settings.targetDate %}
                                 </div>
                                 
                         {%- endcase -%}
@@ -459,32 +459,8 @@
                     "id": "targetDate",
                     "label": "Data alvo",
                     "default": "07/07/2024 17:00:00"
-                },
-                {
-                    "type" : "textarea",
-                    "id" : "annou_countdown",
-                    "label" : "t:sections.announcement-bar.blocks.announcement.settings.countdown.title",
-                    "default" : "Dec 31, 2022 18:00:00",
-                    "info": "t:settings_schema.countdown.settings.general.info"
-                },
-                {
-                    "type": "color",
-                    "id": "color_countdown_text",
-                    "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.color_text",
-                    "default": "#06142e"
-                },
-                {
-                    "type": "color",
-                    "id": "border_color_countdown",
-                    "label": "t:settings_schema.colors.settings.colors_name.border_color",
-                    "default": "#f7f8fa"
-                },
-                {
-                    "type": "color",
-                    "id": "bg_color_countdown",
-                    "label": "t:settings_schema.colors.settings.colors_name.background_color",
-                    "default": "#f7f8fa"
                 }
+        
             ]
         }
     ],

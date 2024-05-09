@@ -52,9 +52,8 @@
 
 
 <script type="text/javascript">
-    {%- assign data = targetDate -%}
-    console.log("aaaaaaaaaaaaaaaaaaa")
-    console.log("fuckn data", {{data}})
+    {% assign data = targetDate %}
+    console.log("Target date:", {{ data | json }});
 
     // Counting 2 days from now
     const countDownDateTime = new Date().getTime() + 2 * 86400000;
