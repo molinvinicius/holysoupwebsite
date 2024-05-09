@@ -115,7 +115,7 @@
                                 </div>
                             {% when "customCountdown" %}
                                 <div>
-                                    {% render 'custom-countdown' %}
+                                    {% render 'custom-countdown' with targetDate as {{ block.settings.targetDate }} %}
                                 </div>
                                 
                         {%- endcase -%}

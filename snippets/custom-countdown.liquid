@@ -1,15 +1,17 @@
 {% comment %} {{ {% assign targetTime = dataContagem %} }} {% endcomment %}
-<h2 class="countdown-timer-heading">Back to School Offers End in</h2>
+
+
+<h2 class="countdown-timer-heading">Aproveite </h2>
 
 <div class="countdown-timer-container">
     <div class="countdown-timer-values" id="days">00</div>
     <div class="countdown-timer-values" id="hours">00</div>
     <div class="countdown-timer-values" id="minutes">00</div>
     <div class="countdown-timer-values" id="seconds">00</div>
-    <div>Days</div>
-    <div>Hours</div>
-    <div>Minutes</div>
-    <div>Seconds</div>
+    <div>Dias</div>
+    <div>Horas</div>
+    <div>Minutos</div>
+    <div>Segundos</div>
 
 </div>
 
@@ -50,6 +52,9 @@
 
 
 <script type="text/javascript">
+    {%- assign data = targetDate -%}
+    console.log({{data}})
+
     // Counting 2 days from now
     const countDownDateTime = new Date().getTime() + 2 * 86400000;
     const daysValue = document.querySelector("#days");
