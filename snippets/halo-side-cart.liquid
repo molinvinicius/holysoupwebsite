@@ -437,28 +437,130 @@
       .more-promotions{
         display: none !important
       }
+
+      .sugestao-carrinho-vazio{
+				width:100%;
+				height: fit-content;
+    	}
+
+			.sugestao-item-container{
+				padding: 30px;
+			}
+
+			.sugestao-item-container-details{
+				display: flex;
+				border: solid 2px #00814E;
+				border-radius: 25px;
+				align-items:center;
+				justify-content:center;
+
+			}
+
+			.sugestao-item-container-details:hover{
+				transform:scale(1.01);
+				transition: 1s;
+			}
+
+			.sugestao-item-container-details p,h5,h6 {
+				text-align: left;
+			}
+
+			#sugestao-anchor {
+				margin-bottom:2vh;
+			}
+
+			#adicionar-sugestao-button{
+				width:100%;
+				background-color:#00814E;
+				border: none;
+				border-radius:999px;
+				color: white;
+				margin-top: 1vh;
+				height: 42px;
+
+			}
+
+			#adicionar-sugestao-button:hover{
+				transform:scale(1.01);
+				transition: 1s;
+
+			}
+
+
+
     </style>
+
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const allProds = {{ collections['all'].products | json }};
+				const sortedProds = allProds.sort((a,b) =>  b.price - a.price);
+        let randomNumber = getRandomNumber(1, 10);
+
+        while(sortedProds[randomNumber].available === false){
+            randomNumber = getRandomNumber(1, 10);
+        }
+
+        const randomItem = sortedProds[randomNumber];
+        const campoTitulo = document.querySelector("#sugestao-titulo");
+        const campoImagem = document.querySelector("#sugestao-img");
+				const campoPreco = document.querySelector("#sugestao-preco");
+				const anchorHref = document.querySelector("#sugestao-anchor");
+
+        campoImagem.src = randomItem.featured_image;
+				anchorHref.href = "/products/" + randomItem.handle;
+        campoTitulo.innerHTML = randomItem.title;
+				campoPreco.innerHTML = (Number(randomItem.price) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+				document.querySelector("#adicionar-sugestao-button").addEventListener("click", async() => {
+					await window.Shopify.addItem(randomItem.variants[0].id, 1);
+					window.location.reload();
+				})
+        
+    </script>
+
     <div class="previewCart">
         {% render 'borda-superior', cor: '#fff' %}
         <div class="previewCart-emptyBody text-center">
-            <div class="empty">
-                <span class="text">
-                    {{ 'sections.cart.empty' | t }}
-                </span>
-            </div>
-            <a class="button button-2 button-continue"
-                {% if settings.quick_cart_redirect_button == 'go_back' %}
-                    role="link" aria-disabled="true"
-                    onclick="window.history.back();"
-                {% elsif settings.quick_cart_redirect_button == 'link_to' %}
-                    href="{{ settings.quick_cart_redirect_button_link }}"
-                {% else %}
-                    role="link" aria-disabled="true"
-                    onclick="window.location.reload();"
-                {% endif %}
-            >
-                {{ 'sections.cart.continue_shopping' | t }}
-            </a>
+					<div class="sugestao-item-container">
+						<a id="sugestao-anchor" target="_blank">
+          	  <div class="sugestao-carrinho-vazio">
+          	      <h5 style="text-align:center;">Temos uma sugestão pra você:</h5>
+          	        <div class="sugestao-item-container-details">
+												<img height="50%" width="50%" id="sugestao-img">
+												<div>
+													<h5 id="sugestao-titulo"></h5>
+													<h5 id="sugestao-preco"> </h5>
+												</div>
+											
+											
+          	        </div>
+									
+          	  </div>
+						</a>
+						<button id="adicionar-sugestao-button">Adicionar</button>
+					</div>
+
+          <div class="empty">
+              <span class="text">
+                  {{ 'sections.cart.empty' | t }}
+              </span>
+          </div>
+          <a class="button button-2 button-continue"
+              {% if settings.quick_cart_redirect_button == 'go_back' %}
+                  role="link" aria-disabled="true"
+                  onclick="window.history.back();"
+              {% elsif settings.quick_cart_redirect_button == 'link_to' %}
+                  href="{{ settings.quick_cart_redirect_button_link }}"
+              {% else %}
+                  role="link" aria-disabled="true"
+                  onclick="window.location.reload();"
+              {% endif %}
+          >
+              {{ 'sections.cart.continue_shopping' | t }}
+          </a>
         </div>
     </div>
 {% endunless%}
