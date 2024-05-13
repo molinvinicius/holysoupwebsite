@@ -1116,7 +1116,7 @@
 
       ],
       "settings": {
-        "borda-superior": false,
+        "borda-superior": true,
         "color-borda-superior": "#00814e",
         "borda-inferior": false,
         "color-borda-inferior": "#ffffff"
