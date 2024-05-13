@@ -146,6 +146,9 @@
         "86973509-c08a-46d1-863c-21ad135d702f",
         "549bfd61-a2a9-4391-a188-031304b89c46"
       ],
+      "custom_css": [
+        ".swiper-wrapper {justify-content:center;}"
+      ],
       "settings": {
         "borda-superior": false,
         "color-borda-superior": "#ffffff",
@@ -1107,7 +1110,7 @@
         "dc56be0f-c682-4707-ac81-a582e9751d75"
       ],
       "custom_css": [
-        ".mix-sugeridos-section{background-color: white}"
+        ".mix-sugeridos-section {background-color: white;}"
       ],
       "settings": {
         "borda-superior": false,
