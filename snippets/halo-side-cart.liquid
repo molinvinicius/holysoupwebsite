@@ -59,6 +59,34 @@
     {% endif %}
 
     {% assign total_brinde = settings.valor_min_brinde | times: 100 %}
+
+		<style>
+			.arrow-square {
+				margin:0;
+				display: inline-block; /* Allow for inline positioning */
+				background-color: #00b45a; /* Set the background color */
+				border-radius: 10px; /* Add rounded corners */
+				position: relative; /* Enable relative positioning */
+				margin-right: 10px; /* Add some margin to the right */
+				padding: 0.5vh;
+				color:white;
+				border: solid 1px #00b45a;
+			}
+			
+			.arrow-square::before {
+				content: ""; /* No text content */
+				position: absolute; /* Position absolutely within the parent */
+				top: 50%; /* Center vertically */
+				left: -10px; /* Extend to the left */
+				transform: translateY(-50%); /* Vertically align with the center */
+				width: 0; /* No width */
+				height: 10px; /* Set the height of the arrow */
+				border: 5px solid transparent; /* Create transparent borders */
+				border-right-color: #00b45a; /* Set the right border color */
+			}
+
+
+		</style>
   
     <div class="previewCart">
         {% if cart.item_count > 0 %}
@@ -187,13 +215,21 @@
                                             </span>
                                         </span>
                                     {% elsif current_variant.compare_at_price > current_variant.price %}
-                                        <span class="previewCartItem-saving-price saved_compare_price" data-price-from-compare>
+                                        <span class="previewCartItem-saving-price saved_compare_price" data-price-from-compare style="display:flex; align-items:center">
+																					<div class="discount-compare">
                                             <s class="before-discount-price">
                                                 {{ current_variant.compare_at_price | money }}
                                             </s>
                                             <span class="discounted-price">
                                                 {{ current_variant.price | money }}
                                             </span>
+																					</div>
+																						{% if current_variant.compare_at_price > current_variant.price %}
+																							<p 
+																								class="arrow-square"
+																							>{{ current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0}}%
+																							</p>
+																						{% endif %}
                                         </span>
                                     {% else %}  
                                         <span data-item-final-price-display>
@@ -497,7 +533,6 @@
 
         const allProds = {{ collections['all'].products | json }};
 				const sortedProds = allProds.sort((a,b) =>  b.price - a.price);
-				console.log(allProds)
         let randomNumber = getRandomNumber(1, 10);
 
         while(sortedProds[randomNumber].available === false){

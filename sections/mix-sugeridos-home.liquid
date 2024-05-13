@@ -249,6 +249,45 @@
   .tabela-nutricional a svg path {
     stroke: #00814e;
   }
+
+  .arrow-square {
+    margin:0;
+    display: inline-block; /* Allow for inline positioning */
+    background-color: #00b45a; /* Set the background color */
+    border-radius: 10px; /* Add rounded corners */
+    position: relative; /* Enable relative positioning */
+    margin-right: 10px; /* Add some margin to the right */
+    padding: 0.5vh;
+    color:white;
+    border: solid 1px #00b45a;
+    width:fit-content;
+    margin-left: 1vw;
+  }
+
+  @media(max-width:1024px){
+    .arrow-square {
+      margin-left: 2vw;
+    }
+  }
+  
+  .arrow-square::before {
+    content: ""; /* No text content */
+    position: absolute; /* Position absolutely within the parent */
+    top: 50%; /* Center vertically */
+    left: -10px; /* Extend to the left */
+    transform: translateY(-50%); /* Vertically align with the center */
+    width: 0; /* No width */
+    height: 10px; /* Set the height of the arrow */
+    border: 5px solid transparent; /* Create transparent borders */
+    border-right-color: #00b45a; /* Set the right border color */
+  }
+
+  .price-compare{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+
+  }
 </style>
 {% if section.settings.borda-superior %}
   {% render 'borda-superior', cor: section.settings.color-borda-superior %}
@@ -294,7 +333,15 @@
           <div class="mix-price">
             <div class="price-mix-flex">
               {% if product.compare_at_price > product.price %}<old class="custom-font">{{ product.compare_at_price | money }}</old>{% endif %}
-              <new class="custom-font">{{ product.price | money }}</new>
+              <div class="price-compare">
+                <new class="custom-font">{{ product.price | money }}</new>
+                {% if product.compare_at_price > product.price %}
+                  <h4
+                    class="arrow-square"
+                  > -{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0}}%
+                </h4>
+                {% endif %}
+              </div>
             </div>
             {% comment %}
             {% if settings.parcelas %}
