@@ -150,7 +150,7 @@
         "549bfd61-a2a9-4391-a188-031304b89c46"
       ],
       "custom_css": [
-        ".promos-home{}"
+        ".swiper-wrapper {justify-content: center;}"
       ],
       "settings": {
         "borda-superior": false,
