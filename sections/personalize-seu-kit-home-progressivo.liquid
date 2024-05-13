@@ -526,6 +526,7 @@
           {% endif %}
         </div>
         {% for block in section.blocks %}
+          
           <div class="item-sopa">
             <div class="imagem-item-sopa">
               <img src="{{ block.settings.image | default: block.settings.sopa.featured_image | image_url }}"/>
@@ -548,8 +549,14 @@
                   </div>
                 </div>
                 <span class="unid-price">{% unless block.settings.sopa.selected_or_first_available_variant.available %}Esgotado{% else %}{{ block.settings.sopa.price | money }} / un{% endunless %}</span>
+                {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
+                  <span style="background-color:#00b45a; width: 100%; padding: 0.2vw; display:flex;justify-content:center; border-radius:5px;">
+                    -{{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | minus: block.settings.sopa.price | times: 100.0 | divided_by: block.settings.sopa.selected_or_first_available_variant.compare_at_price | round: 0}}%
+                  </span>
+                {% endif %}
             </div>
           </div>
+          
         {% endfor %}
       </div>
       <div class="footer-ajax-select">
