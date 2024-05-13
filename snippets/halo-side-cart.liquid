@@ -497,6 +497,7 @@
 
         const allProds = {{ collections['all'].products | json }};
 				const sortedProds = allProds.sort((a,b) =>  b.price - a.price);
+				console.log(allProds)
         let randomNumber = getRandomNumber(1, 10);
 
         while(sortedProds[randomNumber].available === false){
@@ -516,6 +517,7 @@
 
 				document.querySelector("#adicionar-sugestao-button").addEventListener("click", async() => {
 					await window.Shopify.addItem(randomItem.variants[0].id, 1);
+					{% comment %} customElements.define('cart-update-quantity', UpdateQuantity); {% endcomment %}
 					window.location.reload();
 				})
         
