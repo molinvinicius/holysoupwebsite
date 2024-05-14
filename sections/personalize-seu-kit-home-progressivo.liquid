@@ -1,6 +1,6 @@
 <style>
   #adicionar-button{
-    transition: 1s
+    transition: 1s;
   }
   .personalize-kit .header-widget {
     max-width: 600px;
@@ -136,6 +136,9 @@
 
   .imagem-item-sopa {
     width: 60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
   
   .quantity-item-sopa {
@@ -154,7 +157,7 @@
 
   .footer-ajax-select button {
     width: 90%;
-    background: #00B45A;
+    background-color:#FF7A50;
     border: none;
     color: #fff;
     font-weight: 400;
@@ -543,14 +546,22 @@
                   <div class="quantity">
                     <quickshop-update-quantity class="previewCartItem-qty quickshop-quantity">
                       <button type="button" name="minus" data-minus-quantity-quickshop="" class="minus btn-quantity"></button>
-                      <input data-porcao="{{ block.settings.jantas_descomplicadas }}" data-price="{{ block.settings.sopa.selected_or_first_available_variant.price }}" class="qtd-input" name="quantity" value="0" type="number" data-variantId="{{ block.settings.sopa.selected_or_first_available_variant.id }}" {%- if block.settings.sopa.selected_or_first_available_variant.available and block.settings.sopa.selected_or_first_available_variant.inventory_quantity < 1 -%}data-inventory="9999"{% else %}data-inventory="{{ block.settings.sopa.selected_or_first_available_variant.inventory_quantity }}"{%- endif -%}>
+                      <input data-porcao="{{ block.settings.jantas_descomplicadas }}" data-price="{{ block.settings.sopa.selected_or_first_available_variant.price }}" class="qtd-input" style="transition:0.5s;" name="quantity" value="0" type="number" data-variantId="{{ block.settings.sopa.selected_or_first_available_variant.id }}" {%- if block.settings.sopa.selected_or_first_available_variant.available and block.settings.sopa.selected_or_first_available_variant.inventory_quantity < 1 -%}data-inventory="9999"{% else %}data-inventory="{{ block.settings.sopa.selected_or_first_available_variant.inventory_quantity }}"{%- endif -%}>
                       <button type="button" name="plus" data-plus-quantity-quickshop="" class="plus btn-quantity"></button>
                     </quickshop-update-quantity>
                   </div>
                 </div>
-                <span class="unid-price">{% unless block.settings.sopa.selected_or_first_available_variant.available %}Esgotado{% else %}{{ block.settings.sopa.price | money }} / un{% endunless %}</span>
+                <span class="unid-price">{% unless block.settings.sopa.selected_or_first_available_variant.available %}Esgotado{% else %}
                 {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
-                  <span style="background-color:#00b45a; width: 100%; padding: 0.2vw; display:flex;justify-content:center; border-radius:5px;">
+                  <s>
+                    {{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | money }} / un
+                  </s> <br/>
+                {% endif %}
+                {{ block.settings.sopa.price | money }} / un{% endunless %}
+                  
+                </span>
+                {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
+                  <span style="background-color:#00b45a; width: 100%; padding: 0.2vw; display:flex;justify-content:center; border-radius:10px;">
                     -{{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | minus: block.settings.sopa.price | times: 100.0 | divided_by: block.settings.sopa.selected_or_first_available_variant.compare_at_price | round: 0}}%
                   </span>
                 {% endif %}
@@ -604,7 +615,14 @@
       return false;
     }
 
-    inputsQtd.on("change", function() {
+    inputsQtd.on("change", function(e) {
+        
+        if(e.target.value > 0) {
+          e.target.style.border = "solid 3px #00b45a"
+        } else {
+          e.target.style.border = "none"
+        }
+
         let progressShipping = false;
         let progressDinner = false;
         let progressDiscount = false;
@@ -668,7 +686,7 @@
           let progressiveDiscount = {{desconto_progressivo}};
         
           const botaoAdicionar = document.querySelector("#adicionar-button");
-          botaoAdicionar.style.backgroundColor = "#FF7A50";
+          botaoAdicionar.style.backgroundColor = "#00b45a";
 
         
           //$('.preco-kit').html('<p><b>' +parcelas+'x ' + formattedTotal + '</b> ou ' + totalText + '</p>');
@@ -682,7 +700,7 @@
           $('.preco-kit').html('');
           $('[add-kit-sopa]').attr('disabled', true);
           const botaoAdicionar = document.querySelector("#adicionar-button");
-          botaoAdicionar.style.backgroundColor = "#00b45a";
+          botaoAdicionar.style.backgroundColor = "#FF7A50";
         }
     });
     
@@ -714,12 +732,12 @@
       $('.personalize-kit').addClass('open-kit');
       $('body').addClass('opened-kit');
     }
-  
+
     $('.overflow-kit').click(function(){
       $('.personalize-kit').removeClass('open-kit');
       $('body').removeClass('opened-kit');
     })
-  
+
     $('[add-kit-sopa]').click(function(){
     var inputsQtd = $('.sopas-items').find('.qtd-input');
     var items = [];
