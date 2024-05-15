@@ -91,7 +91,7 @@
             {% if section.settings.style_video == 'youtube' %}
                 {%- if section.settings.video_url.type == 'youtube' -%}
                     <div class="center-video">
-                        <iframe id="youtube-video" src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?enablejsapi=1&modestbranding=1&autohide=1&showinfo=0&controls=0&mute=0&autoplay=1&loop=1&playlist={{section.settings.video_url.id}}&rel=0" class="js-youtube" allow="autoplay; loop; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
+                        <iframe id="youtube-video" src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?enablejsapi=1&modestbranding=1&autohide=1&showinfo=0&controls=0&mute=0&loop=1&playlist={{section.settings.video_url.id}}&rel=0" class="js-youtube" allow="autoplay; loop; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
                     <div>
                 {%- else -%}
                     <div class="center-video">
