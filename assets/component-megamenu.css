@@ -354,7 +354,6 @@
         padding-left: var(--grid_gap_menu_item);
         padding-right: var(--grid_gap_menu_item);
         padding-bottom: var(--menu_bottom_spacing);
-        color: var(--lv_1_color);
     }
     .menu-lv-1:hover .menu-lv-1__action{
         color: var(--lv_1_color_hover);
