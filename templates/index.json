@@ -85,7 +85,7 @@
         "e366e726-22c8-41d5-b400-505b4d959fa7"
       ],
       "custom_css": [
-        ".destaques-home {display: flex; justify-content: center;}"
+        ".destaques-home {display: grid; width:100%; grid-template-columns: 1fr 1fr 1fr; background-color:red;}"
       ],
       "settings": {
         "borda-superior": true,
