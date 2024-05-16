@@ -474,53 +474,115 @@
         display: none !important
       }
 
-      .sugestao-carrinho-vazio{
-				width:100%;
-				height: fit-content;
-    	}
+    .sugestao-carrinho-vazio{
+			width:100%;
+			height: fit-content;
+    }
 
-			.sugestao-item-container{
-				padding: 30px;
-			}
+	.sugestao-item-container{
+		padding: 30px;
+	}
+	.sugestao-item-container-details{
+		display: flex;
+		border: solid 2px #00814E;
+		border-radius: 25px;
+		align-items:center;
+		justify-content:space-between;
+	}
+	.sugestao-item-container-details:hover{
+		transform:scale(1.01);
+		transition: 1s;
+	}
+	.sugestao-item-container-details p,h5,h6 {
+		text-align: left;
+	}
+	.sugestao-anchor {
+		margin-bottom:2vh;
+	}
+	.adicionar-sugestao-button{
+		width:100%;
+		background-color:#00814E;
+		border: none;
+		border-radius:999px;
+		color: white;
+		margin-top: 1vh;
+		height: 42px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        
+	}
+	.adicionar-sugestao-button:hover{
+		transform:scale(1.01);
+		transition: 1s;
+        color: white;
+	}
 
-			.sugestao-item-container-details{
-				display: flex;
-				border: solid 2px #00814E;
-				border-radius: 25px;
-				align-items:center;
-				justify-content:center;
+    .title-price-wrapper{
+        width: 50%;
+    }
+    /* Slider container */
+.slider-container {
+  position: relative;
+  width:100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-			}
+/* Slider */
+.slider {
+  display: flex;
+  width:100%;
+  height:30vh;
+}
 
-			.sugestao-item-container-details:hover{
-				transform:scale(1.01);
-				transition: 1s;
-			}
+/* Slide */
+.slide {
+  flex: 0 0 100%;
+}
 
-			.sugestao-item-container-details p,h5,h6 {
-				text-align: left;
-			}
+/* Buttons */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+  background-color:white;
+  color:#00814E;
+}
 
-			#sugestao-anchor {
-				margin-bottom:2vh;
-			}
+.prev {
+  left: 0;
+}
 
-			#adicionar-sugestao-button{
-				width:100%;
-				background-color:#00814E;
-				border: none;
-				border-radius:999px;
-				color: white;
-				margin-top: 1vh;
-				height: 42px;
+.next {
+  right: 0;
+}
 
-			}
+.pagination {
+  text-align: center;
+  margin-top: 30px;
+}
 
-			#adicionar-sugestao-button:hover{
-				transform:scale(1.01);
-				transition: 1s;
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
 
-			}
+.active {
+  background-color: #00814E;
+}
 
 
 
@@ -532,55 +594,166 @@
         }
 
         const allProds = {{ collections['all'].products | json }};
-				const sortedProds = allProds.sort((a,b) =>  b.price - a.price);
-        let randomNumber = getRandomNumber(1, 10);
+		const sortedProds = allProds
+            .sort((a,b) =>  b.price - a.price)
+            .filter(el => (el.tags.includes("Coleção Sopa") || el.tags.includes("sopa")) && el.tags.includes("trimestral") === false && el.available === true);
+        
+        const randomItems = [];
 
-        while(sortedProds[randomNumber].available === false){
-            randomNumber = getRandomNumber(1, 10);
+        let count = 0;
+        while(randomItems.length < 3 && count < 500){
+            const randomNumber = getRandomNumber(1, sortedProds.length);
+            const found = randomItems.find(el => el && sortedProds[randomNumber] && el.id === sortedProds[randomNumber].id);
+            if(!found) randomItems.push(sortedProds[randomNumber]);
+            count++;
         }
 
-        const randomItem = sortedProds[randomNumber];
-        const campoTitulo = document.querySelector("#sugestao-titulo");
+        // Get the empty body element
+const emptyBody = document.querySelector('#slider-custom');
+
+// Loop through sugestaoItems and create sugestao-item-container elements
+randomItems.forEach(item => {
+    // Create sugestao-item-container element
+    const sugestaoContainer = document.createElement('div');
+    sugestaoContainer.classList.add('sugestao-item-container');
+    sugestaoContainer.classList.add('slide');
+
+    // Create sugestao-anchor element
+    const sugestaoAnchor = document.createElement('a');
+    sugestaoAnchor.setAttribute('target', '_blank');
+    sugestaoAnchor.setAttribute('href', item.linkUrl);
+
+    // Create sugestao-carrinho-vazio element
+    const sugestaoCarrinho = document.createElement('div');
+    sugestaoCarrinho.classList.add('sugestao-carrinho-vazio');
+
+    // Create sugestao-item-container-details element
+    const sugestaoDetails = document.createElement('div');
+    sugestaoDetails.classList.add('sugestao-item-container-details');
+
+    // Create sugestao image element
+    const sugestaoImage = document.createElement('img');
+    sugestaoImage.setAttribute('src', item.featured_image);
+    sugestaoImage.setAttribute('height', '50%');
+    sugestaoImage.setAttribute('width', '50%');
+    sugestaoImage.style.borderRadius = '10px';
+    sugestaoImage.style.padding = '1vw';
+
+    // Create sugestao title element
+    const sugestaoTitle = document.createElement('h5');
+    sugestaoTitle.textContent = item.title;
+
+    // Create sugestao price element
+    const sugestaoPrice = document.createElement('h5');
+    sugestaoPrice.textContent = (Number(item.price) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
+
+    // Create wrapper div for title and price
+    const titlePriceWrapper = document.createElement('div');
+    titlePriceWrapper.classList.add('title-price-wrapper');
+    titlePriceWrapper.appendChild(sugestaoTitle);
+    titlePriceWrapper.appendChild(sugestaoPrice);
+
+    // Append elements
+    sugestaoDetails.appendChild(sugestaoImage);
+    sugestaoDetails.appendChild(titlePriceWrapper); // Append the wrapper div
+    sugestaoCarrinho.appendChild(sugestaoDetails);
+    sugestaoAnchor.appendChild(sugestaoCarrinho);
+    sugestaoContainer.appendChild(sugestaoAnchor);
+
+    const addAnchor = document.createElement('a');
+    addAnchor.classList.add("adicionar-sugestao-button");
+    addAnchor.href = "/products/" + item.handle;
+    addAnchor.textContent = "Adicionar ao carrinho";
+    sugestaoContainer.appendChild(addAnchor);
+    {% comment %} sugestaoContainer.innerHTML += '<button id="adicionar-sugestao-button">Adicionar</button>'; {% endcomment %}
+
+    // Append sugestao-item-container to emptyBody
+    emptyBody.appendChild(sugestaoContainer);
+});
+
+        
+
+        {% comment %} const campoTitulo = document.querySelector("#sugestao-titulo");
         const campoImagem = document.querySelector("#sugestao-img");
-				const campoPreco = document.querySelector("#sugestao-preco");
-				const anchorHref = document.querySelector("#sugestao-anchor");
+		const campoPreco = document.querySelector("#sugestao-preco");
+		const anchorHref = document.querySelector("#sugestao-anchor");
 
         campoImagem.src = randomItem.featured_image;
-				anchorHref.href = "/products/" + randomItem.handle;
+		anchorHref.href = "/products/" + randomItem.handle;
         campoTitulo.innerHTML = randomItem.title;
-				campoPreco.innerHTML = (Number(randomItem.price) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+		campoPreco.innerHTML = (Number(randomItem.price) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-				document.querySelector("#adicionar-sugestao-button").addEventListener("click", async() => {
-					await window.Shopify.addItem(randomItem.variants[0].id, 1);
-					{% comment %} customElements.define('cart-update-quantity', UpdateQuantity); {% endcomment %}
-					window.location.reload();
-				})
+		document.querySelector("#adicionar-sugestao-button").addEventListener("click", async() => {
+			await window.Shopify.addItem(randomItem.variants[0].id, 1);
+			window.location.reload();
+		}) {% endcomment %}
         
+
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.pagination');
+  
+  // Limpa o conteúdo anterior das bolinhas
+  dotsContainer.innerHTML = '';
+  
+  // Adiciona uma bolinha para cada slide
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.addEventListener('click', () => {
+      slideIndex = index;
+      showSlides();
+    });
+    dotsContainer.appendChild(dot);
+  });
+  
+  // Adiciona a classe 'active' à bolinha correspondente ao slide atual
+  const dots = dotsContainer.querySelectorAll('.dot');
+  dots[slideIndex].classList.add('active');
+  
+  // Exibe apenas o slide atual
+  slides.forEach(slide => slide.style.display = 'none');
+  slides[slideIndex].style.display = 'block';
+}
+
+function prevSlide() {
+  slideIndex--;
+  if (slideIndex < 0) {
+    slideIndex = document.querySelectorAll('.slide').length - 1;
+  }
+  showSlides();
+}
+
+function nextSlide() {
+  slideIndex++;
+  if (slideIndex >= document.querySelectorAll('.slide').length) {
+    slideIndex = 0;
+  }
+  showSlides();
+}
+
+
+
     </script>
 
+    
     <div class="previewCart">
         {% render 'borda-superior', cor: '#fff' %}
         <div class="previewCart-emptyBody text-center">
-					<div class="sugestao-item-container">
-						<a id="sugestao-anchor" target="_blank">
-          	  <div class="sugestao-carrinho-vazio">
-          	      <h5 style="text-align:center;">Temos uma sugestão pra você:</h5>
-          	        <div class="sugestao-item-container-details">
-												<img height="50%" width="50%" id="sugestao-img">
-												<div>
-													<h5 id="sugestao-titulo"></h5>
-													<h5 id="sugestao-preco"> </h5>
-												</div>
-											
-											
-          	        </div>
-									
-          	  </div>
-						</a>
-						<button id="adicionar-sugestao-button">Adicionar</button>
-					</div>
+                
+            <div class="slider-container">
+              <div class="slider" id="slider-custom">
+              </div>
+              <button class="prev" onclick="prevSlide()">&#10094;</button>
+              <button class="next" onclick="nextSlide()">&#10095;</button>
+              <div class="pagination"></div>
+            </div>
 
-          <div class="empty">
+          {% comment %} <div class="empty">
               <span class="text">
                   {{ 'sections.cart.empty' | t }}
               </span>
@@ -597,7 +770,7 @@
               {% endif %}
           >
               {{ 'sections.cart.continue_shopping' | t }}
-          </a>
+          </a> {% endcomment %}
         </div>
     </div>
 {% endunless%}
