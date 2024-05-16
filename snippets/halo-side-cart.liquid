@@ -670,23 +670,6 @@ randomItems.forEach(item => {
     // Append sugestao-item-container to emptyBody
     emptyBody.appendChild(sugestaoContainer);
 });
-
-        
-
-        {% comment %} const campoTitulo = document.querySelector("#sugestao-titulo");
-        const campoImagem = document.querySelector("#sugestao-img");
-		const campoPreco = document.querySelector("#sugestao-preco");
-		const anchorHref = document.querySelector("#sugestao-anchor");
-
-        campoImagem.src = randomItem.featured_image;
-		anchorHref.href = "/products/" + randomItem.handle;
-        campoTitulo.innerHTML = randomItem.title;
-		campoPreco.innerHTML = (Number(randomItem.price) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-		document.querySelector("#adicionar-sugestao-button").addEventListener("click", async() => {
-			await window.Shopify.addItem(randomItem.variants[0].id, 1);
-			window.location.reload();
-		}) {% endcomment %}
         
 
 
@@ -744,7 +727,7 @@ function nextSlide() {
     <div class="previewCart">
         {% render 'borda-superior', cor: '#fff' %}
         <div class="previewCart-emptyBody text-center">
-                
+            <h4> Sugestões para você: </h4>
             <div class="slider-container">
               <div class="slider" id="slider-custom">
               </div>
