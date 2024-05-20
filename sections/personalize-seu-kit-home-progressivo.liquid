@@ -359,6 +359,38 @@
     font-size: 10px;
     padding: 6px 0;
   }
+
+  .arrow-square {
+    margin:0;
+    display: inline-block; /* Allow for inline positioning */
+    background-color: #00b45a !important; /* Set the background color */
+    border-radius: 10px; /* Add rounded corners */
+    position: relative; /* Enable relative positioning */
+    margin-right: 10px; /* Add some margin to the right */
+    padding: 0.5vh;
+    color:white !important;
+    border: solid 1px #00b45a;
+    width:50px;
+    margin-left: 2vw !important;
+  }
+
+  @media(max-width:1024px){
+    .arrow-square {
+      margin-left: 2vw;
+    }
+  }
+  
+  .arrow-square::before {
+    content: ""; /* No text content */
+    position: absolute; /* Position absolutely within the parent */
+    top: 50%; /* Center vertically */
+    left: -10px; /* Extend to the left */
+    transform: translateY(-50%); /* Vertically align with the center */
+    width: 0; /* No width */
+    height: 10px; /* Set the height of the arrow */
+    border: 5px solid transparent; /* Create transparent borders */
+    border-right-color: #00b45a !important; /* Set the right border color */
+  }
 </style>
 {% if section.settings.borda-superior %}
   {% render 'borda-superior', cor: section.settings.color-borda-superior %}
@@ -535,7 +567,16 @@
               <img src="{{ block.settings.image | default: block.settings.sopa.featured_image | image_url }}"/>
             </div>
             <div class="content-item-sopa">
-              <h4>{{ block.settings.sopa.title }}</h4>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <h4>{{ block.settings.sopa.title }}</h4>
+                {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
+                  <h4 class="arrow-square" style="color:white !important;">
+                    -{{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | minus: block.settings.sopa.price | times: 100.0 | divided_by: block.settings.sopa.selected_or_first_available_variant.compare_at_price | round: 0}}%
+                  </h4>
+                {% endif %}
+                
+              </div>
+              
               <p>{{ block.settings.subtitle }}</p>
               <div class="tabela-nutricional">
                 <a tabela-nutri href="{{ block.settings.sopa.metafields.custom.informa_o_nutricional.value | img_url: '800x' }}">Tabela Nutri.</a>
@@ -560,11 +601,7 @@
                 {{ block.settings.sopa.price | money }} / un{% endunless %}
                   
                 </span>
-                {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
-                  <span style="background-color:#00b45a; width: 100%; padding: 0.2vw; display:flex;justify-content:center; border-radius:10px;">
-                    -{{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | minus: block.settings.sopa.price | times: 100.0 | divided_by: block.settings.sopa.selected_or_first_available_variant.compare_at_price | round: 0}}%
-                  </span>
-                {% endif %}
+
             </div>
           </div>
           

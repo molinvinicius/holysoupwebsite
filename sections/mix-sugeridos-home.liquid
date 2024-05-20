@@ -117,7 +117,7 @@
     }
 
     .items-inclusos{
-      min-height:39vh;
+      min-height:300px;
     }
   }
 
@@ -253,15 +253,15 @@
   .arrow-square {
     margin:0;
     display: inline-block; /* Allow for inline positioning */
-    background-color: #00b45a; /* Set the background color */
+    color: #00b45a !important; /* Set the background color */
     border-radius: 10px; /* Add rounded corners */
     position: relative; /* Enable relative positioning */
     margin-right: 10px; /* Add some margin to the right */
     padding: 0.5vh;
-    color:white;
-    border: solid 1px #00b45a;
+    background-color:white;
+    border: solid 1px white;
     width:fit-content;
-    margin-left: 1vw;
+    margin-left: 2vw !important;
   }
 
   @media(max-width:1024px){
@@ -279,7 +279,7 @@
     width: 0; /* No width */
     height: 10px; /* Set the height of the arrow */
     border: 5px solid transparent; /* Create transparent borders */
-    border-right-color: #00b45a; /* Set the right border color */
+    border-right-color: white; /* Set the right border color */
   }
 
   .price-compare{
@@ -305,9 +305,19 @@
       <div class="mix-header">
         <img loading="lazy" src="{{ image | image_url: width: 340 }}"/>
         <div class="mix-title">
-          <h4>{{ block.settings.title | replace: "<destaque>", "<destaque style='color: COLORHEX'>" | replace: "COLORHEX", block.settings.color_destaque }}</h4>
+          <div style="display:flex; align-items:center; width:100%;">
+            <h4>{{ block.settings.title | replace: "<destaque>", "<destaque style='color: COLORHEX'>" | replace: "COLORHEX", block.settings.color_destaque }}</h4>
+            {% if product.compare_at_price > product.price %}
+              <h4
+                class="arrow-square"
+              > -{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0}}%
+              </h4>
+            {% endif %}
+          </div>
+          
           <p>{{ block.settings.subtitle }}</p>
         </div>
+
       </div>
       <div class="mix-body">
         <div class="items-inclusos">
@@ -333,15 +343,8 @@
           <div class="mix-price">
             <div class="price-mix-flex">
               {% if product.compare_at_price > product.price %}<old class="custom-font">{{ product.compare_at_price | money }}</old>{% endif %}
-              <div class="price-compare">
-                <new class="custom-font">{{ product.price | money }}</new>
-                {% if product.compare_at_price > product.price %}
-                  <h4
-                    class="arrow-square"
-                  > -{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0}}%
-                </h4>
-                {% endif %}
-              </div>
+              <new class="custom-font">{{ product.price | money }}</new>
+            
             </div>
             {% comment %}
             {% if settings.parcelas %}
