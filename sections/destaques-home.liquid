@@ -1,19 +1,11 @@
 <style>
-  .slider-destaques-hs {
-    padding: 30px 20px 30px 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-  }
 
   @media (min-width: 1200px){
     .slider-destaques-hs {
       padding: 30px 20px 30px 20px;
     }
 
-    .slider-destaques-hs .swiper-wrapper {
-      justify-content: center;
-    }
+
   }
   .destaque-item {
     display: flex;
@@ -44,7 +36,6 @@
 {% endif %}
 <div class="destaques-home">
   <div class="slider-destaques-hs">
-    <div >
       {% for block in section.blocks %}
       <div class="destaque-item">
         <div class="destaque-icon">
@@ -53,7 +44,6 @@
         <div class="destaque-title"><span>{{ block.settings.title }}</span></div>
       </div>
       {% endfor %}
-    </div>
   </div>
 </div>
 
