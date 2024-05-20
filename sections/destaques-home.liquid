@@ -1,14 +1,19 @@
 <style>
+  .slider-destaques-hs {
+    padding: 30px 20px 30px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
 
   @media (min-width: 1200px){
     .slider-destaques-hs {
       padding: 30px 20px 30px 20px;
-      display:flex;
-      width:100%;
-      justify-content:center;
     }
 
-
+    .slider-destaques-hs .swiper-wrapper {
+      justify-content: center;
+    }
   }
   .destaque-item {
     display: flex;
@@ -38,16 +43,18 @@
   {% render 'borda-superior', cor: section.settings.color-borda-superior %}
 {% endif %}
 <div class="destaques-home">
-  <div class="slider-destaques-hs">
+  <div class="{% if section.settings.isSwiper %} swiper {% endif %} slider-destaques-hs" >
+    <div class="destaques-container {% if section.settings.isSwiper %}swiper-wrapper{% endif %}" > 
       {% for block in section.blocks %}
-      <div class="destaque-item">
+      <div class="{% if section.settings.isSwiper %}swiper-slide{% endif %} destaque-item">
         <div class="destaque-icon">
           {{ block.settings.svg }}
         </div>
         <div class="destaque-title"><span>{{ block.settings.title }}</span></div>
       </div>
       {% endfor %}
-  </div>
+    </div>
+  </div> 
 </div>
 
 {% schema %}
@@ -65,6 +72,7 @@
       "default": "#fff",
       "label": "Cor da divisória superior"
     },
+    
     {
       "type": "checkbox",
       "id": "borda-inferior",
@@ -76,6 +84,12 @@
       "id": "color-borda-inferior",
       "default": "#fff",
       "label": "Cor da divisória inferior"
+    },
+    {
+      "type": "checkbox",
+      "id": "isSwiper",
+      "default": true,
+      "label": "Deslizavel"
     }],
     "blocks": [{
       "type": "feature",
