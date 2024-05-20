@@ -43,10 +43,10 @@
   {% render 'borda-superior', cor: section.settings.color-borda-superior %}
 {% endif %}
 <div class="destaques-home">
-  <div class="swiper slider-destaques-hs" >
-    <div class="swiper-wrapper" >
+  <div class="slider-destaques-hs">
+    <div >
       {% for block in section.blocks %}
-      <div class="swiper-slide destaque-item">
+      <div class="destaque-item">
         <div class="destaque-icon">
           {{ block.settings.svg }}
         </div>
