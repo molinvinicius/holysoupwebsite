@@ -149,6 +149,9 @@
         "feature_JbqJr9",
         "feature_9fYaYF"
       ],
+      "custom_css": [
+        ".destaque-item{width:100%;}"
+      ],
       "settings": {
         "borda-superior": true,
         "color-borda-superior": "#fff",
