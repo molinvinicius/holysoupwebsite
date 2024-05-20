@@ -150,13 +150,14 @@
         "e366e726-22c8-41d5-b400-505b4d959fa7"
       ],
       "custom_css": [
-        "@media (max-width: 1024px) {.destaques-home .slider-destaques-hs {display: grid; grid-template-columns: 33% 33% 33%; column-gap: 10px; row-gap: 10px; justify-items: center; align-items: center; padding: 15px; width: calc(100% - 15px); } .destaque-item {background-color: #f6f6f6; height: 10vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; margin: 0 !important; padding-left: 1vw !important; width: 100%; text-align: center; font-size: 9px; padding: 10px; }}"
+        "@media (max-width: 1024px) {.destaques-home .destaques-container {display: grid; grid-template-columns: 33% 33% 33%; column-gap: 10px; row-gap: 10px; justify-items: center; align-items: center; padding: 15px; width: calc(100% - 15px); } .destaque-item {background-color: #f6f6f6; height: 10vh; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; margin: 0 !important; padding-left: 1vw !important; width: 100%; text-align: center; font-size: 9px; padding: 10px; }}"
       ],
       "settings": {
         "borda-superior": true,
         "color-borda-superior": "#ffffff",
         "borda-inferior": false,
-        "color-borda-inferior": "#ffffff"
+        "color-borda-inferior": "#ffffff",
+        "isSwiper": false
       }
     },
     "586198a2-a4dc-41b9-8e36-8050ad9530d3": {
