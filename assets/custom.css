@@ -2118,6 +2118,11 @@ li.list-payment__item img {
   .template-collection .header-sticky.header-wrapper .burger-icon {
     background-color: #000000 !important;
   }
+
+  .sticky-product-wrapper .has-compare-price{
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }
 
 @media (min-width: 1200px){
