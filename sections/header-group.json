@@ -180,7 +180,7 @@
         "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2"
       ],
       "custom_css": [
-        ".scrolled-past-header ul li{color:black}"
+        ".scrolled-past-header ul li{color:red}"
       ],
       "settings": {
         "container": "1170",
