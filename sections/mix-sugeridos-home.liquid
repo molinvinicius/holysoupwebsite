@@ -175,20 +175,20 @@
   }
 
   .container-porcoes {
-      display: flex;
-      flex-direction: row;
-      line-height: 100%;
-      background: #ff7a50;
-      padding: 8px 8px;
-      position: relative;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 9px;
-      border-radius: 4px;
-      font-weight: 600;
-      flex-wrap: wrap;
-      width: 110px;
-      gap: 5px;
+    display: flex;
+    flex-direction: row;
+    line-height: 100%;
+    background: #ff7a50;
+    padding: 8px 8px;
+    position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 9px;
+    border-radius: 4px;
+    font-weight: 600;
+    flex-wrap: wrap;
+    width: 100px;
+    gap: 5px;
   }
 
   .icon-porcao {
@@ -250,7 +250,7 @@
     stroke: #00814e;
   }
 
-  .arrow-square {
+  .arrow-square-variation {
     margin:0;
     display: inline-block; /* Allow for inline positioning */
     color: #00b45a !important; /* Set the background color */
@@ -258,19 +258,19 @@
     position: relative; /* Enable relative positioning */
     margin-right: 10px; /* Add some margin to the right */
     padding: 0.5vh;
-    background-color:white;
+    background-color: white;
     border: solid 1px white;
     width:fit-content;
     margin-left: 2vw !important;
   }
 
   @media(max-width:1024px){
-    .arrow-square {
+    .arrow-square-variation {
       margin-left: 2vw;
     }
   }
   
-  .arrow-square::before {
+  .arrow-square-variation::before {
     content: ""; /* No text content */
     position: absolute; /* Position absolutely within the parent */
     top: 50%; /* Center vertically */
@@ -309,7 +309,7 @@
             <h4>{{ block.settings.title | replace: "<destaque>", "<destaque style='color: COLORHEX'>" | replace: "COLORHEX", block.settings.color_destaque }}</h4>
             {% if product.compare_at_price > product.price %}
               <h4
-                class="arrow-square"
+                class="arrow-square-variation"
               > -{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0}}%
               </h4>
             {% endif %}
