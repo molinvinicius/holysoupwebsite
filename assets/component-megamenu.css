@@ -356,7 +356,7 @@
         padding-bottom: var(--menu_bottom_spacing);
     }
     .menu-lv-1:hover .menu-lv-1__action{
-        color: var(--lv_1_color_hover);
+        color: black;
         z-index: 2
     }
     .menu--mobile-lv-1__action > .icon{
