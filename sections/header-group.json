@@ -77,7 +77,7 @@
         "custom_countdown_QpwCqb"
       ],
       "custom_css": [
-        "shopify-section {}"
+        "shopify-section {z-index:999 !important}"
       ],
       "settings": {
         "enable_announcement": true,
