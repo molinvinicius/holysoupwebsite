@@ -115,9 +115,8 @@
                                             type="submit"
                                             data-form-id="#{{ id }}-{{ product.id }}-{{ sectionId }}"
                                             data-btn-addToCart
-                                            disabled
                                         >
-                                            Esgotado
+                                            {{ 'products.product.pre_order' | t }}
                                         </button>
                                     {%- endif -%} 
                                 {%- endif -%}

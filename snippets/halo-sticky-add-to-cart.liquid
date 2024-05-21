@@ -117,14 +117,13 @@
                                             </button>
                                         {%- else -%}
                                             <button
-                                                disabled
                                                 type="submit"
                                                 name="add"
                                                 data-btn-addToCart
                                                 class="product-form__submit button button--primary{% if first_inventory == 0 %} button-text-change{% endif %}"
                                                 id="product-sticky-add-to-cart"
                                             >
-                                                Esgotado
+                                                {{ 'products.product.pre_order' | t }}
                                             </button>
                                         {%- endif -%}
                                     
