@@ -76,6 +76,9 @@
         "countdown_YP84PX",
         "custom_countdown_QpwCqb"
       ],
+      "custom_css": [
+        "shopify-section {z-index:999 !important}"
+      ],
       "settings": {
         "enable_announcement": true,
         "layout": "slider",
