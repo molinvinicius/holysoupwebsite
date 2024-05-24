@@ -59,6 +59,34 @@
     {% endif %}
 
     {% assign total_brinde = settings.valor_min_brinde | times: 100 %}
+
+		<style>
+			.arrow-square {
+				margin:0;
+				display: inline-block; /* Allow for inline positioning */
+				background-color: #00b45a; /* Set the background color */
+				border-radius: 10px; /* Add rounded corners */
+				position: relative; /* Enable relative positioning */
+				margin-right: 10px; /* Add some margin to the right */
+				padding: 0.5vh;
+				color:white;
+				border: solid 1px #00b45a;
+			}
+			
+			.arrow-square::before {
+				content: ""; /* No text content */
+				position: absolute; /* Position absolutely within the parent */
+				top: 50%; /* Center vertically */
+				left: -10px; /* Extend to the left */
+				transform: translateY(-50%); /* Vertically align with the center */
+				width: 0; /* No width */
+				height: 10px; /* Set the height of the arrow */
+				border: 5px solid transparent; /* Create transparent borders */
+				border-right-color: #00b45a; /* Set the right border color */
+			}
+
+
+		</style>
   
     <div class="previewCart">
         {% if cart.item_count > 0 %}
@@ -187,13 +215,21 @@
                                             </span>
                                         </span>
                                     {% elsif current_variant.compare_at_price > current_variant.price %}
-                                        <span class="previewCartItem-saving-price saved_compare_price" data-price-from-compare>
+                                        <span class="previewCartItem-saving-price saved_compare_price" data-price-from-compare style="display:flex; align-items:center">
+																					<div class="discount-compare">
                                             <s class="before-discount-price">
                                                 {{ current_variant.compare_at_price | money }}
                                             </s>
                                             <span class="discounted-price">
                                                 {{ current_variant.price | money }}
                                             </span>
+																					</div>
+																						{% if current_variant.compare_at_price > current_variant.price %}
+																							<p 
+																								class="arrow-square"
+																							>{{ current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round: 0}}%
+																							</p>
+																						{% endif %}
                                         </span>
                                     {% else %}  
                                         <span data-item-final-price-display>
@@ -437,28 +473,287 @@
       .more-promotions{
         display: none !important
       }
+
+    .sugestao-carrinho-vazio{
+			width:100%;
+			height: fit-content;
+    }
+
+	.sugestao-item-container{
+		padding: 30px;
+	}
+	.sugestao-item-container-details{
+		display: flex;
+		border: solid 2px #00814E;
+		border-radius: 25px;
+		align-items:center;
+		justify-content:space-between;
+	}
+	.sugestao-item-container-details:hover{
+		transform:scale(1.01);
+		transition: 1s;
+	}
+	.sugestao-item-container-details p,h5,h6 {
+		text-align: left;
+	}
+	.sugestao-anchor {
+		margin-bottom:2vh;
+	}
+	.adicionar-sugestao-button{
+		width:100%;
+		background-color:#00814E;
+		border: none;
+		border-radius:999px;
+		color: white;
+		margin-top: 1vh;
+		height: 42px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        
+	}
+	.adicionar-sugestao-button:hover{
+		transform:scale(1.01);
+		transition: 1s;
+        color: white;
+	}
+
+    .title-price-wrapper{
+        width: 50%;
+    }
+    /* Slider container */
+.slider-container {
+  position: relative;
+  width:100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  width:100%;
+  height:30vh;
+}
+
+/* Slide */
+.slide {
+  flex: 0 0 100%;
+}
+
+/* Buttons */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+  background-color:white;
+  color:#00814E;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #00814E;
+}
+
+
+
     </style>
+
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const allProds = {{ collections['all'].products | json }};
+        console.log("PRODSSSSSSSSSSS", allProds)
+		const sortedProds = allProds
+            .sort((a,b) =>  b.price - a.price)
+            .filter(el => (el.tags.includes("Coleção Sopa") || el.tags.includes("sopa")) && el.tags.includes("trimestral") === false && el.available === true);
+        
+        const randomItems = [];
+
+        let count = 0;
+        while(randomItems.length < 3 && count < 500){
+            const randomNumber = getRandomNumber(1, sortedProds.length - 1);
+            const found = randomItems.find(el => el && sortedProds[randomNumber] && el.id === sortedProds[randomNumber].id);
+            if(!found) randomItems.push(sortedProds[randomNumber]);
+            count++;
+        }
+        // Get the empty body element
+const emptyBody = document.querySelector('#slider-custom');
+
+// Loop through sugestaoItems and create sugestao-item-container elements
+randomItems.forEach(item => {
+    // Create sugestao-item-container element
+    const sugestaoContainer = document.createElement('div');
+    sugestaoContainer.classList.add('sugestao-item-container');
+    sugestaoContainer.classList.add('slide');
+
+    // Create sugestao-anchor element
+    const sugestaoAnchor = document.createElement('a');
+    sugestaoAnchor.setAttribute('target', '_blank');
+    sugestaoAnchor.setAttribute('href', item.linkUrl);
+
+    // Create sugestao-carrinho-vazio element
+    const sugestaoCarrinho = document.createElement('div');
+    sugestaoCarrinho.classList.add('sugestao-carrinho-vazio');
+
+    // Create sugestao-item-container-details element
+    const sugestaoDetails = document.createElement('div');
+    sugestaoDetails.classList.add('sugestao-item-container-details');
+
+    // Create sugestao image element
+    const sugestaoImage = document.createElement('img');
+    sugestaoImage.setAttribute('src', item.featured_image);
+    sugestaoImage.setAttribute('height', '50%');
+    sugestaoImage.setAttribute('width', '50%');
+    sugestaoImage.style.borderRadius = '10px';
+    sugestaoImage.style.padding = '1vw';
+
+    // Create sugestao title element
+    const sugestaoTitle = document.createElement('h5');
+    sugestaoTitle.textContent = item.title;
+
+    // Create sugestao price element
+    const sugestaoPrice = document.createElement('h5');
+    sugestaoPrice.textContent = (Number(item.price) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
+
+    // Create wrapper div for title and price
+    const titlePriceWrapper = document.createElement('div');
+    titlePriceWrapper.classList.add('title-price-wrapper');
+    titlePriceWrapper.appendChild(sugestaoTitle);
+    titlePriceWrapper.appendChild(sugestaoPrice);
+
+    // Append elements
+    sugestaoDetails.appendChild(sugestaoImage);
+    sugestaoDetails.appendChild(titlePriceWrapper); // Append the wrapper div
+    sugestaoCarrinho.appendChild(sugestaoDetails);
+    sugestaoAnchor.appendChild(sugestaoCarrinho);
+    sugestaoContainer.appendChild(sugestaoAnchor);
+
+    const addAnchor = document.createElement('a');
+    addAnchor.classList.add("adicionar-sugestao-button");
+    addAnchor.href = "/products/" + item.handle;
+    addAnchor.textContent = "Adicionar ao carrinho";
+    sugestaoContainer.appendChild(addAnchor);
+    {% comment %} sugestaoContainer.innerHTML += '<button id="adicionar-sugestao-button">Adicionar</button>'; {% endcomment %}
+
+    // Append sugestao-item-container to emptyBody
+    emptyBody.appendChild(sugestaoContainer);
+});
+        
+
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.pagination');
+  
+  // Limpa o conteúdo anterior das bolinhas
+  dotsContainer.innerHTML = '';
+  
+  // Adiciona uma bolinha para cada slide
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.addEventListener('click', () => {
+      slideIndex = index;
+      showSlides();
+    });
+    dotsContainer.appendChild(dot);
+  });
+  
+  // Adiciona a classe 'active' à bolinha correspondente ao slide atual
+  const dots = dotsContainer.querySelectorAll('.dot');
+  dots[slideIndex].classList.add('active');
+  
+  // Exibe apenas o slide atual
+  slides.forEach(slide => slide.style.display = 'none');
+  slides[slideIndex].style.display = 'block';
+}
+
+function prevSlide() {
+  slideIndex--;
+  if (slideIndex < 0) {
+    slideIndex = document.querySelectorAll('.slide').length - 1;
+  }
+  showSlides();
+}
+
+function nextSlide() {
+  slideIndex++;
+  if (slideIndex >= document.querySelectorAll('.slide').length) {
+    slideIndex = 0;
+  }
+  showSlides();
+}
+
+
+
+    </script>
+
+    
     <div class="previewCart">
         {% render 'borda-superior', cor: '#fff' %}
         <div class="previewCart-emptyBody text-center">
-            <div class="empty">
-                <span class="text">
-                    {{ 'sections.cart.empty' | t }}
-                </span>
+            <h4> Sugestões para você: </h4>
+            <div class="slider-container">
+              <div class="slider" id="slider-custom">
+              </div>
+              <button class="prev" onclick="prevSlide()">&#10094;</button>
+              <button class="next" onclick="nextSlide()">&#10095;</button>
+              <div class="pagination"></div>
             </div>
-            <a class="button button-2 button-continue"
-                {% if settings.quick_cart_redirect_button == 'go_back' %}
-                    role="link" aria-disabled="true"
-                    onclick="window.history.back();"
-                {% elsif settings.quick_cart_redirect_button == 'link_to' %}
-                    href="{{ settings.quick_cart_redirect_button_link }}"
-                {% else %}
-                    role="link" aria-disabled="true"
-                    onclick="window.location.reload();"
-                {% endif %}
-            >
-                {{ 'sections.cart.continue_shopping' | t }}
-            </a>
+
+          {% comment %} <div class="empty">
+              <span class="text">
+                  {{ 'sections.cart.empty' | t }}
+              </span>
+          </div>
+          <a class="button button-2 button-continue"
+              {% if settings.quick_cart_redirect_button == 'go_back' %}
+                  role="link" aria-disabled="true"
+                  onclick="window.history.back();"
+              {% elsif settings.quick_cart_redirect_button == 'link_to' %}
+                  href="{{ settings.quick_cart_redirect_button_link }}"
+              {% else %}
+                  role="link" aria-disabled="true"
+                  onclick="window.location.reload();"
+              {% endif %}
+          >
+              {{ 'sections.cart.continue_shopping' | t }}
+          </a> {% endcomment %}
         </div>
     </div>
 {% endunless%}

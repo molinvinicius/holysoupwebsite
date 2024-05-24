@@ -112,6 +112,10 @@
     .mix-sugeridos-section {
       padding: 50px 120px 60px 120px;
     }
+
+    .items-inclusos{
+      min-height:300px;
+    }
   }
 
   @media (max-width: 1530px){
@@ -168,21 +172,20 @@
   }
 
   .container-porcoes {
-      display: flex;
-      flex-direction: row;
-      line-height: 100%;
-      background: #ff7a50;
-      padding: 8px 8px;
-      width: auto;
-      position: relative;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 9px;
-      border-radius: 4px;
-      font-weight: 600;
-      flex-wrap: wrap;
-      width: 95px;
-      gap: 5px;
+    display: flex;
+    flex-direction: row;
+    line-height: 100%;
+    background: #ff7a50;
+    padding: 8px 8px;
+    position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 9px;
+    border-radius: 4px;
+    font-weight: 600;
+    flex-wrap: wrap;
+    width: 100px;
+    gap: 5px;
   }
 
   .icon-porcao {
@@ -243,6 +246,45 @@
   .tabela-nutricional a svg path {
     stroke: #00814e;
   }
+
+  .arrow-square-variation {
+    margin:0;
+    display: inline-block; /* Allow for inline positioning */
+    color: #00b45a !important; /* Set the background color */
+    border-radius: 10px; /* Add rounded corners */
+    position: relative; /* Enable relative positioning */
+    margin-right: 10px; /* Add some margin to the right */
+    padding: 0.5vh;
+    background-color: white;
+    border: solid 1px white;
+    width:fit-content;
+    margin-left: 2vw !important;
+  }
+
+  @media(max-width:1024px){
+    .arrow-square-variation {
+      margin-left: 2vw;
+    }
+  }
+  
+  .arrow-square-variation::before {
+    content: ""; /* No text content */
+    position: absolute; /* Position absolutely within the parent */
+    top: 50%; /* Center vertically */
+    left: -10px; /* Extend to the left */
+    transform: translateY(-50%); /* Vertically align with the center */
+    width: 0; /* No width */
+    height: 10px; /* Set the height of the arrow */
+    border: 5px solid transparent; /* Create transparent borders */
+    border-right-color: white; /* Set the right border color */
+  }
+
+  .price-compare{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+
+  }
 </style>
 {% if section.settings.borda-superior %}
   {% render 'borda-superior', cor: section.settings.color-borda-superior %}
@@ -260,9 +302,19 @@
       <div class="mix-header">
         <img loading="lazy" src="{{ image | image_url: width: 340 }}"/>
         <div class="mix-title">
-          <h4>{{ block.settings.title | replace: "<destaque>", "<destaque style='color: COLORHEX'>" | replace: "COLORHEX", block.settings.color_destaque }}</h4>
+          <div style="display:flex; align-items:center; width:100%;">
+            <h4>{{ block.settings.title | replace: "<destaque>", "<destaque style='color: COLORHEX'>" | replace: "COLORHEX", block.settings.color_destaque }}</h4>
+            {% if product.compare_at_price > product.price %}
+              <h4
+                class="arrow-square-variation"
+              > -{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round: 0}}%
+              </h4>
+            {% endif %}
+          </div>
+          
           <p>{{ block.settings.subtitle }}</p>
         </div>
+
       </div>
       <div class="mix-body">
         <div class="items-inclusos">
@@ -289,6 +341,7 @@
             <div class="price-mix-flex">
               {% if product.compare_at_price > product.price %}<old class="custom-font">{{ product.compare_at_price | money }}</old>{% endif %}
               <new class="custom-font">{{ product.price | money }}</new>
+            
             </div>
             {% comment %}
             {% if settings.parcelas %}

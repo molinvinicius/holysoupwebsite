@@ -1,4 +1,7 @@
 <style>
+  #adicionar-button{
+    transition: 1s;
+  }
   .personalize-kit .header-widget {
     max-width: 600px;
     margin: 0 auto 50px;
@@ -133,6 +136,9 @@
 
   .imagem-item-sopa {
     width: 60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
   
   .quantity-item-sopa {
@@ -151,7 +157,7 @@
 
   .footer-ajax-select button {
     width: 90%;
-    background: #00B45A;
+    background-color:#FF7A50;
     border: none;
     color: #fff;
     font-weight: 400;
@@ -353,6 +359,38 @@
     font-size: 10px;
     padding: 6px 0;
   }
+
+  .arrow-square {
+    margin:0;
+    display: inline-block; /* Allow for inline positioning */
+    background-color: #00b45a !important; /* Set the background color */
+    border-radius: 10px; /* Add rounded corners */
+    position: relative; /* Enable relative positioning */
+    margin-right: 10px; /* Add some margin to the right */
+    padding: 0.5vh;
+    color:white !important;
+    border: solid 1px #00b45a;
+    width:50px;
+    margin-left: 2vw !important;
+  }
+
+  @media(max-width:1024px){
+    .arrow-square {
+      margin-left: 2vw;
+    }
+  }
+  
+  .arrow-square::before {
+    content: ""; /* No text content */
+    position: absolute; /* Position absolutely within the parent */
+    top: 50%; /* Center vertically */
+    left: -10px; /* Extend to the left */
+    transform: translateY(-50%); /* Vertically align with the center */
+    width: 0; /* No width */
+    height: 10px; /* Set the height of the arrow */
+    border: 5px solid transparent; /* Create transparent borders */
+    border-right-color: #00b45a !important; /* Set the right border color */
+  }
 </style>
 {% if section.settings.borda-superior %}
   {% render 'borda-superior', cor: section.settings.color-borda-superior %}
@@ -523,12 +561,22 @@
           {% endif %}
         </div>
         {% for block in section.blocks %}
+          
           <div class="item-sopa">
             <div class="imagem-item-sopa">
               <img src="{{ block.settings.image | default: block.settings.sopa.featured_image | image_url }}"/>
             </div>
             <div class="content-item-sopa">
-              <h4>{{ block.settings.sopa.title }}</h4>
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <h4>{{ block.settings.sopa.title }}</h4>
+                {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
+                  <h4 class="arrow-square" style="color:white !important;">
+                    -{{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | minus: block.settings.sopa.price | times: 100.0 | divided_by: block.settings.sopa.selected_or_first_available_variant.compare_at_price | round: 0}}%
+                  </h4>
+                {% endif %}
+                
+              </div>
+              
               <p>{{ block.settings.subtitle }}</p>
               <div class="tabela-nutricional">
                 <a tabela-nutri href="{{ block.settings.sopa.metafields.custom.informa_o_nutricional.value | img_url: '800x' }}">Tabela Nutri.</a>
@@ -539,19 +587,29 @@
                   <div class="quantity">
                     <quickshop-update-quantity class="previewCartItem-qty quickshop-quantity">
                       <button type="button" name="minus" data-minus-quantity-quickshop="" class="minus btn-quantity"></button>
-                      <input data-porcao="{{ block.settings.jantas_descomplicadas }}" data-price="{{ block.settings.sopa.selected_or_first_available_variant.price }}" class="qtd-input" name="quantity" value="0" type="number" data-variantId="{{ block.settings.sopa.selected_or_first_available_variant.id }}" {%- if block.settings.sopa.selected_or_first_available_variant.available and block.settings.sopa.selected_or_first_available_variant.inventory_quantity < 1 -%}data-inventory="9999"{% else %}data-inventory="{{ block.settings.sopa.selected_or_first_available_variant.inventory_quantity }}"{%- endif -%}>
+                      <input data-porcao="{{ block.settings.jantas_descomplicadas }}" data-price="{{ block.settings.sopa.selected_or_first_available_variant.price }}" class="qtd-input" style="transition:0.5s;" name="quantity" value="0" type="number" data-variantId="{{ block.settings.sopa.selected_or_first_available_variant.id }}" {%- if block.settings.sopa.selected_or_first_available_variant.available and block.settings.sopa.selected_or_first_available_variant.inventory_quantity < 1 -%}data-inventory="9999"{% else %}data-inventory="{{ block.settings.sopa.selected_or_first_available_variant.inventory_quantity }}"{%- endif -%}>
                       <button type="button" name="plus" data-plus-quantity-quickshop="" class="plus btn-quantity"></button>
                     </quickshop-update-quantity>
                   </div>
                 </div>
-                <span class="unid-price">{% unless block.settings.sopa.selected_or_first_available_variant.available %}Esgotado{% else %}{{ block.settings.sopa.price | money }} / un{% endunless %}</span>
+                <span class="unid-price">{% unless block.settings.sopa.selected_or_first_available_variant.available %}Esgotado{% else %}
+                {% if block.settings.sopa.selected_or_first_available_variant.compare_at_price and block.settings.sopa.selected_or_first_available_variant.compare_at_price > block.settings.sopa.price %}
+                  <s>
+                    {{ block.settings.sopa.selected_or_first_available_variant.compare_at_price | money }} / un
+                  </s> <br/>
+                {% endif %}
+                {{ block.settings.sopa.price | money }} / un{% endunless %}
+                  
+                </span>
+
             </div>
           </div>
+          
         {% endfor %}
       </div>
       <div class="footer-ajax-select">
         <div class="preco-kit"></div>
-        <button add-kit-sopa disabled>COMPRAR KIT <span class="count-total-kit">{% render 'icon-cart-06' %}<span class="count-bubble">0</span></span></button>
+        <button id="adicionar-button" add-kit-sopa disabled>ADICIONAR AO CARRINHO <span class="count-total-kit">{% render 'icon-cart-06' %}<span class="count-bubble">0</span></span></button>
         {%- comment -%}<a href="javascript:void(0)">Conhecer todos</a>{%- endcomment -%}
       </div>
     </div>
@@ -594,7 +652,15 @@
       return false;
     }
 
-    inputsQtd.on("change", function() {
+    inputsQtd.on("change", function(e) {
+        
+        if(e.target.value > 0) {
+          e.target.style.border = "solid 3px #00b45a"
+        } else {
+          e.target.style.border = "none"
+          e.target.style.border = "2px solid #dcd9d9"
+        }
+
         let progressShipping = false;
         let progressDinner = false;
         let progressDiscount = false;
@@ -657,6 +723,10 @@
           let totalWithDiscount = Math.abs((parseInt(descontoSelected.desconto) / 100.00 * total - total));
           let progressiveDiscount = {{desconto_progressivo}};
         
+          const botaoAdicionar = document.querySelector("#adicionar-button");
+          botaoAdicionar.style.backgroundColor = "#00b45a";
+
+        
           //$('.preco-kit').html('<p><b>' +parcelas+'x ' + formattedTotal + '</b> ou ' + totalText + '</p>');
           if (progressiveDiscount && descontoSelected.desconto > 0){
             $('.preco-kit').html(`<div class="container-price-pix"> <div class="price-parcel-content"><span class="count-itens-kit"><b>${qtdSelect} unidades</b> adicionadas</span> <span class="price-full">${Shopify.formatMoney(total, window.money_format)}</span> <span class="price-parcel-info"><b>Total:</b> ${Shopify.formatMoney(Math.abs((parseInt(descontoSelected.desconto) / 100.00 * total - total)), window.money_format)}</span> </div> <div class="price-pix-content"> <span class="price-disconted-pix"><span class="price price-pix" >${Shopify.formatMoney(Math.abs( parseInt(descontoValor) / 100.00 * totalWithDiscount - totalWithDiscount) , window.money_format)}</span> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50"><path d="M 25 0.0390625 C 22.84 0.0390625 20.799531 0.88015625 19.269531 2.4101562 L 9.6796875 12 L 12.929688 12 C 14.529687 12 16.039922 12.619766 17.169922 13.759766 L 23.939453 20.529297 C 24.519453 21.109297 25.480547 21.109531 26.060547 20.519531 L 32.830078 13.759766 C 33.960078 12.619766 35.470312 12 37.070312 12 L 40.320312 12 L 30.730469 2.4101562 C 29.200469 0.88015625 27.16 0.0390625 25 0.0390625 z M 7.6796875 14 L 2.4101562 19.269531 C -0.74984375 22.429531 -0.74984375 27.570469 2.4101562 30.730469 L 7.6796875 36 L 12.929688 36 C 13.999687 36 14.999766 35.580078 15.759766 34.830078 L 22.529297 28.060547 C 23.889297 26.700547 26.110703 26.700547 27.470703 28.060547 L 34.240234 34.830078 C 35.000234 35.580078 36.000312 36 37.070312 36 L 42.320312 36 L 47.589844 30.730469 C 50.749844 27.570469 50.749844 22.429531 47.589844 19.269531 L 42.320312 14 L 37.070312 14 C 36.000313 14 35.000234 14.419922 34.240234 15.169922 L 27.470703 21.939453 C 26.790703 22.619453 25.9 22.960938 25 22.960938 C 24.1 22.960937 23.209297 22.619453 22.529297 21.939453 L 15.759766 15.169922 C 14.999766 14.419922 13.999688 14 12.929688 14 L 7.6796875 14 z M 25 29.037109 C 24.615 29.038359 24.229453 29.185469 23.939453 29.480469 L 17.169922 36.240234 C 16.039922 37.380234 14.529687 38 12.929688 38 L 9.6796875 38 L 19.269531 47.589844 C 20.799531 49.119844 22.84 49.960938 25 49.960938 C 27.16 49.960938 29.200469 49.119844 30.730469 47.589844 L 40.320312 38 L 37.070312 38 C 35.470313 38 33.960078 37.380234 32.830078 36.240234 L 26.060547 29.470703 C 25.770547 29.180703 25.385 29.035859 25 29.037109 z"></path></svg></span> <span class="price-pix-call">A vista no PIX com até ${descontoValor}% OFF</span> </div> </div>`);
@@ -667,6 +737,8 @@
         } else {
           $('.preco-kit').html('');
           $('[add-kit-sopa]').attr('disabled', true);
+          const botaoAdicionar = document.querySelector("#adicionar-button");
+          botaoAdicionar.style.backgroundColor = "#FF7A50";
         }
     });
     
@@ -698,12 +770,12 @@
       $('.personalize-kit').addClass('open-kit');
       $('body').addClass('opened-kit');
     }
-  
+
     $('.overflow-kit').click(function(){
       $('.personalize-kit').removeClass('open-kit');
       $('body').removeClass('opened-kit');
     })
-  
+
     $('[add-kit-sopa]').click(function(){
     var inputsQtd = $('.sopas-items').find('.qtd-input');
     var items = [];
@@ -755,9 +827,6 @@
       let descontosOrdenados = window.descontos.sort((a, b) => parseInt(b.unidades) - parseInt(a.unidades));
       let descontoSelected = obterDesconto(qtdSelect);
       let proximoDesconto = obterProximoDesconto(qtdSelect);
-
-      console.log(proximoDesconto, qtdSelect);
-      console.log(descontoSelected);
 
       if(descontoSelected){
         let progressPercentage = (parseInt(descontoSelected.desconto) / parseInt(descontosOrdenados[descontosOrdenados.length-1].desconto)) * 100;
@@ -817,8 +886,6 @@
       if(descontoSelected.desconto > 0){
           totalWithDiscount = Math.abs((parseInt(descontoSelected.desconto) / 100.00 * total - total));      
       }
-
-      console.log(totalWithDiscount, total)
       
       if(totalWithDiscount > 0){
         let progressPercentage = (parseInt(totalWithDiscount) / parseInt(minShippingValue)) * 100;

@@ -11,11 +11,11 @@ window.sliders = function(){
     });
 
     /*Destaques Home*/
-    var porVcsHome = new Swiper(".slider-destaques-hs", {
-      slidesPerView: "auto",
-      spaceBetween: gap,
-      freeMode: true
-    });
+    // var porVcsHome = new Swiper(".slider-destaques-hs", {
+    //   slidesPerView: "auto",
+    //   spaceBetween: gap,
+    //   freeMode: true
+    // });
 
     /*Destaques Home*/
     var featureProduct = new Swiper(".features-holy", {

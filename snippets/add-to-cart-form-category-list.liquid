@@ -53,7 +53,7 @@
                     {%- if first_inventory_grid > 0 -%}
                         <button class="button button-ATC" type="submit" data-form-id="#{{ id }}-{{ product.id }}-{{ sectionId }}{{ list }}" data-btn-addToCart>{{ 'products.product.add_to_cart' | t }}</button>
                     {%- else -%}
-                        <button class="button button-ATC" type="submit" data-form-id="#{{ id }}-{{ product.id }}-{{ sectionId }}{{ list }}" data-btn-addToCart>{{ 'products.product.pre_order' | t }}</button>
+                    <button class="button button-ATC" type="submit" data-form-id="#{{ id }}-{{ product.id }}-{{ sectionId }}{{ list }}" data-btn-addToCart>{{ 'products.product.pre_order' | t }}</button>
                     {%- endif -%} 
                 {%- endif -%}
             {%- endif -%}

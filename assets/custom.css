@@ -2007,9 +2007,16 @@ body:not(.template-index):not(.template-collection):not(.template-product) .head
   fill: #000 !important
 }
 
+body:not(.template-index):not(.template-collection):not(.template-product) .scrolled-past-header .mobileMenu-toggle__Icon:before,
+body:not(.template-index):not(.template-collection):not(.template-product) .scrolled-past-header .mobileMenu-toggle__Icon:after{
+  background-color: black;
+
+}
+
 body:not(.template-index):not(.template-collection):not(.template-product) .mobileMenu-toggle__Icon:before,
 body:not(.template-index):not(.template-collection):not(.template-product) .mobileMenu-toggle__Icon:after{
   background-color: #fff;
+
 }
 
 li.list-payment__item img {
@@ -2106,6 +2113,15 @@ li.list-payment__item img {
   .template-product.header-on-scroll .scrolled-past-header + .section-header-mobile{
     position: sticky !Important;
     top: 0px;
+  }
+
+  .template-collection .header-sticky.header-wrapper .burger-icon {
+    background-color: #000000 !important;
+  }
+
+  .sticky-product-wrapper .has-compare-price{
+    display: flex !important;
+    flex-direction: column !important;
   }
 }
 

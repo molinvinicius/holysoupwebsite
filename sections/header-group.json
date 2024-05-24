@@ -91,24 +91,44 @@
             "btn_bg_color": "#ffffff",
             "btn_bg_color_gradient": ""
           }
+        },
+        "countdown_YP84PX": {
+          "type": "countdown",
+          "disabled": true,
+          "settings": {
+            "top_message_text": "teste",
+            "annou_countdown": "May 06, 2024 19:00:00",
+            "color_countdown_text": "#06142e",
+            "border_color_countdown": "#f7f8fa",
+            "bg_color_countdown": "#f7f8fa"
+          }
+        },
+        "custom_countdown_QpwCqb": {
+          "type": "customCountdown",
+          "settings": {
+            "targetDate": "05\/30\/2024 17:00:00",
+            "customMessage": "Novo sabor em:"
+          }
         }
       },
       "block_order": [
-        "countdown_npwqb3",
-        "e5364ba5-224d-489e-88a9-fbbe822c9047",
-        "announcement_Chid9B",
-        "0309aa59-659f-463c-9394-7217d05f0c67",
-        "announcement-bar-0",
-        "1db619ff-36fc-419b-b99a-93fcf836f454",
         "1d871219-ba69-4d40-96c3-5c3ac891b58e",
-        "9376150e-98c1-482f-8966-2d3cc2de13b1"
+        "0309aa59-659f-463c-9394-7217d05f0c67",
+        "1db619ff-36fc-419b-b99a-93fcf836f454",
+        "9376150e-98c1-482f-8966-2d3cc2de13b1",
+        "countdown_YP84PX",
+        "custom_countdown_QpwCqb"
+      ],
+      "custom_css": [
+        ".annoucement-fixed {z-index: 999 !important;}",
+        ".announcement-bar{z-index: 999 !important;}"
       ],
       "settings": {
         "enable_announcement": true,
         "layout": "slider",
         "enable_close": false,
-        "color_text": "#232323",
-        "bg_color_text": "#ff7013",
+        "color_text": "#161616",
+        "bg_color_text": "#ffe96d",
         "bg_color_text_gradient": "",
         "font_size_text": 12,
         "font_style_text": "normal",

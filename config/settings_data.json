@@ -23,8 +23,8 @@
         "desconto_4": 30,
         "desconto_un_4": 20,
         "desconto_color_4": "#00814e",
-        "ativar_brinde": false,
-        "valor_min_brinde": "99",
+        "ativar_brinde": true,
+        "valor_min_brinde": "119",
         "ativar_cashback": false,
         "valor_cashback": 15,
         "layout_body": "custom_width",
@@ -167,7 +167,7 @@
         "product_content_text_align": "center",
         "badge_postion": "left",
         "show_new_badge": false,
-        "sale_badge_type": "text",
+        "sale_badge_type": "text_discount",
         "show_custom_badge": false,
         "show_bundle_badge": false,
         "show_swatch": false,
@@ -730,7 +730,7 @@
                 "type": "blog-home",
                 "settings": {
                     "borda-superior": true,
-                    "color-borda-superior": "#ffffff",
+                    "color-borda-superior": "#f6f6f6",
                     "borda-inferior": false,
                     "color-borda-inferior": "#ffffff"
                 }

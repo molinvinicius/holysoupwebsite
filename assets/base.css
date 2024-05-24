@@ -2514,6 +2514,10 @@ summary::-webkit-details-marker {
         border: none;
     }
 
+    .scrolled-past-header .mobileMenu-toggle {
+        color:black;
+    }
+
     .mobileMenu-toggle__Icon,
     .mobileMenu-toggle__Icon::before,
     .mobileMenu-toggle__Icon::after {
