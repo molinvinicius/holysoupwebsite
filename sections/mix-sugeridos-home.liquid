@@ -1,7 +1,6 @@
 <style>
   .mix-sugeridos-section {
     padding: 50px 20px 120px 20px;
-    
   }
 
   .mix-sugeridos-section .header-widget {
@@ -24,7 +23,6 @@
     border-bottom-left-radius: 22px;
     border-bottom-right-radius: 22px;
     height: 57.3%;
-    
   }
 
   .mixes-content {
@@ -38,11 +36,10 @@
 
   .mix-body .items-inclusos ul {
     padding-left: 0;
-    height: 120px;
+    max-height: 120px;
     display: flex;
     flex-flow: column wrap;
     list-style: none;
-    min-height:120px;
   }
 
   .mix-body .items-inclusos ul li {
@@ -81,7 +78,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-top: 15px;
+      margin-top: 15px;
   }
 
   .mix-header img {
@@ -111,11 +108,6 @@
     max-width: 100px;
   }
 
-  .items-inclusos{
-    height:45vh;
-    min-height:38vh;
-  }
-
   @media (min-width: 1200px){
     .mix-sugeridos-section {
       padding: 50px 120px 60px 120px;
@@ -135,7 +127,7 @@
       max-width: calc(50% - 8px);
     }
     .mixes-content {
-      width: 100%;
+      max-width: 100%;
     }
   }
 
@@ -306,7 +298,6 @@
             {% endif %}
             {% endcomment %}
           </div>
-          
           <div class="action-mix">
             <div class="quantity-container">
               <div class="quantity">
