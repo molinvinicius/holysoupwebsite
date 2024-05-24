@@ -30,8 +30,7 @@
         "slide_6i6Efq",
         "b28184e3-ba98-4305-a690-6f334f0a9edc"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "57fe8019-168b-4953-8dd1-4cb704b6b57d": {
       "type": "promos-home",
@@ -1174,9 +1173,7 @@
         "17f6fa2b-6680-49a8-bf22-08bcd4fe4b39",
         "dc56be0f-c682-4707-ac81-a582e9751d75"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "borda-superior": true,
         "color-borda-superior": "#00814e",
