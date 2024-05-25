@@ -91,6 +91,24 @@
                         "btn_bg_color": "#ffffff",
                         "btn_bg_color_gradient": ""
                     }
+                },
+                "countdown_YP84PX": {
+                    "type": "countdown",
+                    "disabled": true,
+                    "settings": {
+                        "top_message_text": "teste",
+                        "annou_countdown": "May 06, 2024 19:00:00",
+                        "color_countdown_text": "#06142e",
+                        "border_color_countdown": "#f7f8fa",
+                        "bg_color_countdown": "#f7f8fa"
+                    }
+                },
+                "custom_countdown_QpwCqb": {
+                    "type": "customCountdown",
+                    "settings": {
+                        "targetDate": "05\/30\/2024 17:00:00",
+                        "customMessage": "Novo sabor em:"
+                    }
                 }
             },
             "block_order": [
@@ -102,6 +120,10 @@
                 "1db619ff-36fc-419b-b99a-93fcf836f454",
                 "1d871219-ba69-4d40-96c3-5c3ac891b58e",
                 "9376150e-98c1-482f-8966-2d3cc2de13b1"
+            ],
+            "custom_css": [
+                ".annoucement-fixed {z-index: 999 !important;}",
+                ".announcement-bar{z-index: 999 !important;}"
             ],
             "settings": {
                 "enable_announcement": true,
@@ -206,6 +228,7 @@
                 "54786c97-e881-45f5-a30a-6fdb552a963e",
                 "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2"
             ],
+            "custom_css": [],
             "settings": {
                 "container": "1170",
                 "padding_full_width": 0,

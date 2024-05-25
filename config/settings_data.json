@@ -730,7 +730,7 @@
                 "type": "blog-home",
                 "settings": {
                     "borda-superior": true,
-                    "color-borda-superior": "#ffffff",
+                    "color-borda-superior": "#f6f6f6",
                     "borda-inferior": false,
                     "color-borda-inferior": "#ffffff"
                 }
