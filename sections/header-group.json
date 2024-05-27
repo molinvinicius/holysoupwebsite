@@ -92,17 +92,6 @@
                         "btn_bg_color_gradient": ""
                     }
                 },
-                "countdown_YP84PX": {
-                    "type": "countdown",
-                    "disabled": true,
-                    "settings": {
-                        "top_message_text": "teste",
-                        "annou_countdown": "May 06, 2024 19:00:00",
-                        "color_countdown_text": "#06142e",
-                        "border_color_countdown": "#f7f8fa",
-                        "bg_color_countdown": "#f7f8fa"
-                    }
-                },
                 "custom_countdown_QpwCqb": {
                     "type": "customCountdown",
                     "settings": {
@@ -112,7 +101,6 @@
                 }
             },
             "block_order": [
-                "countdown_npwqb3",
                 "e5364ba5-224d-489e-88a9-fbbe822c9047",
                 "announcement_Chid9B",
                 "0309aa59-659f-463c-9394-7217d05f0c67",
