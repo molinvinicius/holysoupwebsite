@@ -1,297 +1,281 @@
 {
-    "type": "header",
-    "name": "Header Group",
-    "sections": {
-        "announcement-bar": {
-            "type": "announcement-bar",
-            "blocks": {
-                "countdown_npwqb3": {
-                    "type": "countdown",
-                    "disabled": true,
-                    "settings": {
-                        "top_message_text": "O estoque promocional está quase no fim!",
-                        "annou_countdown": "Mar 31, 2024 23:00:00",
-                        "color_countdown_text": "#06142e",
-                        "border_color_countdown": "#f7f8fa",
-                        "bg_color_countdown": "#f7f8fa"
-                    }
-                },
-                "e5364ba5-224d-489e-88a9-fbbe822c9047": {
-                    "type": "announcement",
-                    "disabled": true,
-                    "settings": {
-                        "text": "<b>RESTAM POUCAS UNIDADES!<\/b>",
-                        "btn_color": "#f84248",
-                        "btn_border_color": "#ffffff",
-                        "btn_bg_color": "#ffffff",
-                        "btn_bg_color_gradient": ""
-                    }
-                },
-                "announcement_Chid9B": {
-                    "type": "announcement",
-                    "disabled": true,
-                    "settings": {
-                        "text": "O estoque promocional está quase no fim!",
-                        "btn_color": "#f84248",
-                        "btn_border_color": "#ffffff",
-                        "btn_bg_color": "#ffffff",
-                        "btn_bg_color_gradient": ""
-                    }
-                },
-                "0309aa59-659f-463c-9394-7217d05f0c67": {
-                    "type": "announcement",
-                    "disabled": true,
-                    "settings": {
-                        "text": "🥣 <b>+3 milhões<\/b> de sopas vendidas em todo Brasil",
-                        "btn_color": "#f84248",
-                        "btn_border_color": "#ffffff",
-                        "btn_bg_color": "#ffffff",
-                        "btn_bg_color_gradient": ""
-                    }
-                },
-                "announcement-bar-0": {
-                    "type": "announcement",
-                    "disabled": true,
-                    "settings": {
-                        "text": "📦 <b>frete fixo<\/b> R$9,99 em todo Brasil",
-                        "btn_color": "#2da116",
-                        "btn_border_color": "#2da116",
-                        "btn_bg_color": "#2da116",
-                        "btn_bg_color_gradient": "linear-gradient(46deg, rgba(45, 161, 22, 1) 13%, rgba(170, 248, 219, 1) 86%)"
-                    }
-                },
-                "1db619ff-36fc-419b-b99a-93fcf836f454": {
-                    "type": "announcement",
-                    "settings": {
-                        "text": "📦 <b>frete grátis<\/b> acima de R$199*",
-                        "btn_color": "#f84248",
-                        "btn_border_color": "#ffffff",
-                        "btn_bg_color": "#ffffff",
-                        "btn_bg_color_gradient": ""
-                    }
-                },
-                "1d871219-ba69-4d40-96c3-5c3ac891b58e": {
-                    "type": "announcement",
-                    "disabled": true,
-                    "settings": {
-                        "text": "🔒 <b>satisfação garantida<\/b> ou seu dinheiro de volta*",
-                        "btn_color": "#f84248",
-                        "btn_border_color": "#ffffff",
-                        "btn_bg_color": "#ffffff",
-                        "btn_bg_color_gradient": ""
-                    }
-                },
-                "9376150e-98c1-482f-8966-2d3cc2de13b1": {
-                    "type": "announcement",
-                    "disabled": true,
-                    "settings": {
-                        "text": "🏆 <b>+300 mil<\/b> clientes satisfeitos",
-                        "btn_color": "#f84248",
-                        "btn_border_color": "#ffffff",
-                        "btn_bg_color": "#ffffff",
-                        "btn_bg_color_gradient": ""
-                    }
-                },
-                "custom_countdown_QpwCqb": {
-                    "type": "customCountdown",
-                    "settings": {
-                        "targetDate": "05\/30\/2024 17:00:00",
-                        "customMessage": "Novo sabor em:"
-                    }
-                }
-            },
-            "block_order": [
-                "e5364ba5-224d-489e-88a9-fbbe822c9047",
-                "announcement_Chid9B",
-                "0309aa59-659f-463c-9394-7217d05f0c67",
-                "announcement-bar-0",
-                "1db619ff-36fc-419b-b99a-93fcf836f454",
-                "1d871219-ba69-4d40-96c3-5c3ac891b58e",
-                "9376150e-98c1-482f-8966-2d3cc2de13b1"
-            ],
-            "custom_css": [
-                ".annoucement-fixed {z-index: 999 !important;}",
-                ".announcement-bar{z-index: 999 !important;}"
-            ],
-            "settings": {
-                "enable_announcement": true,
-                "layout": "slider",
-                "enable_close": false,
-                "color_text": "#232323",
-                "bg_color_text": "#ff7013",
-                "bg_color_text_gradient": "",
-                "font_size_text": 12,
-                "font_style_text": "normal",
-                "font_weight_text": "500",
-                "arrow_active": false,
-                "content_max_width": 38,
-                "padding_top": 2,
-                "padding_bottom": 2
-            }
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "e5364ba5-224d-489e-88a9-fbbe822c9047": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "<b>RESTAM POUCAS UNIDADES!<\/b>",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
         },
-        "9c03747e-b054-4db8-8194-5a35c71f82ca": {
-            "type": "header-navigation-plain",
-            "blocks": {
-                "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-0": {
-                    "type": "logo",
-                    "settings": {
-                        "logo_position": "always",
-                        "logo_width": 140,
-                        "logo_width_fixed": 55,
-                        "logo_text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" id=\"complete-logo-holysoup\" width=\"79.556\" height=\"23.216\" viewbox=\"0 0 79.556 23.216\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n  <defs>\n    <clippath id=\"clip-path\">\n      <rect id=\"Retângulo_4\" data-name=\"Retângulo 4\" width=\"79.556\" height=\"23.216\" fill=\"#fff\"><\/rect>\n    <\/clippath>\n  <\/defs>\n  <g id=\"Grupo_3\" data-name=\"Grupo 3\" clip-path=\"url(#clip-path)\">\n    <path id=\"Caminho_16\" data-name=\"Caminho 16\" d=\"M392.02,59.615c-.131,0-.264,0-.4-.012-2.725-.166-3.669-1.643-3.765-1.812a.89.89,0,0,1,.312-1.213.955.955,0,0,1,1.235.3,2.982,2.982,0,0,0,2.328.946,2.89,2.89,0,0,0,1.972-.469.717.717,0,0,0,.239-.568c0-.651-.432-.867-2.311-1.153-1.472-.224-3.7-.562-3.7-2.751a2.469,2.469,0,0,1,.8-1.86,4.29,4.29,0,0,1,3.2-.91,6.15,6.15,0,0,1,2.705.81.886.886,0,0,1,.276,1.231.907.907,0,0,1-1.24.276,4.5,4.5,0,0,0-1.863-.538,2.654,2.654,0,0,0-1.846.434.7.7,0,0,0-.232.557c0,.529.425.723,2.168.988,1.529.233,3.84.584,3.84,2.916a2.489,2.489,0,0,1-.807,1.867,4.278,4.278,0,0,1-2.92.962\" transform=\"translate(-351.099 -45.412)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_17\" data-name=\"Caminho 17\" d=\"M238.817,14.147a.9.9,0,0,1-.9-.894V.895a.9.9,0,0,1,1.806,0V13.254a.9.9,0,0,1-.9.894\" transform=\"translate(-215.432 -0.001)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_18\" data-name=\"Caminho 18\" d=\"M116.159,59.706a4.748,4.748,0,1,1,4.8-4.748,4.779,4.779,0,0,1-4.8,4.748m0-7.709a2.961,2.961,0,1,0,2.992,2.961A2.98,2.98,0,0,0,116.159,52\" transform=\"translate(-100.838 -45.515)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_19\" data-name=\"Caminho 19\" d=\"M745.139,50.217a4.8,4.8,0,0,0-2.992,1.038V51.2a.9.9,0,0,0-1.806,0V63.7a.9.9,0,0,0,1.806,0v-5.03a4.768,4.768,0,1,0,2.992-8.455m0,7.708a2.961,2.961,0,1,1,2.992-2.96,2.98,2.98,0,0,1-2.992,2.96\" transform=\"translate(-670.381 -45.521)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_20\" data-name=\"Caminho 20\" d=\"M287.733,52.492l-5.621,12.5a.906.906,0,0,1-1.192.454.89.89,0,0,1-.457-1.179l1.97-4.379L279.071,52.5a.89.89,0,0,1,.452-1.183.907.907,0,0,1,1.194.448l2.7,5.932,2.665-5.927a.908.908,0,0,1,1.192-.454.889.889,0,0,1,.459,1.18\" transform=\"translate(-252.627 -46.445)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_21\" data-name=\"Caminho 21\" d=\"M8.465,8.745v4.516a.9.9,0,0,1-1.806,0V8.745A2.3,2.3,0,0,0,4.35,6.46,2.534,2.534,0,0,0,1.806,8.978v4.283a.9.9,0,0,1-.9.894.9.9,0,0,1-.9-.894V.9A.9.9,0,0,1,.9.008a.9.9,0,0,1,.9.894V5.489A4.354,4.354,0,0,1,4.35,4.673,4.1,4.1,0,0,1,8.465,8.745\" transform=\"translate(0 -0.007)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_22\" data-name=\"Caminho 22\" d=\"M506.755,172.165a2.006,2.006,0,0,1-.8.053.045.045,0,0,0-.009.006,10.516,10.516,0,0,1-14.777-3.587.908.908,0,0,0-1.231-.337.888.888,0,0,0-.341,1.217,12.319,12.319,0,0,0,19.015,2.9,3.094,3.094,0,0,1-1.853-.25\" transform=\"translate(-443.222 -152.458)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_23\" data-name=\"Caminho 23\" d=\"M672.849,165.225a5.431,5.431,0,0,0-4.471,3.879c1.406-.188,2.6-1.955,2.6-1.955a3.681,3.681,0,0,1-2.2,2.326h0l-.027.007a3.093,3.093,0,0,0,1.852.25l0,0c1.355-.441,2.6-2.123,2.241-4.5\" transform=\"translate(-605.218 -149.776)\" fill=\"#ffd88a\"><\/path>\n    <path id=\"Caminho_24\" data-name=\"Caminho 24\" d=\"M494.98,50.216a4.748,4.748,0,1,0,4.8,4.747,4.777,4.777,0,0,0-4.8-4.747m0,1.787a2.979,2.979,0,0,1,2.992,2.96,2.921,2.921,0,0,1-.289,1.27,3.974,3.974,0,0,0-5.406,0,2.915,2.915,0,0,1-.289-1.268A2.978,2.978,0,0,1,494.98,52\" transform=\"translate(-443.861 -45.521)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_25\" data-name=\"Caminho 25\" d=\"M620.125,67.393a4.779,4.779,0,0,1-4.8-4.748,4.7,4.7,0,0,1,1.882-3.771.909.909,0,0,1,1.266.166.887.887,0,0,1-.168,1.253,2.931,2.931,0,0,0-1.174,2.352,2.992,2.992,0,0,0,5.984,0,2.931,2.931,0,0,0-1.174-2.352.887.887,0,0,1-.168-1.253.909.909,0,0,1,1.266-.166,4.7,4.7,0,0,1,1.882,3.771,4.779,4.779,0,0,1-4.8,4.748\" transform=\"translate(-557.18 -53.202)\" fill=\"#fff\"><\/path>\n  <\/g>\n<\/svg>",
-                        "logo_font_size": 20,
-                        "logo_font_weight": "900",
-                        "logo_text_transform": "uppercase",
-                        "logo_color": "#ffffff"
-                    }
-                },
-                "54786c97-e881-45f5-a30a-6fdb552a963e": {
-                    "type": "main_menu",
-                    "settings": {
-                        "menu": "novo-menu-2-0",
-                        "menu_top_spacing": 11,
-                        "menu_bottom_spacing": 12,
-                        "grid_gap_menu_item": 20,
-                        "alignment": "center",
-                        "bg_mega_menu": "#ffffff",
-                        "bg_mega_menu_gradient": "",
-                        "lv_1_color": "#ffffff",
-                        "lv_1_color_hover": "#ffffff",
-                        "lv_2_color": "#232323",
-                        "lv_2_color_hover": "#232323",
-                        "lv_3_color": "#3c3c3c",
-                        "lv_3_color_hover": "#3c3c3c",
-                        "sale_item_1": "",
-                        "sale_item_2": "",
-                        "sale_item_3": "",
-                        "sale_item_color": "#d12442",
-                        "label_position": "main_menu",
-                        "show_label_blink": false,
-                        "new_label_1": "",
-                        "new_label_2": "",
-                        "new_label_3": "",
-                        "new_label_color": "#ffffff",
-                        "new_label_bg": "#bae4ed",
-                        "new_label_bg_gradient": "",
-                        "sale_label_1": "",
-                        "sale_label_2": "",
-                        "sale_label_3": "",
-                        "sale_label_color": "#ffffff",
-                        "sale_label_bg": "#d12442",
-                        "sale_label_bg_gradient": "",
-                        "hot_label_1": "",
-                        "hot_label_2": "",
-                        "hot_label_3": "",
-                        "hot_label_color": "#ffffff",
-                        "hot_label_bg": "#fff993",
-                        "hot_label_bg_gradient": ""
-                    }
-                },
-                "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2": {
-                    "type": "header_icons",
-                    "settings": {
-                        "show_language_currency": false,
-                        "show_search": true,
-                        "show_customer": true,
-                        "show_wishlist": false,
-                        "show_cart": true,
-                        "text_font_size": 14,
-                        "show_language_currency_sticky": false,
-                        "show_search_sticky": true,
-                        "show_customer_sticky": true,
-                        "show_wishlist_sticky": false,
-                        "show_cart_sticky": true,
-                        "header_icons_color": "#ffffff",
-                        "header_icons_color_hover": "#ffffff",
-                        "header_icons_border_color": "rgba(0,0,0,0)",
-                        "header_icons_border_sticky_color": "#232323",
-                        "cart_count_bubble_color": "#323232",
-                        "cart_count_bubble_bg": "#ffd88a",
-                        "cart_count_bubble_bg_gradient": ""
-                    }
-                }
-            },
-            "block_order": [
-                "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-0",
-                "54786c97-e881-45f5-a30a-6fdb552a963e",
-                "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2"
-            ],
-            "custom_css": [],
-            "settings": {
-                "container": "1170",
-                "padding_full_width": 0,
-                "header_navigation_bg": "#ffffff",
-                "header_navigation_bg_gradient": "",
-                "sticky_header_type": "on_scroll",
-                "sticky_header_width": "default",
-                "enable_transparent": true,
-                "transparent_color": "#ffffff",
-                "transparent_color_hover": "#ffffff"
-            }
+        "announcement_Chid9B": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "O estoque promocional está quase no fim!",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
         },
-        "header-mobile": {
-            "type": "header-mobile",
-            "blocks": {
-                "7de2266e-0cd4-4fda-9f09-06f75a17f944": {
-                    "type": "menu",
-                    "settings": {
-                        "color": "#232323"
-                    }
-                },
-                "163e2cb5-14f2-4af6-9ac3-77193c082f53": {
-                    "type": "search",
-                    "settings": {
-                        "color": "#ffffff"
-                    }
-                },
-                "550fbd21-75fb-4051-9dee-77d91b5239f0": {
-                    "type": "logo",
-                    "settings": {
-                        "logo_mobile": "shopify:\/\/shop_images\/logo_holy_branca.png",
-                        "logo_width_mobile": 110,
-                        "logo_text": "",
-                        "logo_font_size": 20,
-                        "logo_font_weight": "900",
-                        "logo_text_transform": "uppercase",
-                        "logo_color": "#232323"
-                    }
-                },
-                "20dae707-64c0-4ea3-a05e-561cae9836d8": {
-                    "type": "customer",
-                    "settings": {
-                        "icon": "1",
-                        "color": "#232323"
-                    }
-                },
-                "633f9dae-3f65-4bda-9ca8-9d3e231aaf9d": {
-                    "type": "cart",
-                    "settings": {
-                        "icon": "3",
-                        "color": "#232323",
-                        "color_bubble": "#ffffff",
-                        "bg_bubble": "#ff7a50"
-                    }
-                }
-            },
-            "block_order": [
-                "7de2266e-0cd4-4fda-9f09-06f75a17f944",
-                "163e2cb5-14f2-4af6-9ac3-77193c082f53",
-                "550fbd21-75fb-4051-9dee-77d91b5239f0",
-                "20dae707-64c0-4ea3-a05e-561cae9836d8",
-                "633f9dae-3f65-4bda-9ca8-9d3e231aaf9d"
-            ],
-            "settings": {
-                "background": "#ffffff",
-                "gradient": "",
-                "sticky_header_type": "on_scroll",
-                "padding_top": 0,
-                "padding_bottom": 0
-            }
+        "0309aa59-659f-463c-9394-7217d05f0c67": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "🥣 <b>+3 milhões<\/b> de sopas vendidas em todo Brasil",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "📦 <b>frete fixo<\/b> R$9,99 em todo Brasil",
+            "btn_color": "#2da116",
+            "btn_border_color": "#2da116",
+            "btn_bg_color": "#2da116",
+            "btn_bg_color_gradient": "linear-gradient(46deg, rgba(45, 161, 22, 1) 13%, rgba(170, 248, 219, 1) 86%)"
+          }
+        },
+        "1db619ff-36fc-419b-b99a-93fcf836f454": {
+          "type": "announcement",
+          "settings": {
+            "text": "📦 <b>frete grátis<\/b> acima de R$199*",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
+        },
+        "1d871219-ba69-4d40-96c3-5c3ac891b58e": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "🔒 <b>satisfação garantida<\/b> ou seu dinheiro de volta*",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
+        },
+        "9376150e-98c1-482f-8966-2d3cc2de13b1": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "🏆 <b>+300 mil<\/b> clientes satisfeitos",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
         }
+      },
+      "block_order": [
+        "e5364ba5-224d-489e-88a9-fbbe822c9047",
+        "announcement_Chid9B",
+        "0309aa59-659f-463c-9394-7217d05f0c67",
+        "announcement-bar-0",
+        "1db619ff-36fc-419b-b99a-93fcf836f454",
+        "1d871219-ba69-4d40-96c3-5c3ac891b58e",
+        "9376150e-98c1-482f-8966-2d3cc2de13b1"
+      ],
+      "custom_css": [
+        ".annoucement-fixed {z-index: 24 !important;}",
+        ".announcement-bar {z-index: 24 !important;}"
+      ],
+      "settings": {
+        "enable_announcement": true,
+        "layout": "slider",
+        "enable_close": false,
+        "color_text": "#232323",
+        "bg_color_text": "#ff7013",
+        "bg_color_text_gradient": "",
+        "font_size_text": 12,
+        "font_style_text": "normal",
+        "font_weight_text": "500",
+        "arrow_active": false,
+        "content_max_width": 38,
+        "padding_top": 2,
+        "padding_bottom": 2
+      }
     },
-    "order": [
-        "announcement-bar",
-        "9c03747e-b054-4db8-8194-5a35c71f82ca",
-        "header-mobile"
-    ]
+    "9c03747e-b054-4db8-8194-5a35c71f82ca": {
+      "type": "header-navigation-plain",
+      "blocks": {
+        "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-0": {
+          "type": "logo",
+          "settings": {
+            "logo_position": "always",
+            "logo_width": 140,
+            "logo_width_fixed": 55,
+            "logo_text": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" id=\"complete-logo-holysoup\" width=\"79.556\" height=\"23.216\" viewbox=\"0 0 79.556 23.216\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n  <defs>\n    <clippath id=\"clip-path\">\n      <rect id=\"Retângulo_4\" data-name=\"Retângulo 4\" width=\"79.556\" height=\"23.216\" fill=\"#fff\"><\/rect>\n    <\/clippath>\n  <\/defs>\n  <g id=\"Grupo_3\" data-name=\"Grupo 3\" clip-path=\"url(#clip-path)\">\n    <path id=\"Caminho_16\" data-name=\"Caminho 16\" d=\"M392.02,59.615c-.131,0-.264,0-.4-.012-2.725-.166-3.669-1.643-3.765-1.812a.89.89,0,0,1,.312-1.213.955.955,0,0,1,1.235.3,2.982,2.982,0,0,0,2.328.946,2.89,2.89,0,0,0,1.972-.469.717.717,0,0,0,.239-.568c0-.651-.432-.867-2.311-1.153-1.472-.224-3.7-.562-3.7-2.751a2.469,2.469,0,0,1,.8-1.86,4.29,4.29,0,0,1,3.2-.91,6.15,6.15,0,0,1,2.705.81.886.886,0,0,1,.276,1.231.907.907,0,0,1-1.24.276,4.5,4.5,0,0,0-1.863-.538,2.654,2.654,0,0,0-1.846.434.7.7,0,0,0-.232.557c0,.529.425.723,2.168.988,1.529.233,3.84.584,3.84,2.916a2.489,2.489,0,0,1-.807,1.867,4.278,4.278,0,0,1-2.92.962\" transform=\"translate(-351.099 -45.412)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_17\" data-name=\"Caminho 17\" d=\"M238.817,14.147a.9.9,0,0,1-.9-.894V.895a.9.9,0,0,1,1.806,0V13.254a.9.9,0,0,1-.9.894\" transform=\"translate(-215.432 -0.001)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_18\" data-name=\"Caminho 18\" d=\"M116.159,59.706a4.748,4.748,0,1,1,4.8-4.748,4.779,4.779,0,0,1-4.8,4.748m0-7.709a2.961,2.961,0,1,0,2.992,2.961A2.98,2.98,0,0,0,116.159,52\" transform=\"translate(-100.838 -45.515)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_19\" data-name=\"Caminho 19\" d=\"M745.139,50.217a4.8,4.8,0,0,0-2.992,1.038V51.2a.9.9,0,0,0-1.806,0V63.7a.9.9,0,0,0,1.806,0v-5.03a4.768,4.768,0,1,0,2.992-8.455m0,7.708a2.961,2.961,0,1,1,2.992-2.96,2.98,2.98,0,0,1-2.992,2.96\" transform=\"translate(-670.381 -45.521)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_20\" data-name=\"Caminho 20\" d=\"M287.733,52.492l-5.621,12.5a.906.906,0,0,1-1.192.454.89.89,0,0,1-.457-1.179l1.97-4.379L279.071,52.5a.89.89,0,0,1,.452-1.183.907.907,0,0,1,1.194.448l2.7,5.932,2.665-5.927a.908.908,0,0,1,1.192-.454.889.889,0,0,1,.459,1.18\" transform=\"translate(-252.627 -46.445)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_21\" data-name=\"Caminho 21\" d=\"M8.465,8.745v4.516a.9.9,0,0,1-1.806,0V8.745A2.3,2.3,0,0,0,4.35,6.46,2.534,2.534,0,0,0,1.806,8.978v4.283a.9.9,0,0,1-.9.894.9.9,0,0,1-.9-.894V.9A.9.9,0,0,1,.9.008a.9.9,0,0,1,.9.894V5.489A4.354,4.354,0,0,1,4.35,4.673,4.1,4.1,0,0,1,8.465,8.745\" transform=\"translate(0 -0.007)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_22\" data-name=\"Caminho 22\" d=\"M506.755,172.165a2.006,2.006,0,0,1-.8.053.045.045,0,0,0-.009.006,10.516,10.516,0,0,1-14.777-3.587.908.908,0,0,0-1.231-.337.888.888,0,0,0-.341,1.217,12.319,12.319,0,0,0,19.015,2.9,3.094,3.094,0,0,1-1.853-.25\" transform=\"translate(-443.222 -152.458)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_23\" data-name=\"Caminho 23\" d=\"M672.849,165.225a5.431,5.431,0,0,0-4.471,3.879c1.406-.188,2.6-1.955,2.6-1.955a3.681,3.681,0,0,1-2.2,2.326h0l-.027.007a3.093,3.093,0,0,0,1.852.25l0,0c1.355-.441,2.6-2.123,2.241-4.5\" transform=\"translate(-605.218 -149.776)\" fill=\"#ffd88a\"><\/path>\n    <path id=\"Caminho_24\" data-name=\"Caminho 24\" d=\"M494.98,50.216a4.748,4.748,0,1,0,4.8,4.747,4.777,4.777,0,0,0-4.8-4.747m0,1.787a2.979,2.979,0,0,1,2.992,2.96,2.921,2.921,0,0,1-.289,1.27,3.974,3.974,0,0,0-5.406,0,2.915,2.915,0,0,1-.289-1.268A2.978,2.978,0,0,1,494.98,52\" transform=\"translate(-443.861 -45.521)\" fill=\"#fff\"><\/path>\n    <path id=\"Caminho_25\" data-name=\"Caminho 25\" d=\"M620.125,67.393a4.779,4.779,0,0,1-4.8-4.748,4.7,4.7,0,0,1,1.882-3.771.909.909,0,0,1,1.266.166.887.887,0,0,1-.168,1.253,2.931,2.931,0,0,0-1.174,2.352,2.992,2.992,0,0,0,5.984,0,2.931,2.931,0,0,0-1.174-2.352.887.887,0,0,1-.168-1.253.909.909,0,0,1,1.266-.166,4.7,4.7,0,0,1,1.882,3.771,4.779,4.779,0,0,1-4.8,4.748\" transform=\"translate(-557.18 -53.202)\" fill=\"#fff\"><\/path>\n  <\/g>\n<\/svg>",
+            "logo_font_size": 20,
+            "logo_font_weight": "900",
+            "logo_text_transform": "uppercase",
+            "logo_color": "#ffffff"
+          }
+        },
+        "54786c97-e881-45f5-a30a-6fdb552a963e": {
+          "type": "main_menu",
+          "settings": {
+            "menu": "novo-menu-2-0",
+            "menu_top_spacing": 11,
+            "menu_bottom_spacing": 12,
+            "grid_gap_menu_item": 20,
+            "alignment": "center",
+            "bg_mega_menu": "#ffffff",
+            "bg_mega_menu_gradient": "",
+            "lv_1_color": "#ffffff",
+            "lv_1_color_hover": "#ffffff",
+            "lv_2_color": "#232323",
+            "lv_2_color_hover": "#232323",
+            "lv_3_color": "#3c3c3c",
+            "lv_3_color_hover": "#3c3c3c",
+            "sale_item_1": "",
+            "sale_item_2": "",
+            "sale_item_3": "",
+            "sale_item_color": "#d12442",
+            "label_position": "main_menu",
+            "show_label_blink": false,
+            "new_label_1": "",
+            "new_label_2": "",
+            "new_label_3": "",
+            "new_label_color": "#ffffff",
+            "new_label_bg": "#bae4ed",
+            "new_label_bg_gradient": "",
+            "sale_label_1": "",
+            "sale_label_2": "",
+            "sale_label_3": "",
+            "sale_label_color": "#ffffff",
+            "sale_label_bg": "#d12442",
+            "sale_label_bg_gradient": "",
+            "hot_label_1": "",
+            "hot_label_2": "",
+            "hot_label_3": "",
+            "hot_label_color": "#ffffff",
+            "hot_label_bg": "#fff993",
+            "hot_label_bg_gradient": ""
+          }
+        },
+        "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2": {
+          "type": "header_icons",
+          "settings": {
+            "show_language_currency": false,
+            "show_search": true,
+            "show_customer": true,
+            "show_wishlist": false,
+            "show_cart": true,
+            "text_font_size": 14,
+            "show_language_currency_sticky": false,
+            "show_search_sticky": true,
+            "show_customer_sticky": true,
+            "show_wishlist_sticky": false,
+            "show_cart_sticky": true,
+            "header_icons_color": "#ffffff",
+            "header_icons_color_hover": "#ffffff",
+            "header_icons_border_color": "rgba(0,0,0,0)",
+            "header_icons_border_sticky_color": "#232323",
+            "cart_count_bubble_color": "#323232",
+            "cart_count_bubble_bg": "#ffd88a",
+            "cart_count_bubble_bg_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-0",
+        "54786c97-e881-45f5-a30a-6fdb552a963e",
+        "sections--14682829619277__9c03747e-b054-4db8-8194-5a35c71f82ca-1680876693acfad79f-2"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "container": "1170",
+        "padding_full_width": 0,
+        "header_navigation_bg": "#ffffff",
+        "header_navigation_bg_gradient": "",
+        "sticky_header_type": "on_scroll",
+        "sticky_header_width": "default",
+        "enable_transparent": true,
+        "transparent_color": "#ffffff",
+        "transparent_color_hover": "#ffffff"
+      }
+    },
+    "header-mobile": {
+      "type": "header-mobile",
+      "blocks": {
+        "7de2266e-0cd4-4fda-9f09-06f75a17f944": {
+          "type": "menu",
+          "settings": {
+            "color": "#232323"
+          }
+        },
+        "163e2cb5-14f2-4af6-9ac3-77193c082f53": {
+          "type": "search",
+          "settings": {
+            "color": "#ffffff"
+          }
+        },
+        "550fbd21-75fb-4051-9dee-77d91b5239f0": {
+          "type": "logo",
+          "settings": {
+            "logo_mobile": "shopify:\/\/shop_images\/logo_holy_branca.png",
+            "logo_width_mobile": 110,
+            "logo_text": "",
+            "logo_font_size": 20,
+            "logo_font_weight": "900",
+            "logo_text_transform": "uppercase",
+            "logo_color": "#232323"
+          }
+        },
+        "20dae707-64c0-4ea3-a05e-561cae9836d8": {
+          "type": "customer",
+          "settings": {
+            "icon": "1",
+            "color": "#232323"
+          }
+        },
+        "633f9dae-3f65-4bda-9ca8-9d3e231aaf9d": {
+          "type": "cart",
+          "settings": {
+            "icon": "3",
+            "color": "#232323",
+            "color_bubble": "#ffffff",
+            "bg_bubble": "#ff7a50"
+          }
+        }
+      },
+      "block_order": [
+        "7de2266e-0cd4-4fda-9f09-06f75a17f944",
+        "163e2cb5-14f2-4af6-9ac3-77193c082f53",
+        "550fbd21-75fb-4051-9dee-77d91b5239f0",
+        "20dae707-64c0-4ea3-a05e-561cae9836d8",
+        "633f9dae-3f65-4bda-9ca8-9d3e231aaf9d"
+      ],
+      "settings": {
+        "background": "#ffffff",
+        "gradient": "",
+        "sticky_header_type": "on_scroll",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "9c03747e-b054-4db8-8194-5a35c71f82ca",
+    "header-mobile"
+  ]
 }
