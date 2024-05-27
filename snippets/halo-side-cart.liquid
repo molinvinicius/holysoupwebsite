@@ -594,19 +594,17 @@
         }
 
         const allProds = {{ collections['all'].products | json }};
-        console.log("PRODSSSSSSSSSSS", allProds)
 		const sortedProds = allProds
             .sort((a,b) =>  b.price - a.price)
             .filter(el => (el.tags.includes("Coleção Sopa") || el.tags.includes("sopa")) && el.tags.includes("trimestral") === false && el.available === true);
         
         const randomItems = [];
 
-        let count = 0;
-        while(randomItems.length < 3 && count < 500){
+
+        while(randomItems.length < 3){
             const randomNumber = getRandomNumber(1, sortedProds.length - 1);
             const found = randomItems.find(el => el && sortedProds[randomNumber] && el.id === sortedProds[randomNumber].id);
             if(!found) randomItems.push(sortedProds[randomNumber]);
-            count++;
         }
         // Get the empty body element
 const emptyBody = document.querySelector('#slider-custom');
