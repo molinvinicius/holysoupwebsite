@@ -664,7 +664,7 @@ randomItems.forEach(item => {
     
     addButton.addEventListener("click", async() => {
         await window.Shopify.addItem(item.variants[0].id, 1);
-        window.location.reload();
+        {% comment %} window.location.reload(); {% endcomment %}
     })
     sugestaoContainer.appendChild(addButton);
     {% comment %} sugestaoContainer.innerHTML += '<button id="adicionar-sugestao-button">Adicionar</button>'; {% endcomment %}
