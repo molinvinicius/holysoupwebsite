@@ -1,6 +1,6 @@
 {% comment %} {{ {% assign targetTime = dataContagem %} }} {% endcomment %}
 
-<div class="custom-countdown-container">
+<div class="custom-countdown-container" style="background-color: {{ bgColor }}; color: {{ ftColor }}">
     <h2 class="countdown-timer-heading">{{ customMessage }}</h2>
     
     <div class="countdown-timer-container">
@@ -17,6 +17,8 @@
     <script type="text/javascript">
         {% assign date = targetDate %}
         {% assign message = customMessage %}
+        {% assign bgColor = backgroundColor %}
+        {% assign ftColor = fontColor %}
 
         const getData = {{ date | json }}
         const getMessage = {{ message | json }}
