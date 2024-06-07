@@ -22,7 +22,7 @@
 
         const getData = {{ date | json }}
         const getMessage = {{ message | json }}
-        const getBgColor = {{ bgColor | t }}
+        const getBgColor = {{ bgColor | json }}
         const getFtColor = {{ ftColor | t }}
 
         console.log("----->bgColor", getBgColor)
@@ -56,7 +56,6 @@
             el.style.color = getFtColor;
         })
         const message = document.querySelector(".countdown-timer-heading");
-        console.log("messageField", allFields)
         message.style.color = getBgColor;
     
     </script>
