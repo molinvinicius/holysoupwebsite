@@ -664,6 +664,7 @@ randomItems.forEach(item => {
     
     addButton.addEventListener("click", async() => {
         await window.Shopify.addItem(item.variants[0].id, 1);
+        document.querySelector(".cart-count-bubble .text").innerHTML = "1";
         window.location.reload();
     })
     sugestaoContainer.appendChild(addButton);
