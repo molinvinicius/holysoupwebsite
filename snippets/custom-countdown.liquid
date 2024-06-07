@@ -4,10 +4,10 @@
     <h2 class="countdown-timer-heading">{{ customMessage }}</h2>
     
     <div class="countdown-timer-container">
-        <div class="countdown-timer-values" id="days"><p style="color:#ffe96d;">00</p></div>
-        <div class="countdown-timer-values" id="hours"><p style="color:#ffe96d;">00</p></div>
-        <div class="countdown-timer-values" id="minutes"><p style="color:#ffe96d;">00</p></div>
-        <div class="countdown-timer-values" id="seconds"><p style="color:#ffe96d;">00</p></div>
+        <div class="countdown-timer-values" id="days"><p style="color:{{ ftColor }}">00</p></div>
+        <div class="countdown-timer-values" id="hours"><p style="color:{{ ftColor }}">00</p></div>
+        <div class="countdown-timer-values" id="minutes"><p style="color:{{ ftColor }}">00</p></div>
+        <div class="countdown-timer-values" id="seconds"><p style="color:{{ ftColor }}">00</p></div>
 
     </div>
 
@@ -19,6 +19,9 @@
         {% assign message = customMessage %}
         {% assign bgColor = backgroundColor %}
         {% assign ftColor = fontColor %}
+
+        console.log(ftColor)
+        console.log(bgColor)
 
         const getData = {{ date | json }}
         const getMessage = {{ message | json }}
