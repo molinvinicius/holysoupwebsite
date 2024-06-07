@@ -664,8 +664,10 @@ randomItems.forEach(item => {
     
     addButton.addEventListener("click", async() => {
         await window.Shopify.addItem(item.variants[0].id, 1);
-        document.querySelector(".cart-count-bubble .text").innerHTML = "1";
-        window.location.reload();
+        setTimeout(() => {
+            window.location.reload();
+        }, 500)
+        
     })
     sugestaoContainer.appendChild(addButton);
     {% comment %} sugestaoContainer.innerHTML += '<button id="adicionar-sugestao-button">Adicionar</button>'; {% endcomment %}
