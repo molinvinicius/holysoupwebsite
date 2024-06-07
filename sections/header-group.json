@@ -64,7 +64,9 @@
           "type": "customCountdown",
           "settings": {
             "targetDate": "07\/07\/2024 17:00:00",
-            "customMessage": "exemplo de mensagem"
+            "customMessage": "exemplo de mensagem",
+            "backgroundColor": "#ff7a50",
+            "fontColor": "#00b45a"
           }
         }
       },
