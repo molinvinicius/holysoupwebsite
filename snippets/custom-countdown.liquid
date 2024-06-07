@@ -1,13 +1,13 @@
 {% comment %} {{ {% assign targetTime = dataContagem %} }} {% endcomment %}
 
-<div class="custom-countdown-container" style="background-color: {{ bgColor }}; color: {{ ftColor }}">
+<div class="custom-countdown-container" >
     <h2 class="countdown-timer-heading">{{ customMessage }}</h2>
     
     <div class="countdown-timer-container">
-        <div class="countdown-timer-values" id="days"><p style="color:{{ ftColor }}">00</p></div>
-        <div class="countdown-timer-values" id="hours"><p style="color:{{ ftColor }}">00</p></div>
-        <div class="countdown-timer-values" id="minutes"><p style="color:{{ ftColor }}">00</p></div>
-        <div class="countdown-timer-values" id="seconds"><p style="color:{{ ftColor }}">00</p></div>
+        <div class="countdown-timer-values" id="days"><p>00</p></div>
+        <div class="countdown-timer-values" id="hours"><p>00</p></div>
+        <div class="countdown-timer-values" id="minutes"><p>00</p></div>
+        <div class="countdown-timer-values" id="seconds"><p>00</p></div>
 
     </div>
 
@@ -20,11 +20,13 @@
         {% assign bgColor = backgroundColor %}
         {% assign ftColor = fontColor %}
 
-        console.log(ftColor)
-        console.log(bgColor)
-
         const getData = {{ date | json }}
         const getMessage = {{ message | json }}
+        const getBgColor = {{ bgColor | json }}
+        const getFtColor = {{ ftColor | json }}
+
+        console.log(getBgColor)
+        console.log(getFtColor)
 
         const countDownDateTime = new Date(getData);
 
@@ -46,6 +48,14 @@
             }
     
         }, 1000);
+
+        const allFields = querySelectorAll(".countdown-timer-values");
+        allFields.forEach(el => {
+            el.style.backgroundColor = getBgColor;
+            el.style.color = getFtColor;
+        })
+        const message = querySelector("countdown-timer-heading");
+        message.style.color = getBgColor;
     
     </script>
 
