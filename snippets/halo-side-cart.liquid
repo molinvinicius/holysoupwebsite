@@ -663,7 +663,7 @@ randomItems.forEach(item => {
     addButton.textContent = "Adicionar ao carrinho";
     
     addButton.addEventListener("click", async() => {
-        await window.Shopify.addItem(randomItem.variants[0].id, 1);
+        await window.Shopify.addItem(item.variants[0].id, 1);
         window.location.reload();
     })
     sugestaoContainer.appendChild(addButton);
