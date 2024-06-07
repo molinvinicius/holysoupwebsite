@@ -279,12 +279,7 @@ Shopify.getCart = function(callback) {
 }
 
 Shopify.onCartUpdate = function(cart) {
-    this.querySelectorAll('button').forEach(button => button.click());
-    setTimeout(() => {
-        this.querySelectorAll('summary').forEach(summary => summary.click());
-    }, 500)
-   
-    
+
 }
 
 Shopify.changeItem = function(variant_id, quantity, callback) {
