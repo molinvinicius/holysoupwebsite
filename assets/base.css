@@ -3209,6 +3209,7 @@ summary::-webkit-details-marker {
         background-color: transparent;
         border: none;
         padding: 0;
+        display: none;
     }
 
     .halo-sidebar-close svg{
