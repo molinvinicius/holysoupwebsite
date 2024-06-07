@@ -65,8 +65,8 @@
           "settings": {
             "targetDate": "07\/07\/2024 17:00:00",
             "customMessage": "exemplo de mensagem",
-            "backgroundColor": "black",
-            "fontColor": "#00b45a"
+            "backgroundColor": "#232323",
+            "fontColor": "#ffe96d"
           }
         }
       },
