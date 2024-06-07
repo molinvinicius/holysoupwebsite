@@ -25,8 +25,8 @@
         const getBgColor = {{ bgColor | json }}
         const getFtColor = {{ ftColor | json }}
 
-        console.log(getBgColor)
-        console.log(getFtColor)
+        console.log("----->bgColor", getBgColor)
+        console.log("----->ftColor",getFtColor)
 
         const countDownDateTime = new Date(getData);
 
@@ -50,11 +50,13 @@
         }, 1000);
 
         const allFields = document.querySelectorAll(".countdown-timer-values");
+        console.log("allfields", allFields)
         allFields.forEach(el => {
             el.style.backgroundColor = getBgColor;
             el.style.color = getFtColor;
         })
-        const message = document.querySelector("countdown-timer-heading");
+        const message = document.querySelector(".countdown-timer-heading");
+        console.log("messageField", allFields)
         message.style.color = getBgColor;
     
     </script>
