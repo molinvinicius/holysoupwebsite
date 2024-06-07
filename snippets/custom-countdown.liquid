@@ -49,12 +49,12 @@
     
         }, 1000);
 
-        const allFields = querySelectorAll(".countdown-timer-values");
+        const allFields = document.querySelectorAll(".countdown-timer-values");
         allFields.forEach(el => {
             el.style.backgroundColor = getBgColor;
             el.style.color = getFtColor;
         })
-        const message = querySelector("countdown-timer-heading");
+        const message = document.querySelector("countdown-timer-heading");
         message.style.color = getBgColor;
     
     </script>
