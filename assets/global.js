@@ -355,7 +355,7 @@ Shopify.addItem = function(variant_id, quantity, callback, input = null) {
 }
 
 Shopify.onItemAdded = function(line_item) {
-    alert(line_item.title + ' was added to your shopping cart.');
+    // alert(line_item.title + ' was added to your shopping cart.');
 }
 
 Shopify.onError = function(XMLHttpRequest, textStatus, message) {
