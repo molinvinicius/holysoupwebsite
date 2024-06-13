@@ -93,6 +93,20 @@
           {% assign fonts_name_2 = header_font.family | append: ',' | append: header_font.fallback_families %}
     {%- endif -%}
 
+  {% if request.path == '/pages/holymac' %}
+    {% assign holymac_font = settings.type_font_holymac_font | font_modify: 'weight', '400' %}
+    {% assign holymac_font_medium = settings.type_font_holymac_font | font_modify: 'weight', '500' %}
+    {% assign holymac_font_sem_bold = settings.type_font_holymac_font | font_modify: 'weight', '600' %}
+    {% assign holymac_font_bold = settings.type_font_holymac_font | font_modify: 'weight', 'bold' %}
+
+    {{ holymac_font | font_face | replace: '@font-face {', '@font-face { font-display: swap;' }}
+    {{ holymac_font_medium | font_face | replace: '@font-face {', '@font-face { font-display: swap;' }}
+    {{ holymac_font_sem_bold | font_face | replace: '@font-face {', '@font-face { font-display: swap;' }}
+    {{ holymac_font_bold | font_face | replace: '@font-face {', '@font-face { font-display: swap;' }}
+
+    {% assign holymac_fonts_name = holymac_font.family | append: ',' | append: holymac_font.fallback_families %}
+  {% endif %}
+  
     @font-face {
       font-family: 'Krona One Regular';
       font-style: normal;
@@ -100,16 +114,39 @@
       src: local('Krona One Regular'), url('https://cdn.shopify.com/s/files/1/0619/0206/1748/files/KronaOne-Regular.woff?v=1691021302') format('woff');
     }
 
+    @font-face {
+      font-family: 'TT Travels Next';
+      src: url('{{ 'tt-travels-next-trial-bold.ttf' | asset_url }}') format('truetype');
+      font-display:auto;
+      font-weight: bold;
+    }
+    
+    @font-face {
+      font-family: TT Travels Next;
+      font-display: fallback;
+      font-weight: bold;
+      src: url("https://cdn.shopify.com/s/files/1/0619/0206/1748/files/TT_Travels_Next_Trial_Bold.ttf?v=1716773464") format('truetype'),
+    }
+
     :root {
         --feature-color: #00b45a;
         --font-family-1: {{fonts_name}};
         --font-family-2: {{fonts_name_2}};
+        --font-family-3: 'TT Travels Next';
 
         /* Settings Body */
         {%- if settings.type_body == 'font_1' -%}
-            --font-body-family: {{fonts_name}};
+            {% if request.path == '/pages/holymac' %}
+              --font-body-family: {{holymac_fonts_name}};
+            {% else %}
+              --font-body-family: {{fonts_name}};
+            {% endif %}
         {%- else -%}
-            --font-body-family: {{fonts_name_2}};
+            {% if request.path == '/pages/holymac' %}
+              --font-body-family: {{holymac_fonts_name}};
+            {% else %}
+              --font-body-family: {{fonts_name_2}};
+            {% endif %}
         {%- endif -%}
         --font-body-size: {{ settings.type_body_font_size | append: 'px' }};--font-body-weight: {{ settings.type_body_font_weight }};--body-line-height: {{ settings.type_body_line_height | append: 'px' }};--body-letter-spacing: {{ settings.type_body_letter_spacing }};
 

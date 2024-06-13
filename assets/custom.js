@@ -100,6 +100,29 @@ window.sliders = function(){
         clickable: true
       },
     });
+  
+    /*Blog Holymac*/
+    var blogHolymac = new Swiper(".slider-blog-holymac", {
+      slidesPerView: 'auto',
+      spaceBetween: gap,
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 4,
+        }
+      }
+    });
 
     /*Video slider*/ 
     window.playVideoInSlide = function(index) {
@@ -248,6 +271,63 @@ window.sliders = function(){
         el: ".swiper-pagination",
         clickable: true
       },
+    });
+
+    /*Card Carousel*/
+    new Swiper(".slider-cards", {
+      slidesPerView: "auto",
+      loop: true,
+      spaceBetween: 10,
+      speed: 7000,
+      freeMode: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+    });
+  
+    /*Review Carousel*/
+    new Swiper(".review-carousel", {
+      slidesPerView: 'auto',
+      spaceBetween: 22,
+      freeMode: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  
+    /*Product Carousel*/
+    new Swiper(".product-carousel", {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      centeredSlides: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          spaceBetween: 100,
+        }
+      }
+    });
+  
+    /*Image Grid*/
+    new Swiper(".image-grid-slider", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      centerInsufficientSlides: true,
+      enabled: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          enabled: false,
+        }
+      }
     });
 
     window.updateSlider = function(){
@@ -445,6 +525,51 @@ $(document).ready(function(){
 
     addClartHs(data);
     
+  });
+  
+  $('.product-carousel .product-card-2-item [add-to-cart-card]').click(function(){
+    var containerAddCard = $(this).closest('.cta-container');
+    var inputQtd = containerAddCard.find('.qtd-input');
+    var items = [];
+
+    inputQtd.each(function() {
+      var qtd = $(this).val();
+      var id = inputQtd.data('variantid');
+      var item = {};
+      if(qtd > 0){
+        item['id'] = id;
+        item['quantity'] = qtd;
+        items.push(item)
+      }
+    });
+    var data = {};
+    data.items = items;
+
+    addClartHs(data);    
+  });
+  
+  $('.product-grid .product-card-item [add-to-cart-card]').click(function(){
+    var containerAddCard = $(this).closest('.cta-container');
+    var inputQtd = containerAddCard.find('.qtd-input');
+    var items = [];
+
+
+    inputQtd.each(function() {
+      var qtd = $(this).val();
+      var id = inputQtd.data('variantid');
+      console.log('qtd >>>', qtd)
+      console.log('id >>>', id)
+      var item = {};
+      if(qtd > 0){
+        item['id'] = id;
+        item['quantity'] = qtd;
+        items.push(item)
+      }
+    });
+    var data = {};
+    data.items = items;
+
+    addClartHs(data);    
   });
 
     $('.menu_open').on('click', function(e){

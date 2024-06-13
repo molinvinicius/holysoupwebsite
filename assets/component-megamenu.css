@@ -625,7 +625,7 @@
     }
 
     .annoucement-fixed + .shopify-section-header-sticky:not(.sticky-search-menu-custom-open){
-        top: 26px;
+        top: 38px;
     }
     .scrolled-past-header {
         z-index: 101 !important;

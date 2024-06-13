@@ -1,3 +1,8 @@
+.font-3 {
+  font-family: var(--font-family-3);
+  font-weight: bold!important;
+}
+
 /*Header*/
 div#epb_container {
   display: none !important;
@@ -2000,11 +2005,11 @@ body:not(.template-index) .main-menu .menu-lv-1__action:hover {
 }
 
 body:not(.template-index):not(.template-collection):not(.template-product) .header-nav-plain:not(.header-plain--transparent) .header__heading svg path{
-  fill: #000 !important
+  fill: #000;
 }
 
 body:not(.template-index):not(.template-collection):not(.template-product) .header-navigation .header__icon svg path{
-  fill: #000 !important
+  fill: #000;
 }
 
 body:not(.template-index):not(.template-collection):not(.template-product) .mobileMenu-toggle__Icon:before,
@@ -2021,7 +2026,34 @@ li.list-payment__item img {
   z-index: 4 !important;
 }
 
+.header-mobile__wrapper .header-mobile__item .header-holymac-logo svg{
+  color: #CBDE59 !important;
+}
+
+.header-mobile__wrapper .header-mobile__item .header-holymac-logo svg path{
+  fill: #CBDE59 !important;
+}
+
 @media (max-width: 1200px){
+  .section-header-mobile.scrolled-past-header .header-holymac .hide-onscroll + img {
+    display: none;
+  }
+  
+  .section-header-mobile:not(.scrolled-past-header) .header-holymac .hide-onscroll {
+    display: none;
+  }
+  
+  .section-header-mobile:not(.scrolled-past-header) sticky-header-mobile.header-holymac svg,
+  .section-header-mobile:not(.scrolled-past-header) sticky-header-mobile.header-holymac svg path {
+    color: #fff;
+    fill: #fff;
+  }
+  
+  .section-header-mobile:not(.scrolled-past-header) .header-holymac .mobileMenu-toggle__Icon:after,
+  .section-header-mobile:not(.scrolled-past-header) .header-holymac .mobileMenu-toggle__Icon:before {
+    background-color: #fff!important;
+  }
+  
   .productView-stickyCart.style-1 .sticky-left{
     display: block !important;
   }
