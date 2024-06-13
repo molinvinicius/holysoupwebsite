@@ -594,7 +594,6 @@
         }
 
         const allProds = {{ collections['all'].products | json }};
-        console.log("PRODSSSSSSSSSSS", allProds)
 		const sortedProds = allProds
             .sort((a,b) =>  b.price - a.price)
             .filter(el => (el.tags.includes("Coleção Sopa") || el.tags.includes("sopa")) && el.tags.includes("trimestral") === false && el.available === true);
@@ -660,11 +659,18 @@ randomItems.forEach(item => {
     sugestaoAnchor.appendChild(sugestaoCarrinho);
     sugestaoContainer.appendChild(sugestaoAnchor);
 
-    const addAnchor = document.createElement('a');
-    addAnchor.classList.add("adicionar-sugestao-button");
-    addAnchor.href = "/products/" + item.handle;
-    addAnchor.textContent = "Adicionar ao carrinho";
-    sugestaoContainer.appendChild(addAnchor);
+    const addButton = document.createElement('button');
+    addButton.classList.add("adicionar-sugestao-button");
+    addButton.textContent = "Adicionar ao carrinho";
+    
+    addButton.addEventListener("click", async() => {
+        await window.Shopify.addItem(item.variants[0].id, 1);
+        setTimeout(() => {
+            window.location.reload();
+        }, 500)
+        
+    })
+    sugestaoContainer.appendChild(addButton);
     {% comment %} sugestaoContainer.innerHTML += '<button id="adicionar-sugestao-button">Adicionar</button>'; {% endcomment %}
 
     // Append sugestao-item-container to emptyBody
