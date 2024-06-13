@@ -1,0 +1,123 @@
+{% comment %} {{ {% assign targetTime = dataContagem %} }} {% endcomment %}
+
+<div class="custom-countdown-container" >
+    <h2 class="countdown-timer-heading">{{ customMessage }}</h2>
+    
+    <div class="countdown-timer-container">
+        <div class="countdown-timer-values" id="days"><p>00</p></div>
+        <div class="countdown-timer-values" id="hours"><p>00</p></div>
+        <div class="countdown-timer-values" id="minutes"><p>00</p></div>
+        <div class="countdown-timer-values" id="seconds"><p>00</p></div>
+
+    </div>
+
+
+</div>
+
+    <script type="text/javascript">
+        {% assign date = targetDate %}
+        {% assign message = customMessage %}
+        {% assign bgColor = backgroundColor %}
+        {% assign ftColor = fontColor %}
+
+        const getData = {{ date | json }}
+        const getMessage = {{ message | json }}
+        const getBgColor = {{ bgColor | json }}
+        const getFtColor = {{ ftColor | json }}
+
+        const countDownDateTime = new Date(getData);
+
+        const daysValue = document.querySelector("#days p");
+        const hoursValue = document.querySelector("#hours p");
+        const minutesValue = document.querySelector("#minutes p");
+        const secondsValue = document.querySelector("#seconds p");
+
+        let x = setInterval(function () {
+            const dateTimeNow = new Date().getTime();
+            let difference = countDownDateTime - dateTimeNow;
+            daysValue.innerHTML = `${Math.floor(difference / (1000 * 60 * 60 * 24))}d`;
+            hoursValue.innerHTML = `${Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}h`;
+            minutesValue.innerHTML = `${Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))}m`;
+            secondsValue.innerHTML = `${Math.floor((difference % (1000 * 60)) / 1000)}s`;
+    
+            if (difference < 0) {
+                clearInterval(x);
+            }
+    
+        }, 1000);
+
+    
+    </script>
+
+<style>
+
+    .countdown-timer-heading {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        margin-bottom: 0;
+        text-align: center;
+        margin-right:5px;
+        color: {{ bgColor }}
+    }
+
+    .countdown-timer-container {
+        {% comment %} margin: 0 auto; {% endcomment %}
+        display: flex;
+    }
+
+    .countdown-timer-container div {
+        text-align: center;
+        font-size: 12px;
+
+    }
+
+    .countdown-timer-values {
+        font-size: 12px !important;
+        display:flex;
+        width 50px;
+        margin: 0 0.5vw;
+        background-color:{{bgColor}};
+        border-radius: 10px;
+
+
+    }
+
+    .countdown-timer-values p {
+        width: 50px;
+        height: 2.5vh;
+        padding: 0;
+        color:{{fontColor}};
+        font-size: 10px;
+        margin:0;
+    }
+
+    .custom-countdown-container{
+        width:100%;
+        height: 25px;
+        display: flex;
+        {% comment %} justify-content: space-around; {% endcomment %}
+        align-items: center;
+        justify-content: center;
+        z-index: 999 !important;
+        position:sticky;
+    }
+
+    @media(max-width:1024px){
+        .countdown-timer-values p {
+            width: 7vw;
+            height: 90%;
+            padding: 0;
+            color:{{fontColor}};
+        }
+
+        .countdown-timer-heading {
+            font-size: 10px;
+        }
+    }
+
+
+</style>
+
+
+
