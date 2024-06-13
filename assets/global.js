@@ -279,7 +279,7 @@ Shopify.getCart = function(callback) {
 }
 
 Shopify.onCartUpdate = function(cart) {
-    alert('There are now ' + cart.item_count + ' items in the cart.');
+
 }
 
 Shopify.changeItem = function(variant_id, quantity, callback) {
@@ -355,7 +355,7 @@ Shopify.addItem = function(variant_id, quantity, callback, input = null) {
 }
 
 Shopify.onItemAdded = function(line_item) {
-    alert(line_item.title + ' was added to your shopping cart.');
+    // alert(line_item.title + ' was added to your shopping cart.');
 }
 
 Shopify.onError = function(XMLHttpRequest, textStatus, message) {
