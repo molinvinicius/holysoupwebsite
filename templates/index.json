@@ -164,6 +164,7 @@
         "e366e726-22c8-41d5-b400-505b4d959fa7",
         "4cdbc3a6-e418-47b2-a0f3-43593e26ec72"
       ],
+      "disabled": true,
       "settings": {
         "borda-superior": true,
         "color-borda-superior": "#ffffff",
