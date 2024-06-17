@@ -500,7 +500,9 @@
           "action_9U3NBP",
           "74e5d394-f004-47d9-89bf-1dc25e626cc5"
         ],
-        "custom_css": [],
+        "custom_css": [
+
+        ],
         "settings": {
           "display_section": true,
           "font_size": 12,
@@ -735,7 +737,7 @@
         "type": "blog-home",
         "settings": {
           "borda-superior": true,
-          "color-borda-superior": "#ffffff",
+          "color-borda-superior": "#f6f6f6",
           "borda-inferior": false,
           "color-borda-inferior": "#ffffff"
         }
@@ -780,19 +782,15 @@
         }
       }
     },
-    "content_for_index": [],
+    "content_for_index": [
+
+    ],
     "blocks": {
       "10605408327587305396": {
         "type": "shopify:\/\/apps\/eg-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
         "disabled": false,
         "settings": {
           "version": "v3"
-        }
-      },
-      "4684129713794663398": {
-        "type": "shopify:\/\/apps\/onepixel-facebook-pixel-tiktok\/blocks\/one-pixel\/fbbf7f1f-cacf-481b-802e-aa7043758c9c",
-        "disabled": false,
-        "settings": {
         }
       }
     }
