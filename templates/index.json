@@ -91,6 +91,7 @@
         },
         "feature_XkjQbe": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "svg": "",
             "title": "",
@@ -108,9 +109,9 @@
       ],
       "settings": {
         "borda-superior": true,
-        "color-borda-superior": "#fff",
+        "color-borda-superior": "#ffffff",
         "borda-inferior": false,
-        "color-borda-inferior": "#fff"
+        "color-borda-inferior": "#ffffff"
       }
     },
     "11d025eb-d332-49cd-ae54-c6243379ae1c": {
