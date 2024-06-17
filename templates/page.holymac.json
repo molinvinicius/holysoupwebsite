@@ -5,6 +5,7 @@
       "blocks": {
         "announcement_h9rWCJ": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Frete Grátis para todo Brasil <u>acima de R$199*<\/u>",
             "btn_color": "#f84248",
