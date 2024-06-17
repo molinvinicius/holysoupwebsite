@@ -7,7 +7,6 @@
       "blocks": {
         "announcement_EwMFx8": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Frete Grátis para todo Brasil <u>acima de R$199*<\/u>",
             "btn_color": "#f84248",
@@ -32,6 +31,7 @@
         },
         "countdown_ibpfWp": {
           "type": "countdown",
+          "disabled": true,
           "settings": {
             "top_message_text": "ULTIMAS HORAS",
             "annou_countdown": "Jun 31, 2024 24:00:00",

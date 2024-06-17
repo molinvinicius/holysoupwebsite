@@ -5,7 +5,6 @@
       "blocks": {
         "announcement_h9rWCJ": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "Frete Grátis para todo Brasil <u>acima de R$199*<\/u>",
             "btn_color": "#f84248",
@@ -30,6 +29,7 @@
         },
         "countdown_PPBNmN": {
           "type": "countdown",
+          "disabled": true,
           "settings": {
             "top_message_text": "Limited-time Offer!",
             "annou_countdown": "Dec 31, 2022 18:00:00",
