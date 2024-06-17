@@ -2,67 +2,6 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
-    "announcement_bar_with_tabs_EYJkFy": {
-      "type": "announcement-bar-with-tabs",
-      "blocks": {
-        "announcement_EwMFx8": {
-          "type": "announcement",
-          "settings": {
-            "text": "Frete Grátis para todo Brasil <u>acima de R$199*<\/u>",
-            "btn_color": "#f84248",
-            "btn_border_color": "#ffffff",
-            "btn_bg_color": "#ffffff",
-            "btn_bg_color_gradient": ""
-          }
-        },
-        "menu_XGLfCw": {
-          "type": "menu",
-          "settings": {
-            "menu_links": "home-holysoup",
-            "menu_title": "Sopas <strong>Saudáveis<\/strong>"
-          }
-        },
-        "menu_VyhNUz": {
-          "type": "menu",
-          "settings": {
-            "menu_links": "holymac",
-            "menu_title": "Macarrões <strong>Proteícos<\/strong>"
-          }
-        },
-        "countdown_ibpfWp": {
-          "type": "countdown",
-          "disabled": true,
-          "settings": {
-            "top_message_text": "ULTIMAS HORAS",
-            "annou_countdown": "Jun 31, 2024 24:00:00",
-            "color_countdown_text": "#06142e",
-            "border_color_countdown": "#f7f8fa",
-            "bg_color_countdown": "#f7f8fa"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_EwMFx8",
-        "menu_XGLfCw",
-        "menu_VyhNUz",
-        "countdown_ibpfWp"
-      ],
-      "settings": {
-        "enable_announcement": true,
-        "layout": "slider",
-        "enable_close": false,
-        "color_text": "#232323",
-        "bg_color_text": "#ff7013",
-        "bg_color_text_gradient": "",
-        "font_size_text": 12,
-        "font_style_text": "normal",
-        "font_weight_text": "500",
-        "arrow_active": false,
-        "content_max_width": 38,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "header_navigation_plain_Kekpk4": {
       "type": "header-navigation-plain",
       "blocks": {
@@ -222,11 +161,43 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "announcement_bar_UXEfeE": {
+      "type": "announcement-bar",
+      "blocks": {
+        "custom_countdown_YFNee6": {
+          "type": "customCountdown",
+          "settings": {
+            "targetDate": "07\/07\/2024 17:00:00",
+            "customMessage": "exemplo de mensagem",
+            "backgroundColor": "transparent",
+            "fontColor": "transparent"
+          }
+        }
+      },
+      "block_order": [
+        "custom_countdown_YFNee6"
+      ],
+      "settings": {
+        "enable_announcement": true,
+        "layout": "slider",
+        "enable_close": true,
+        "color_text": "#b05d5d",
+        "bg_color_text": "#ffe8e8",
+        "bg_color_text_gradient": "",
+        "font_size_text": 12,
+        "font_style_text": "normal",
+        "font_weight_text": "500",
+        "arrow_active": false,
+        "content_max_width": 38,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "announcement_bar_with_tabs_EYJkFy",
     "header_navigation_plain_Kekpk4",
-    "header-mobile"
+    "header-mobile",
+    "announcement_bar_UXEfeE"
   ]
 }
