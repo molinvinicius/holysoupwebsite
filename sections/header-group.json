@@ -170,8 +170,8 @@
           "settings": {
             "targetDate": "07\/07\/2024 17:00:00",
             "customMessage": "exemplo de mensagem",
-            "backgroundColor": "transparent",
-            "fontColor": "transparent"
+            "backgroundColor": "#232323",
+            "fontColor": "#dfacff"
           }
         }
       },
@@ -183,7 +183,7 @@
         "layout": "slider",
         "enable_close": true,
         "color_text": "#b05d5d",
-        "bg_color_text": "#ffe8e8",
+        "bg_color_text": "#a00aff",
         "bg_color_text_gradient": "",
         "font_size_text": 12,
         "font_style_text": "normal",
