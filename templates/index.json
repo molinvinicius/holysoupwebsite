@@ -107,6 +107,9 @@
         "feature_LPwXTn",
         "feature_XkjQbe"
       ],
+      "custom_css": [
+        "@media (max-width: 1024px) {.destaque-item {width: 100%; }}"
+      ],
       "settings": {
         "borda-superior": true,
         "color-borda-superior": "#ffffff",
