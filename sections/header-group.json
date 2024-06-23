@@ -210,15 +210,15 @@
         "enable_announcement": true,
         "layout": "slider",
         "enable_close": true,
-        "color_text": "#b05d5d",
-        "bg_color_text": "#ffe8e8",
+        "color_text": "#f5903c",
+        "bg_color_text": "#9e61ff",
         "bg_color_text_gradient": "",
         "font_size_text": 12,
         "font_style_text": "normal",
         "font_weight_text": "500",
         "arrow_active": false,
         "content_max_width": 52,
-        "padding_top": 28,
+        "padding_top": 24,
         "padding_bottom": 9
       }
     }
