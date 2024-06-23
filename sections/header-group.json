@@ -185,7 +185,7 @@
           "type": "customCountdown",
           "settings": {
             "targetDate": "07\/07\/2024 17:00:00",
-            "customMessage": "&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exemplo de mensagem",
+            "customMessage": "exemplo de mensagem",
             "backgroundColor": "#232323",
             "fontColor": "#ff7a50"
           }
@@ -205,6 +205,9 @@
         "menu_LDbjtB",
         "custom_countdown_QRBtXb",
         "announcement_VLtGRb"
+      ],
+      "custom_css": [
+        ".custom-countdown-container {display: flex; flex-direction: column; width: 75vw; align-items:center; justify-content: center;}"
       ],
       "settings": {
         "enable_announcement": true,
