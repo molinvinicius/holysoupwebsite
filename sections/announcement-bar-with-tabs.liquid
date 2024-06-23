@@ -81,6 +81,11 @@
         <div class="tabs_container">
           {% for block in section.blocks %}
             {% case block.type %}
+                {% when "customCountdown" %}
+                <div>
+                    {% render 'custom-countdown' with targetDate: block.settings.targetDate and customMessage: block.settings.customMessage and backgroundColor: block.settings.backgroundColor and fontColor: block.settings.fontColor %}
+                </div>
+
               {% when 'menu' %}
               {% liquid
                 assign active = false
@@ -409,6 +414,38 @@
         }
     ],
     "blocks": [
+        {
+            "type": "customCountdown",
+            "name": "ContadorCustomizado",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "targetDate",
+                    "label": "Data (mm/dd/yyyy hh:mm:ss)",
+                    "default": "07/07/2024 17:00:00"
+                },
+                {
+                    "type": "textarea",
+                    "id": "customMessage",
+                    "label": "Mensagem",
+                    "default": "exemplo de mensagem"
+                },
+                {
+                    "type": "color",
+                    "id": "backgroundColor",
+                    "label": "Cor de fundo dos slots",
+                    "default": "transparent"
+                },
+                {
+                    "type": "color",
+                    "id": "fontColor",
+                    "label": "Cor da fonte do temporizador",
+                    "default": "transparent"
+                }
+        
+            ]
+        },
         {
           "name": "Menu",
           "type": "menu",
