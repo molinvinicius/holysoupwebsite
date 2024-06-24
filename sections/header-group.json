@@ -11,6 +11,60 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "announcement_bar_with_tabs_DTPjhU": {
+      "type": "announcement-bar-with-tabs",
+      "blocks": {
+        "menu_LDbjtB": {
+          "type": "menu",
+          "settings": {
+            "menu_links": "",
+            "menu_title": "Macarrores proteicos"
+          }
+        },
+        "custom_countdown_QRBtXb": {
+          "type": "customCountdown",
+          "settings": {
+            "targetDate": "07\/07\/2024 17:00:00",
+            "customMessage": "exemplo de mensagem",
+            "backgroundColor": "#232323",
+            "fontColor": "#ff7a50"
+          }
+        },
+        "announcement_VLtGRb": {
+          "type": "announcement",
+          "settings": {
+            "text": "Frete Grátis para todo Brasil <u>acima de R$250<\/u>",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_LDbjtB",
+        "custom_countdown_QRBtXb",
+        "announcement_VLtGRb"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "enable_announcement": true,
+        "layout": "slider",
+        "enable_close": true,
+        "color_text": "#f5903c",
+        "bg_color_text": "#9e61ff",
+        "bg_color_text_gradient": "",
+        "font_size_text": 12,
+        "font_style_text": "normal",
+        "font_weight_text": "500",
+        "arrow_active": false,
+        "content_max_width": 46,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "header_navigation_plain_Kekpk4": {
       "type": "header-navigation-plain",
       "blocks": {
@@ -170,66 +224,11 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "announcement_bar_with_tabs_DTPjhU": {
-      "type": "announcement-bar-with-tabs",
-      "blocks": {
-        "menu_LDbjtB": {
-          "type": "menu",
-          "settings": {
-            "menu_links": "",
-            "menu_title": "Macarrores proteicos"
-          }
-        },
-        "custom_countdown_QRBtXb": {
-          "type": "customCountdown",
-          "settings": {
-            "targetDate": "07\/07\/2024 17:00:00",
-            "customMessage": "exemplo de mensagem",
-            "backgroundColor": "#232323",
-            "fontColor": "#ff7a50"
-          }
-        },
-        "announcement_VLtGRb": {
-          "type": "announcement",
-          "disabled": true,
-          "settings": {
-            "text": "Frete Grátis para todo Brasil <u>acima de R$250<\/u>",
-            "btn_color": "#f84248",
-            "btn_border_color": "#ffffff",
-            "btn_bg_color": "#ffffff",
-            "btn_bg_color_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "menu_LDbjtB",
-        "custom_countdown_QRBtXb",
-        "announcement_VLtGRb"
-      ],
-      "custom_css": [
-
-      ],
-      "settings": {
-        "enable_announcement": true,
-        "layout": "slider",
-        "enable_close": true,
-        "color_text": "#f5903c",
-        "bg_color_text": "#9e61ff",
-        "bg_color_text_gradient": "",
-        "font_size_text": 12,
-        "font_style_text": "normal",
-        "font_weight_text": "500",
-        "arrow_active": false,
-        "content_max_width": 46,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
+    "announcement_bar_with_tabs_DTPjhU",
     "header_navigation_plain_Kekpk4",
-    "header-mobile",
-    "announcement_bar_with_tabs_DTPjhU"
+    "header-mobile"
   ]
 }
