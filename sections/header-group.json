@@ -1,39 +1,16 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "type": "header",
   "name": "Header Group",
   "sections": {
-    "announcement_bar_UXEfeE": {
-      "type": "announcement-bar",
-      "blocks": {
-        "custom_countdown_YFNee6": {
-          "type": "customCountdown",
-          "settings": {
-            "targetDate": "07\/07\/2024 17:00:00",
-            "customMessage": "exemplo de mensagem",
-            "backgroundColor": "#232323",
-            "fontColor": "#dfacff"
-          }
-        }
-      },
-      "block_order": [
-        "custom_countdown_YFNee6"
-      ],
-      "settings": {
-        "enable_announcement": true,
-        "layout": "slider",
-        "enable_close": true,
-        "color_text": "#b05d5d",
-        "bg_color_text": "#a00aff",
-        "bg_color_text_gradient": "",
-        "font_size_text": 12,
-        "font_style_text": "normal",
-        "font_weight_text": "500",
-        "arrow_active": false,
-        "content_max_width": 38,
-        "padding_top": 4,
-        "padding_bottom": 9
-      }
-    },
     "header_navigation_plain_Kekpk4": {
       "type": "header-navigation-plain",
       "blocks": {
@@ -193,11 +170,65 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "announcement_bar_with_tabs_DTPjhU": {
+      "type": "announcement-bar-with-tabs",
+      "blocks": {
+        "menu_LDbjtB": {
+          "type": "menu",
+          "settings": {
+            "menu_links": "",
+            "menu_title": "Macarrores proteicos"
+          }
+        },
+        "custom_countdown_QRBtXb": {
+          "type": "customCountdown",
+          "settings": {
+            "targetDate": "07\/07\/2024 17:00:00",
+            "customMessage": "exemplo de mensagem",
+            "backgroundColor": "#232323",
+            "fontColor": "#ff7a50"
+          }
+        },
+        "announcement_VLtGRb": {
+          "type": "announcement",
+          "settings": {
+            "text": "Frete Grátis para todo Brasil <u>acima de R$250<\/u>",
+            "btn_color": "#f84248",
+            "btn_border_color": "#ffffff",
+            "btn_bg_color": "#ffffff",
+            "btn_bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_LDbjtB",
+        "custom_countdown_QRBtXb",
+        "announcement_VLtGRb"
+      ],
+      "custom_css": [
+        ".custom-countdown-container {display: flex; flex-direction: column; width: 75vw; align-items:center; justify-content: center;}"
+      ],
+      "settings": {
+        "enable_announcement": true,
+        "layout": "slider",
+        "enable_close": true,
+        "color_text": "#f5903c",
+        "bg_color_text": "#9e61ff",
+        "bg_color_text_gradient": "",
+        "font_size_text": 12,
+        "font_style_text": "normal",
+        "font_weight_text": "500",
+        "arrow_active": false,
+        "content_max_width": 52,
+        "padding_top": 24,
+        "padding_bottom": 9
+      }
     }
   },
   "order": [
-    "announcement_bar_UXEfeE",
     "header_navigation_plain_Kekpk4",
-    "header-mobile"
+    "header-mobile",
+    "announcement_bar_with_tabs_DTPjhU"
   ]
 }
