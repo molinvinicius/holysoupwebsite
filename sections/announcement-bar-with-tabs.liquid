@@ -73,11 +73,11 @@
         }
     </style>
 
-    {% if section.blocks.type == "customCountdown" %}
+    {% comment %} {% if section.blocks.type == "customCountdown" %}
         <announcement-bar-component class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" style="opacity: 0; visibility: hidden; display: block; position: relative;">
             {% render 'custom-countdown' with targetDate: block.settings.targetDate and customMessage: block.settings.customMessage and backgroundColor: block.settings.backgroundColor and fontColor: block.settings.fontColor %}
         </announcement-bar-component>
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     <announcement-bar-component class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" style="opacity: 0; visibility: hidden; display: block; position: relative;">
         <script>
@@ -158,6 +158,10 @@
                                 {%- if block.settings.text != blank -%}
                                     <div class="announcement-bar__message text-center" id="{{block.id}}" style="--button-color-style: {{ block.settings.btn_color }};--button-border-style: {{ block.settings.btn_border_color }};--button-background-style: {% if block.settings.btn_bg_color_gradient != blank %}{{ block.settings.btn_bg_color_gradient }}{% else %}{{ block.settings.btn_bg_color }}{% endif %}">{{ block.settings.text }}</div>
                                 {%- endif -%}
+                            {%- when 'customCountdown' -%}
+                                <div class="announcement-bar__message text-center" id="{{block.id}}" style="--countdown-text-color: {{ block.settings.color_countdown_text }};--countdown-text-background: {{ block.settings.bg_color_countdown }};--countdown-text-border: {{ block.settings.border_color_countdown }}; padding:0.5px 0;">
+                                    {% render 'custom-countdown' with targetDate: block.settings.targetDate and customMessage: block.settings.customMessage and backgroundColor: block.settings.backgroundColor and fontColor: block.settings.fontColor %}
+                                </div>
                             {%- when 'countdown' -%}
                                 <div class="announcement-bar__message text-center" id="{{block.id}}" style="--countdown-text-color: {{ block.settings.color_countdown_text }};--countdown-text-background: {{ block.settings.bg_color_countdown }};--countdown-text-border: {{ block.settings.border_color_countdown }}">
                                     {% if block.settings.top_message_text != blank %}
