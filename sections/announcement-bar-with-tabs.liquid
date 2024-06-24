@@ -72,6 +72,13 @@
             #shopify-section-{{ section.id }} .announcement-bar__message .message.font-size-mb {font-size: calc({{ section.settings.font_size_text | append: 'px' }} - 4px)}
         }
     </style>
+
+    {% if section.blocks.type == "customCountdown" %}
+        <announcement-bar-component class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" style="opacity: 0; visibility: hidden; display: block; position: relative;">
+            {% render 'custom-countdown' with targetDate: block.settings.targetDate and customMessage: block.settings.customMessage and backgroundColor: block.settings.backgroundColor and fontColor: block.settings.fontColor %}
+        </announcement-bar-component>
+    {% endif %}
+
     <announcement-bar-component class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" style="opacity: 0; visibility: hidden; display: block; position: relative;">
         <script>
             if (window.announcementClosed) {
@@ -81,10 +88,10 @@
         <div class="tabs_container">
           {% for block in section.blocks %}
             {% case block.type %}
-                {% when "customCountdown" %}
+                {% comment %} {% when "customCountdown" %}
                 <div>
                     {% render 'custom-countdown' with targetDate: block.settings.targetDate and customMessage: block.settings.customMessage and backgroundColor: block.settings.backgroundColor and fontColor: block.settings.fontColor %}
-                </div>
+                </div> {% endcomment %}
 
               {% when 'menu' %}
               {% liquid
