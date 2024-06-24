@@ -192,6 +192,7 @@
         },
         "announcement_VLtGRb": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Frete Grátis para todo Brasil <u>acima de R$250<\/u>",
             "btn_color": "#f84248",
@@ -207,7 +208,7 @@
         "announcement_VLtGRb"
       ],
       "custom_css": [
-        ".custom-countdown-container {display: flex; flex-direction: column; width: 75vw; align-items:center; justify-content: center;}"
+
       ],
       "settings": {
         "enable_announcement": true,
@@ -220,9 +221,9 @@
         "font_style_text": "normal",
         "font_weight_text": "500",
         "arrow_active": false,
-        "content_max_width": 52,
-        "padding_top": 24,
-        "padding_bottom": 9
+        "content_max_width": 46,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
