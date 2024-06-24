@@ -52,7 +52,7 @@
       "settings": {
         "enable_announcement": true,
         "layout": "slider",
-        "enable_close": true,
+        "enable_close": false,
         "color_text": "#f5903c",
         "bg_color_text": "#9e61ff",
         "bg_color_text_gradient": "",
